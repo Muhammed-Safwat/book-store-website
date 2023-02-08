@@ -5,11 +5,11 @@
         <a class='logout' href=''>Logout</a>
         </div>
         <ul class="links d-flex">
-          <li> <a href="/BookStoreWebsite/admin/list_user">Users </a></li>
-          <li> <a href="/BookStoreWebsite/admin/list_category">Categories</a></li>
-          <li> <a href="#">Books </a></li>
-          <li> <a href="#">Customers </a></li>
-          <li> <a href="#">Reviews</a></li>
+          <li> <a href="${pageContext.request.contextPath}/admin/list_user">Users </a></li>
+          <li> <a href="${pageContext.request.contextPath}/admin/list_category">Categories</a></li>
+          <li> <a href="${pageContext.request.contextPath}/admin/list_book">Books </a></li>
+          <li> <a href="${pageContext.request.contextPath}/admin/list_customer">Customers </a></li>
+          <li> <a href="${pageContext.request.contextPath}/admin/list_review">Reviews</a></li>
           <li> <a href="#">Orders</a></li>
         </ul>
       </div>

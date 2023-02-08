@@ -20,9 +20,9 @@ import com.bookstore.service.CategoryServices;
 
 @WebServlet("/admin/edit_book")
 @MultipartConfig(
-		  fileSizeThreshold = 1024 * 10,  // 10 kB
-		  maxFileSize = 1024 * 300,      // 300 kB
-		  maxRequestSize = 1024 * 1024  // 1 MB
+		  fileSizeThreshold = 1024 * 10,   // 10 kB
+		  maxFileSize = 1024 * 300,        // 300 kB
+		  maxRequestSize = 1024 * 1024     // 1 MB
 	)
 public class EditBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

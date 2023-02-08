@@ -26,10 +26,10 @@ public class BookHelper {
 		bookService = new BookService();
 		categoryServices = new CategoryServices();
 	}
-	
+ 
 	protected String GetCurrentDate() {
 	     Date date = new Date() ;
-		 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:m:ss");
 	    return formatter.format(date);
 	}
 	

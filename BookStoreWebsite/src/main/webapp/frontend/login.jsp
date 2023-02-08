@@ -17,7 +17,31 @@
   </head>
 <body>
 	<jsp:include page="../helper/header.jsp"></jsp:include>
-		<h1>Login</h1>
+
+    <h1 class="text-center mt-5 mb-5">Customer Login</h1>
+    
+    <h1>
+         <%=request.getAttribute("message")%>
+     </h1>
+    
+	<div class="customer-login">
+      <div class="container">
+        <form action="login-customer" method="post" class="row">
+          <div class="col-lg-6 col-md-6 col-12 mb-3">
+            <label for="email">User name</label>
+            <input id="email"  name="email" type="email" class="form-control" required>
+          </div>
+          <div class="col-lg-6 col-md-6 col-12 mb-3">
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" class="form-control" required>
+          </div>
+          <div class="col-4 m-auto mt-3 mb-3">
+          
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </div>
+        </form>
+      </div>
+     </div>
 	<jsp:include page="../helper/footer.jsp"></jsp:include>
 </body>
 </html>

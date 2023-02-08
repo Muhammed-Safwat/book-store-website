@@ -53,14 +53,17 @@ public class AdminLoginServlet extends HttpServlet {
 		     context.setAttribute("admin", user.getFirstName());
 		     System.out.println(user.getFirstName());
 			 System.out.println( request.getServletContext().getAttribute("admin"));
-		   /* Cookie cookie =new Cookie("name",user.getFirstName());
+		   /* 
 		    
-		    response.addCookie(cookie);
-		    response.
-		    System.out.println(request.getAttribute("admin"));*/
+			    Cookie cookie =new Cookie("name",user.getFirstName());
+			    response.addCookie(cookie);
+			    response.
+			    System.out.println(request.getAttribute("admin"));
+		    
+		    */
 		    
  		    request.getSession().setAttribute("useremail", email);
-		   response.sendRedirect("homepage");
+		    response.sendRedirect("homepage");
 		    
 		}
 	}

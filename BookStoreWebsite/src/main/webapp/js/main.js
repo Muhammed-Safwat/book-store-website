@@ -1,7 +1,7 @@
 
 
 // search 
-
+ 
 console.log(document.querySelector('.search-btn'));
 document.querySelector('.search-btn').addEventListener('click' , ()=>{
   let keyword =  document.querySelector(".search-input").value ;
@@ -10,11 +10,7 @@ document.querySelector('.search-btn').addEventListener('click' , ()=>{
     window.location.href =`http://localhost:8086/BookStoreWebsite/search?key=${keyword}` ;
   }
 });
-localStorage.setItem('myCat', 'Tom');const cat = localStorage.getItem('myCat');
-/// cookies 
-console.log(cat ,localStorage.getItem('name') , document.cookie["name"]);
-
-
+ 
 
 
 let editBtn = document.querySelector('.edit-button');
@@ -51,6 +47,38 @@ okBtn.addEventListener('click'  , ()=>{
 overlay.addEventListener('click'  , removeMenu);
 cencelBtn.addEventListener('click' ,removeMenu);
 
+ 
+
+
+
+
+
+/**    old requests  */
+/*
+const xhr = new XMLHttpRequest()
+	//open a get request with the remote server URL
+	xhr.open("post", "http://localhost:8086/BookStoreWebsite/")
+	//send the Http request
+	xhr.send()
+
+	//EVENT HANDLERS
+
+	//triggered when the response is completed
+	xhr.onload = function() {
+	  if (xhr.status === 200) {
+	    //parse JSON datax`x
+	    console.log(xhr);
+	   let  data  = JSON.parse(xhr.response);
+	    console.log(xhr.response);
+	   
+	   
+	    console.log(data);
+	     console.log(data.price);
+	  }else if (xhr.status === 404) {
+	    console.log("No records found")
+	  }
+	}
+*/
 
 
 

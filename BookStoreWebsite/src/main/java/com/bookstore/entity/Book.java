@@ -1,7 +1,6 @@
 package com.bookstore.entity;
 
 import java.util.Base64;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -51,14 +50,14 @@ public class Book{
 	@Column(name="last_update_time")
 	private String lastUpdateTime;
 	
-	@ManyToOne(cascade = {CascadeType.DETACH , CascadeType.MERGE , CascadeType.REFRESH ,CascadeType.PERSIST})
+	@ManyToOne(fetch = FetchType.EAGER , cascade = {CascadeType.DETACH , CascadeType.MERGE , CascadeType.REFRESH ,CascadeType.PERSIST})
 	@JoinColumn(name="category_id")
 	private Category category;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
+	@OneToMany(fetch = FetchType.EAGER , mappedBy = "book")
 	private Set<Review> reviews = new HashSet<Review>(0);
 	
-	/*
+/*
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
 	private Set<OrderDetail> orderDetails = new HashSet<OrderDetail>(0);
 */
@@ -171,8 +170,7 @@ public class Book{
 	public String getBase64Image() {
 		return Base64.getEncoder().encodeToString(this.image);
 	}
-	
-	
+		
 
 /*	
  * public Set<OrderDetail> getOrderDetails() {
@@ -183,26 +181,6 @@ public class Book{
 		this.orderDetails = orderDetails;
 	}
 */
-	@Override
-	public String toString() {
-		return "Book [bookId=" + bookId + ", category=" + category + ", title=" + title + ", author=" + author
-				+ ", description=" + description + ", isbn=" + isbn + ", price=" + price + ", publishDate=" + publishDate
-				+ ", lastUpdateTime=" + lastUpdateTime + "]";
-	}
-
-	
-	
- 
-
- 
-
- 
-	
- 
- 
-	
- 
-
  
 
 }

@@ -25,7 +25,7 @@ public class Category{
 	@Column(name = "name")
 	private String name;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "category" , cascade = {CascadeType.DETACH , CascadeType.MERGE , CascadeType.REFRESH ,CascadeType.PERSIST})
+	@OneToMany(fetch = FetchType.EAGER , mappedBy = "category" , cascade = {CascadeType.DETACH , CascadeType.MERGE , CascadeType.REFRESH ,CascadeType.PERSIST})
 	private Set<Book> books = new HashSet<Book>(0);
     
 	public Category() {

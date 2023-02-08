@@ -20,7 +20,7 @@ public class CustomerDAO extends JpaDAO<Customer> implements GenericDAO<Customer
 
 	@Override
 	public Customer get(Integer id) {
-		// TODO Auto-generated method stub
+		 
 		return super.get(Customer.class, id);
 	}
 
@@ -28,6 +28,7 @@ public class CustomerDAO extends JpaDAO<Customer> implements GenericDAO<Customer
 	public void delete(Integer id) {
 		 super.delete(Customer.class, id);
 	}
+   
 
 	@Override
 	public List<Customer> listAll() {
@@ -40,5 +41,7 @@ public class CustomerDAO extends JpaDAO<Customer> implements GenericDAO<Customer
 		 
 		return super.count("select count(*) from Customer");
 	}
+   
+	
 
 }

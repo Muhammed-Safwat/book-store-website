@@ -58,6 +58,7 @@ public class JpaDAO<E>{
 		session.beginTransaction();
 	    E obj = session.get(type, id);
 		session.getTransaction().commit();
+		session.close();
 		this.factory.close();
 		return obj ;
 	}
