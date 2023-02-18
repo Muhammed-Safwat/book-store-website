@@ -1,4 +1,17 @@
 
+if(window.localStorage.getItem("cart")==null){
+	window.localStorage.setItem("cart",JSON.stringify([]));
+}/*
+const myBlogs = ["https://catalins.tech", "https://exampleblog.com"];
+localStorage.setItem('links', JSON.stringify(myBlogs)); 
+console.log(obj.name)*/
+
+
+
+
+
+
+
 
 // search 
  
@@ -48,9 +61,7 @@ overlay.addEventListener('click'  , removeMenu);
 cencelBtn.addEventListener('click' ,removeMenu);
 
  
-
-
-
+ 
 
 
 /**    old requests  */

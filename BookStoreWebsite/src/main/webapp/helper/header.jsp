@@ -15,12 +15,12 @@
                   <li><a href="profile/view-profile">${customer.fullName}</a></li>
 	              <li><a href="">My Order</a></li>
 	              <li><a href="logout">Logout</a></li>
-	              <li><a href="">Cart</a></li>
+	              <li><a href="view_cart">Cart</a></li>
              </c:if>
              <c:if test="${customer == null}">
                   <li><a href="login-customer">Sign In</a></li>
 	              <li><a href="register_new_customer">Register</a></li>
-	              <li><a href="">Cart</a></li>
+	              <li><a href="view_cart">Cart</a></li>
              </c:if>
                
             </ul>

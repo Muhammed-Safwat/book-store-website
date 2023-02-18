@@ -16,12 +16,12 @@ public class ReviewService {
 		return reviewDAO.listAll();
 	}
 	
-	public void createCustomer(Review review) {
+	public void createReview(Review review) {
 		reviewDAO.create(review);
 	}
 	
 	
-	public Review getCustomerById(Integer id) {
+	public Review getReviewById(Integer id) {
 		return reviewDAO.get(id);
 	}
 	
@@ -31,8 +31,12 @@ public class ReviewService {
 		}
 	*/
 	
-	public Review UpdateCustomer(Review review) {
+	public Review UpdateReview(Review review) {
 		return reviewDAO.update(review);
+	}
+	
+	public List<Review> findByBookId(String id){
+		return reviewDAO.findByBookId(id);
 	}
 	
 	public void delete(Integer id) {

@@ -1,17 +1,14 @@
 package com.bookstore.test;
 
-import java.util.Arrays;
+import com.bookstore.entity.Book;
+import com.bookstore.service.BookService;
 
 public class testBook {
 	 public static void main(String[] args) {
-		 int arr[] = {1,2,4};
-		  int a[] = new int[3] ; 
-				
-		 System.arraycopy(arr, 0, a, 0, 3);
-		 System.out.println("is Equal ==> " + a.equals(arr));
-	    for(int i = 0 ;i<3 ; i++) {
-	    	 System.out.println(a[i]);
-	    }
+		
+		 BookService bookService = new BookService();
+		 Book b = bookService.get(35);
+		 System.out.println(b.getAverageRating());
 		  
 	}
 	

@@ -15,27 +15,29 @@ public class TestReview {
 	 public static void main(String[] args) {
 		
 		  Review r = new Review();
-		  BookService bs = new BookService();
+		  // BookService bs = new BookService();
 		  ReviewDAO reviewDao = new ReviewDAO();
-		  List<Review> list =reviewDao.listAll();
+		  List<Review> list = reviewDao.findByBookId("35");
 		  for(Review E : list)
 			  System.out.println(E.toString());
-		  /*
+	/*
 		 r=  reviewDao.get(15);
 		 System.out.println(r.getComment());
 		 r.setComment("new comment");
 		 reviewDao.update(r);
 		 r=  reviewDao.get(15);
 		 System.out.println(r.getComment());
-		//  Book b =  bs.get(35);
+		 //  Book b =  bs.get(35);
 		  System.out.println();
 		  
-		//  ReviewDAO reviewDao = new ReviewDAO();
-		  
-		/*  Customer c = cs.getCustomerById(11);
+		 //  ReviewDAO reviewDao = new ReviewDAO();
+		   
+		/* 
+		 *  Customer c = cs.getCustomerById(11);
+		
 		 
 		  System.out.println(c);
-		 /*
+	 
 		  r.setBook(b);
 		 
 		  Customer c = cs.getCustomerById(11);
@@ -47,5 +49,7 @@ public class TestReview {
 		  r.setReviewTime("2022-12-28");
 		
 		  reviewDao.create(r);*/
+		  
+		  /// Add review  */
 	}
 }

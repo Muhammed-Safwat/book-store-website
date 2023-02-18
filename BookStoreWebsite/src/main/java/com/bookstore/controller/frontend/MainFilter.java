@@ -12,7 +12,10 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import com.bookstore.controller.frontend.shopingcart.ShopingCart;
 import com.bookstore.entity.Category;
 import com.bookstore.service.CategoryServices;
 
@@ -31,18 +34,30 @@ public class MainFilter extends HttpFilter implements Filter {
 
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		 ServletContext context = request.getServletContext();
+		
+
+		HttpServletRequest httpreRequest  =(HttpServletRequest) request;
+		HttpSession session = httpreRequest.getSession(true);
+		 
+		ServletContext context = request.getServletContext();
 		 if(context.getAttribute("categories")==null) {
-			 CategoryServices categoryServices  = new CategoryServices();
+			    CategoryServices categoryServices  = new CategoryServices();
 				List<Category>  categoryList = categoryServices.list();
 				context.setAttribute("categories", categoryList);
 		 }
-		System.out.println("main filter ==>");
-		chain.doFilter(request, response);
+	 
+		 if(session.getAttribute("cart")==null) {
+			 System.out.println("===========> shoppingcart created");
+			 session.setAttribute("cart", new ShopingCart());	 
+		 } 
+			 
+		
+		 System.out.println("main filter ==>");
+		 chain.doFilter(request, response); 
 	}
 
 
-	public void init(FilterConfig fConfig) throws ServletException {
+	public void init(FilterConfig Config) throws ServletException {
 		 
 	}
 

@@ -1,6 +1,8 @@
 package com.bookstore.controller.admin;
 
 import java.io.IOException;
+import java.net.http.HttpRequest;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -9,6 +11,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.catalina.connector.Request;
 
 import com.bookstore.entity.User;
 import com.bookstore.service.UserServices;
@@ -36,32 +40,22 @@ public class AdminLoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 String email = request.getParameter("email");
 		 String password = request.getParameter("password");
+		
 		 User  user = userServices.checkLogin(email , password);
-		 System.out.println(user);
+		 System.err.println( user != null && user.getPassword()!=(password));
 		 
-		if(user != null &&   user.getPassword()==password ) {
+		 if(user == null || !(user != null && user.getPassword().equals(password))) {
 			 request.setAttribute("massage", "invalid email and passward");
-			 RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/login");
-			 dispatcher.forward(request, response);
-		}else {
-			
-		    request.setAttribute("massage", "");
-		 
-		    
-		    ServletContext context = request.getServletContext();
-		     
-		     context.setAttribute("admin", user.getFirstName());
-		     System.out.println(user.getFirstName());
-			 System.out.println( request.getServletContext().getAttribute("admin"));
-		   /* 
-		    
-			    Cookie cookie =new Cookie("name",user.getFirstName());
-			    response.addCookie(cookie);
-			    response.
-			    System.out.println(request.getAttribute("admin"));
-		    
-		    */
-		    
+			 System.err.println("false ==============>");
+			 // response.sendRedirect(request.getContextPath()+"/admin/login");	 
+			 
+			request.getRequestDispatcher("login.jsp").forward(request, response);;
+			 
+		 }else {
+			 System.err.println("true ==============>");
+		     request.setAttribute("massage", "");    
+		     request.getSession(false).setAttribute("admin", user);
+		   
  		    request.getSession().setAttribute("useremail", email);
 		    response.sendRedirect("homepage");
 		    

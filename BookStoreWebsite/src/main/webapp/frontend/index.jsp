@@ -12,6 +12,8 @@
     <link href="${pageContext.request.contextPath}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- ================== Font Awesome ============== -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/fontawesome/css/all.min.css">
+    <!-- ================== Metro CDN ============== -->
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
     <!-- =============== CSS ===============-->
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
     <title>Responsive website delivery</title>
@@ -45,7 +47,10 @@
 	                  <div class="book-body">
 	                    <a href="view_book?id=${book.bookId}">${book.title}</a>
 	                    <p>${book.author}</p>
-	                    <p>star *****</p>
+	                    
+	                    <input data-role="rating"
+							    data-value="${book.getAverageRating()}"  
+							    data-static="true">
 	                    <p>${book.price}$</p>
 	                  </div>
 	                </div>
@@ -140,6 +145,6 @@
     <!-- =============== MAIN JS ===============-->
     <script src="${pageContext.request.contextPath}/css/bootstrap/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
- 
+ 	<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 </body>
 </html>

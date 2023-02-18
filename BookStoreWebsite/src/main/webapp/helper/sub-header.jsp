@@ -2,6 +2,8 @@
       <div class="container">
         <div class="welcome text-center">
         welcome <span class="admin"><%=request.getServletContext().getAttribute("admin")%></span>
+        <br> 
+        <span class="admin"> ${admin.getFirstName()} </span>
         <a class='logout' href=''>Logout</a>
         </div>
         <ul class="links d-flex">

@@ -2,6 +2,8 @@ package com.bookstore.dao;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder.In;
+
 import com.bookstore.entity.Review;
 
 public class ReviewDAO extends JpaDAO<Review> implements GenericDAO<Review> {
@@ -31,7 +33,11 @@ public class ReviewDAO extends JpaDAO<Review> implements GenericDAO<Review> {
 		 
 		return  super.listAll("from Review");
 	}
-
+	
+	public List<Review> findByBookId(String id) {
+		return super.findBy("Review", "book", id); 
+	}
+	
 	@Override
 	public long count() {
 		 

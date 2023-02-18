@@ -1,8 +1,10 @@
 package com.bookstore.entity;
 
+import java.beans.Transient;
 import java.util.Base64;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -57,10 +59,10 @@ public class Book{
 	@OneToMany(fetch = FetchType.EAGER , mappedBy = "book")
 	private Set<Review> reviews = new HashSet<Review>(0);
 	
-/*
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
-	private Set<OrderDetail> orderDetails = new HashSet<OrderDetail>(0);
-*/
+	/*
+		@OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
+		private Set<OrderDetail> orderDetails = new HashSet<OrderDetail>(0);
+ 	*/
 	public Book() {
 		
 	}
@@ -170,7 +172,27 @@ public class Book{
 	public String getBase64Image() {
 		return Base64.getEncoder().encodeToString(this.image);
 	}
+	
+	@Transient
+	public double getAverageRating() {
 		
+		double sum = 0 ;
+		if(reviews.isEmpty()) {
+			return 0 ; 
+		}
+		
+		for(Review review : reviews) {
+			sum+=review.getRating();
+		}
+		
+		double averageRate = sum / reviews.size();
+	  
+		return  averageRate ;  
+	}
+	@Transient
+	public int getNumberOfReviews() {
+		return reviews.size();
+	}
 
 /*	
  * public Set<OrderDetail> getOrderDetails() {

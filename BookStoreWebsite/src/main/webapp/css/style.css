@@ -182,7 +182,13 @@ body{
 .review-image img {
   width:150px;
 }
+
 .book-list img{
 	height: 210px;
 	width: 180px;
 }
+
+.edit-review-container form{
+	width:700px;
+}
+

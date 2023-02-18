@@ -28,7 +28,7 @@
      <h1>Manage Review list </h1>
 
      <h1>
-         <%=request.getAttribute("massage")%>
+         <%=request.getAttribute("message")%>
      </h1>
      
    <div class="book-list">
@@ -42,7 +42,7 @@
                         <th>Rating</th>
                         <th>Headline</th>
                         <th>Customer</th>
-                        <th>Review On</th>
+                        <th>Comment</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -55,11 +55,11 @@
                             <td>${review.headline}</td>
                             <td>${review.customer.fullName}</td>
                             
-                            <td>${review.reviewTime}</td>
+                            <td>${review.comment}</td>
                              
                             <td>
-                                <a href="" class='edit-button edit-book'>Edit</a>
-                                <a href="" class='delete-button delete-book'>Delete</a>
+                                <a href="edit_review"   class='edit-button edit-book'>Edit</a>
+                                <a href="delete_review" class='delete-button delete-book'>Delete</a>
                             </td>
                         </tr>
                     </c:forEach>
@@ -87,7 +87,8 @@
          <!-- =============== MAIN JS ===============-->
      <script src="../css/bootstrap/js/bootstrap.min.js"></script>
       
-     <script src="../js/edit_book.js"></script>
+    
+     <script src="../js/edit_review.js"></script>
  </body>
 
  </html>

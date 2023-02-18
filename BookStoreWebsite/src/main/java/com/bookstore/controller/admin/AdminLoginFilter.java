@@ -35,7 +35,7 @@ public class AdminLoginFilter extends HttpFilter implements Filter {
 		HttpSession session = httpreRequest.getSession(false);
 		
 		boolean loginRequest  =  httpreRequest.getRequestURI().equals(httpreRequest.getContextPath()+"/admin/homepage");
-		boolean loggedIn = ( session != null ) &&( session.getAttribute("useremail")!=null) ;
+		boolean loggedIn = ( session != null ) &&( session.getAttribute("admin")!=null) ;
 		
 		System.out.println(loginRequest );
 		System.out.println(loggedIn);

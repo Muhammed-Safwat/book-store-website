@@ -40,11 +40,11 @@ public class CustomerService {
 	public List<Customer> CheckLogin(String email , String password) {
 		 
         List<Customer> customer = findByEmail(email);
-        System.out.println(password);
+        /*System.out.println(password);
         System.out.println(password.compareTo(customer.get(0).getPassword()));
         System.out.println(customer.get(0).getPassword());
         System.out.println(customer.size()>0 && password.compareTo(customer.get(0).getPassword())==0);
-		if(customer.size()>0 && password.compareTo(customer.get(0).getPassword())==0) {
+		*/if(customer.size()>0 && password.compareTo(customer.get(0).getPassword())==0) {
 			return customer; 
 		} 
 		

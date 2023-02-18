@@ -1,6 +1,7 @@
 package com.bookstore.controller.frontend;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
@@ -12,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bookstore.entity.Book;
 import com.bookstore.entity.Category;
+import com.bookstore.entity.Review;
 import com.bookstore.service.BookService;
 import com.bookstore.service.CategoryServices;
+import com.bookstore.service.ReviewService;
 
  
 @WebServlet("/view_category")
@@ -22,6 +25,7 @@ public class ViewBooksByCategoryServlet extends HttpServlet {
     private BookService bookService ; 
     private CategoryServices categoryServices;
    
+    
     public ViewBooksByCategoryServlet() {
         super();
         bookService = new BookService();
@@ -29,9 +33,10 @@ public class ViewBooksByCategoryServlet extends HttpServlet {
     }
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
-		 Integer id = Integer.valueOf(request.getParameter("id"));
+		 String stringId  = request.getParameter("id");
+		 Integer id = Integer.valueOf(stringId);
 		 Category category = categoryServices.get(id); 
+		
 		 if(category==null) {
 			 request.setAttribute("massage", "Sorry, the category ID ["+id+"] is not available");
 		 }else {
