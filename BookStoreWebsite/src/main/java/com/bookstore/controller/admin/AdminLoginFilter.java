@@ -31,10 +31,10 @@ public class AdminLoginFilter extends HttpFilter implements Filter {
  
 		
 		
-		HttpServletRequest httpreRequest  =(HttpServletRequest) request;
-		HttpSession session = httpreRequest.getSession(false);
+		HttpServletRequest httpRequest  =(HttpServletRequest) request;
+		HttpSession session = httpRequest.getSession(false);
 		
-		boolean loginRequest  =  httpreRequest.getRequestURI().equals(httpreRequest.getContextPath()+"/admin/homepage");
+		boolean loginRequest  =  httpRequest.getRequestURI().equals(httpRequest.getContextPath()+"/admin/homepage");
 		boolean loggedIn = ( session != null ) &&( session.getAttribute("admin")!=null) ;
 		
 		System.out.println(loginRequest );
@@ -45,6 +45,11 @@ public class AdminLoginFilter extends HttpFilter implements Filter {
 			 System.out.println(1);
 		}else {
          System.out.println(loggedIn);
+         if(request.getAttribute("admin_url")==null){
+			 httpRequest.setAttribute("admin_url", httpRequest.getRequestURL());
+			 System.out.println("ssssssssssssssss      " 
+					 +httpRequest.getRequestURL());
+		 }
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/login");
 			dispatcher.forward(request, response);
 			System.out.println(3);

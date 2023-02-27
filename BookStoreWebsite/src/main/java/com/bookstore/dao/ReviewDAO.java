@@ -43,5 +43,9 @@ public class ReviewDAO extends JpaDAO<Review> implements GenericDAO<Review> {
 		 
 		return  super.count("select count(*) from Review");
 	}
+	
+	public List<Review> listAll(int max){
+		return super.listAll("from Review order by reviewTime desc", max);
+	}
 
 }

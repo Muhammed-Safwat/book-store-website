@@ -1,5 +1,6 @@
 package com.bookstore.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -36,6 +37,11 @@ public class BookDAO extends JpaDAO<Book> implements GenericDAO<Book> {
 	public void delete(Integer id) {
 		super.delete(Book.class, id);
 	}
+	
+	 
+	public void delete(Book obj) { 
+		super.deleteObject(Book.class, obj);
+	}
 
 	@Override
 	public List<Book> listAll() {
@@ -58,5 +64,28 @@ public class BookDAO extends JpaDAO<Book> implements GenericDAO<Book> {
 		  
 		return books;
 	}
+	
+	public List<Book> bestSealing(int max) {
+		List<Book> books = listAll("SELECT od.book FROM OrderDetail od  GROUP by od.book.bookId ORDER BY SUM(od.quantity) DESC ",max);
+		return books;
+	}
+
+	public List<Book> mostFav(int max) {
+		List<Book> books = new ArrayList<Book>(max); 
+		
+		 List<Object[]> objs =   listAllForMostFav("SELECT r.book , count(r.book.bookId) as ReviewCount , AVG(r.rating) as AvgRating FROM Review r group by"
+				+ " r.book.bookId having AVG(r.rating) >=3.6 ORDER BY ReviewCount DESC , AvgRating DESC ",max);
+		 if(!objs.isEmpty()) {
+			 for(Object[] obj : objs) {
+				  Book b = (Book) obj[0];
+				  books.add(b);
+			  } 
+		 }
+
+		  return books;
+	}
+
+	
+	 
 
 }

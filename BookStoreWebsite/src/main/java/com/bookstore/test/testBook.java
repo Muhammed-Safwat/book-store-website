@@ -1,15 +1,13 @@
 package com.bookstore.test;
 
+import com.bookstore.dao.BookDAO;
 import com.bookstore.entity.Book;
 import com.bookstore.service.BookService;
 
 public class testBook {
 	 public static void main(String[] args) {
-		
-		 BookService bookService = new BookService();
-		 Book b = bookService.get(35);
-		 System.out.println(b.getAverageRating());
-		  
+		 String a = "safwat.mp3";
+		System.out.println(a.substring(0, a.length()-4)); ;
 	}
 	
 	

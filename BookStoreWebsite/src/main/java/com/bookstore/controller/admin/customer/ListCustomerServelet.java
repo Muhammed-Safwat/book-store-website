@@ -14,11 +14,11 @@ import com.bookstore.entity.Customer;
 import com.bookstore.service.CustomerService;
  
 @WebServlet("/admin/list_customer")
-public class ListCustomerService extends HttpServlet {
+public class ListCustomerServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private CustomerService customerService ;    
     
-    public ListCustomerService() {
+    public ListCustomerServelet() {
         super();
         customerService= new CustomerService() ;
     }

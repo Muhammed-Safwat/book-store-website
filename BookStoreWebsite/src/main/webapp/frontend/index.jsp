@@ -64,36 +64,24 @@
       <div class="container"> 
         <h1>best selling</h1>
         <div class="row best-selling">
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="card">
-              <div class="book-image">
-                image
-              </div>
-              <div class="book-body">
-                <a href="#">Book name</a>
-              </div>
+          <c:forEach var="book" items="${bestSaling}"> 
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="card book-card">
+                  <div class="book-image">
+                   <img class="img-fluid" src="data:image/png;base64,${book.getBase64Image()}" >
+                  </div>
+                  <div class="book-body">
+                    <a href="view_book?id=${book.bookId}">${book.title}</a>
+                    <p>${book.author}</p>
+                    
+                    <input data-role="rating"
+                data-value="${book.getAverageRating()}"  
+                data-static="true">
+                    <p>${book.price}$</p>
+                  </div>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-12">
-          <div class="card">
-            <div class="book-image">
-              image
-            </div>
-            <div class="book-body">
-              <a href="#">Book name</a>
-            </div>
-          </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="card">
-          <div class="book-image">
-            image
-          </div>
-          <div class="book-body">
-            <a href="#">Book name</a>
-          </div>
-        </div>
-    </div>
+          </c:forEach>
         </div>
       </div>
     </div>
@@ -102,36 +90,24 @@
       <div class="container"> 
         <h1>most favored</h1>
         <div class="row most-favored">
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="card">
-              <div class="book-image">
-                image
-              </div>
-              <div class="book-body">
-                <a href="#">Book name</a>
-              </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-12">
-          <div class="card">
-            <div class="book-image">
-              image
-            </div>
-            <div class="book-body">
-              <a href="#">Book name</a>
-            </div>
-          </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="card">
-          <div class="book-image">
-            image
-          </div>
-          <div class="book-body">
-            <a href="#">Book name</a>
-          </div>
-        </div>
-    </div>
+          <c:forEach var="book" items="${mostfav}"> 
+	            <div class="col-lg-4 col-md-6 col-12">
+	                <div class="card book-card">
+	                  <div class="book-image">
+	                   <img class="img-fluid" src="data:image/png;base64,${book.getBase64Image()}" >
+	                  </div>
+	                  <div class="book-body">
+	                    <a href="view_book?id=${book.bookId}">${book.title}</a>
+	                    <p>${book.author}</p>
+	                    
+	                    <input data-role="rating"
+							    data-value="${book.getAverageRating()}"  
+							    data-static="true">
+	                    <p>${book.price}$</p>
+	                  </div>
+	                </div>
+	            </div>
+            </c:forEach>
         </div>
       </div>
     </div>

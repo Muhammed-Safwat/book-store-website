@@ -49,7 +49,7 @@
                   <div class="d-flex align-items-center mb-2">
                     <p class="text-bold mr-2">Qty:</p>
                     <div class="form-select-container">
-                      <input type='number' min="1"  class="form-control quantity-form-select" name="quantity" id="quantity" required="required" style="width: 60px;"/>
+                      <input type='number' min="1" value='1'  class="form-control quantity-form-select" name="quantity" id="quantity" required="required" style="width: 60px;"/>
                     </div>
 
                   </div>

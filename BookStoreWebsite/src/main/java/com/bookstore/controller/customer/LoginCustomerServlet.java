@@ -21,6 +21,8 @@ public class LoginCustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private CustomerService customerService ;  
     private String url = null ; 
+    
+    
     public LoginCustomerServlet() {
         customerService = new CustomerService();
     }
@@ -31,6 +33,7 @@ public class LoginCustomerServlet extends HttpServlet {
 		if(request.getAttribute("message") == null) {
 			request.setAttribute("message", "");
 		}
+		
 		if(request.getAttribute("url")!=null)
 		 url =   request.getAttribute("url").toString();
 	    

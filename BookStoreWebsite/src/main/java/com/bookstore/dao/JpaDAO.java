@@ -3,13 +3,17 @@ package com.bookstore.dao;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.bookstore.entity.Book;
+import com.bookstore.entity.BookOrder;
 import com.bookstore.entity.Category;
 import com.bookstore.entity.Customer;
+import com.bookstore.entity.OrderDetail;
 import com.bookstore.entity.Review;
 import com.bookstore.entity.User;
 
@@ -28,6 +32,8 @@ public class JpaDAO<E>{
 				 .addAnnotatedClass(Customer.class)
 				 .addAnnotatedClass(Book.class)
 				 .addAnnotatedClass(Review.class)
+				 .addAnnotatedClass(OrderDetail.class)
+				 .addAnnotatedClass(BookOrder.class)
 				.buildSessionFactory();		
 	}
 	 
@@ -72,12 +78,43 @@ public class JpaDAO<E>{
 		this.factory.close();
 	}
 	
+	public void deleteObject(Class<E> type , E obj ) {
+		StartFactory();
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+	    session.delete(obj);
+		session.getTransaction().commit();
+		this.factory.close();
+	}
+	
 	public List<E> listAll(String quere) {
 		StartFactory();
 		List<E> list  = new LinkedList<E>();
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 		list =  (List<E>) session.createQuery(quere).getResultList();
+		session.getTransaction().commit();
+		this.factory.close();
+		return list ; 
+	}
+	
+	public List<E> listAll(String quere , int max) {
+		StartFactory();
+		List<E> list  = new LinkedList<E>();
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+		list =  (List<E>) session.createQuery(quere).setMaxResults(max).getResultList();
+		session.getTransaction().commit();
+		this.factory.close();
+		return list ; 
+	}
+	
+	public List<Object[]> listAllForMostFav(String quere , int max) {
+		StartFactory();
+		List<Object[]> list  = new LinkedList<Object[]>();
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+		list =  (List<Object[]>) session.createQuery(quere).setMaxResults(max).getResultList();
 		session.getTransaction().commit();
 		this.factory.close();
 		return list ; 
@@ -122,9 +159,27 @@ public class JpaDAO<E>{
 		this.factory.close();
 		return list;
 	}
- 
 	
+	public List<E> findByTowKewords(String className , String attr1 , String keyword1 , String attr2 , String keyword2){
+		StartFactory();
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+		List<E> list = session.createQuery("select b from "+className+" b where b."+attr1+" like '%"+keyword1+"%' and b."+attr2+" like '%"+keyword2+"%'").getResultList()	 ;
+		session.getTransaction().commit();
+		this.factory.close();
+		return list;
+	}
 	
+	public void updateValue(String className , String attribute , String value, String IdAttr , String idValue) {
+		StartFactory();
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+		 
+		Query q = session.createQuery("update "+className+" set "+attribute+"="+value+" where "+IdAttr+"="+idValue+"");	 ;
+		q.executeUpdate();
+		session.getTransaction().commit();
+		this.factory.close();
+	} 
 	 
 
 

@@ -24,16 +24,20 @@
 	
 	<!--  -->
 	<jsp:include page="../helper/sub-header.jsp"></jsp:include>
-	
-	<h1>Category list </h1>
+	<div class='container'>
+	<h1 class="text-center">Category list </h1>
 
-    <h1>
-        <%=request.getAttribute("massage")%>
-    </h1>
-
-    <a href='category_form.jsp'>Create new Category</a>
+      <c:if test="${request.getAttribute('massage') != null}">
+	     <h1 class="text-center">
+	         <%=request.getAttribute("massage")%>
+	     </h1>	
+	</c:if>
+	<h4 class="text-center mb-5">
+		<a href='category_form.jsp'>Create new Category</a>
+	</h4>
     
-    <table>
+    
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Index</th>
@@ -67,7 +71,7 @@
     <div class="overlay none">
 
     </div>
-
+</div>
     <!-- include footer -->
     <jsp:include page="../helper/footer.jsp"></jsp:include>
 

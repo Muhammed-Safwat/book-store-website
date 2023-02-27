@@ -36,14 +36,20 @@
         <div class="container">
           <form action="create_customer" method='post' class="create-user-form row">
          
+                     
             <div class="input-row col-6 mb-3">
               <label for="email">E-mail</label>
               <input type="email" id="email" name="email" class="form-control" required>
             </div>
 
             <div class="input-row col-6 mb-3">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" class="form-control" required>
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" class="form-control" required>
+            </div>
+
+            <div class="input-row col-6 mb-3">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" class="form-control" required>
             </div>
 
             <div class="input-row col-6 mb-3">
@@ -51,7 +57,7 @@
               <input type="password" id="password" name="password" class="form-control" required>
             </div>
             
-			<div class="input-row col-6 mb-3">
+			     <div class="input-row col-6 mb-3">
               <label for="confirm-password">confirm-password</label>
               <input type="password" id="confirm-password" name="confirm-password" class="form-control" required>
             </div>
@@ -62,8 +68,13 @@
             </div>
 
             <div class="input-row col-6 mb-3">
-              <label for="address">Address</label>
-              <input type="text" id="address" name="address" class="form-control" required>
+              <label for="addressLine1">Address Line 1</label>
+              <input type="text" id="addressLine1" name="addressLine1" class="form-control" required>
+            </div>
+
+            <div class="input-row col-6 mb-3">
+              <label for="addressLine2">Address Line 2</label>
+              <input type="text" id="addressLine2" name="addressLine2" class="form-control" required>
             </div>
             
             <div class="input-row col-6 mb-3">
@@ -71,7 +82,12 @@
               <input type="text" id="city" name="city" class="form-control" required>
             </div>
 
-			<div class="input-row col-6 mb-3">
+            <div class="input-row col-6 mb-3">
+              <label for="state">State</label>
+              <input type="text" id="state" name="state" class="form-control" required>
+            </div>
+
+			    <div class="input-row col-6 mb-3">
               <label for="zip-code">Zip Code</label>
               <input type="text" id="zip-code" name="zip-code" class="form-control" required>
             </div>

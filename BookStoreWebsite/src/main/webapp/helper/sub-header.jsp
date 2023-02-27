@@ -12,23 +12,23 @@
           <li> <a href="${pageContext.request.contextPath}/admin/list_book">Books </a></li>
           <li> <a href="${pageContext.request.contextPath}/admin/list_customer">Customers </a></li>
           <li> <a href="${pageContext.request.contextPath}/admin/list_review">Reviews</a></li>
-          <li> <a href="#">Orders</a></li>
+          <li> <a href="${pageContext.request.contextPath}/admin/list_order">Orders</a></li>
         </ul>
       </div>
     </div>
-    <div class="admin-dashboard"> 
+    <div class="admin-dashboard "> 
       <div class="container"> 
         <h1>Adminstraion Dashboard</h1>
       </div>
     </div>
-    <div class="quick-action"> 
+    <div class="quick-action border-bottom mb-5"> 
       <div class="container"> 
         <h1>Quick Actions: </h1>
         <ul class="quick-action-links"> 
-          <li> <a href="/">New Book </a></li>
-          <li> <a href="/BookStoreWebsite/admin/user_form.jsp">New User </a></li>
-          <li> <a href="/BookStoreWebsite/admin/category_form.jsp">New Category </a></li>
-          <li> <a href="#">New Customer </a></li>
+          <li> <a href="${pageContext.request.contextPath}/admin/create_book">New Book </a></li>
+          <li> <a href="${pageContext.request.contextPath}/admin/create-user">New User </a></li>
+          <li> <a href="${pageContext.request.contextPath}/admin/create_category">New Category </a></li>
+          <li> <a href="${pageContext.request.contextPath}/admin/create_customer">New Customer </a></li>
         </ul>
       </div>
     </div>

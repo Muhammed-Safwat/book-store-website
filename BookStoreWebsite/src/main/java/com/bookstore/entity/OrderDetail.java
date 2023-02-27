@@ -1,5 +1,6 @@
 package com.bookstore.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,42 +17,50 @@ public class OrderDetail {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="order_id")
-	private OrderDetailId id = new OrderDetailId();
+	@Column(name="order_detail_id")
+	private int id ; 
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER 
+			,cascade = {CascadeType.DETACH , CascadeType.MERGE , CascadeType.REFRESH ,CascadeType.PERSIST})
 	@JoinColumn(name = "book_id")
 	private Book book;
 	
-	
+	@ManyToOne(fetch = FetchType.LAZY ,cascade = {CascadeType.DETACH , CascadeType.MERGE , CascadeType.REFRESH ,CascadeType.PERSIST})
+	@JoinColumn(name="order_id")
 	private BookOrder bookOrder;
 	
 	@Column(name="quantity")
 	private int quantity;
 	
 	@Column(name="subtotal")
-	private float subtotal;
+	private double subtotal;
 
-	
-	public OrderDetail(Book book, BookOrder bookOrder, int quantity, float subtotal) {
+	public OrderDetail(){
+		
+	}
+
+	public OrderDetail(int id,BookOrder bookOrder,  Book book, int quantity, double subtotal) {
 		super();
+		this.id = id;
 		this.book = book;
+		this.quantity = quantity;
+		this.subtotal = subtotal;
 		this.bookOrder = bookOrder;
+		
+	}
+	
+	public OrderDetail(BookOrder bookOrder,Book book, int quantity, double subtotal) {
+		this.book = book;
 		this.quantity = quantity;
 		this.subtotal = subtotal;
+		this.bookOrder = bookOrder;
 	}
 
-	public OrderDetail(int quantity, float subtotal) {
-		super();
-		this.quantity = quantity;
-		this.subtotal = subtotal;
-	}
-
-	public OrderDetailId getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(OrderDetailId id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -62,6 +71,8 @@ public class OrderDetail {
 	public void setBook(Book book) {
 		this.book = book;
 	}
+	
+
 
 	public BookOrder getBookOrder() {
 		return bookOrder;
@@ -79,23 +90,23 @@ public class OrderDetail {
 		this.quantity = quantity;
 	}
 
-	public float getSubtotal() {
+	public double getSubtotal() {
 		return subtotal;
 	}
 
-	public void setSubtotal(float subtotal) {
+	public void setSubtotal(double subtotal) {
 		this.subtotal = subtotal;
+	}
+	
+	public void setSubtotal() {
+		this.subtotal=(this.book.getPrice())*(this.quantity);
 	}
 
 	@Override
 	public String toString() {
-		return "OrderDetail [id=" + id + ", book=" + book + ", bookOrder=" + bookOrder + ", quantity=" + quantity
-				+ ", subtotal=" + subtotal + "]";
-	}	
+		return "BookOrder [id=" + id + ", book=" + book + ", quantity=" + quantity + ", subtotal=" + subtotal + "]";
+	}
 	
-	
-
- 
  
 
 }

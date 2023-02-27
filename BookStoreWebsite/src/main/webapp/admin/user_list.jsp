@@ -24,51 +24,61 @@
 
      <!--  include sub header folder  -->
      <jsp:include page="../helper/sub-header.jsp"></jsp:include>
-
-     <h1>manage user list </h1>
-
-     <h1>
-         <%=request.getAttribute("massage")%>
-     </h1>
-     <a href='user_form.jsp'>Create new User</a>
-     <table>
-         <thead>
-             <tr>
-                 <th>Index</th>
-                 <th>ID</th>
-                 <th>Email</th>
-                 <th>Full Name</th>
-                 <th>Actions</th>
-             </tr>
-         </thead>
-         <tbody>
-             <c:forEach var="user" items="${users}" varStatus="status">
-                 <tr>
-                     <td>${status.index+1}</td>
-                     <td class="user-id">${user.userId}</td>
-                     <td>${user.email}</td>
-                     <td>${user.fullName}</td>
-                     <td>
-                         <a href="" class='edit-button'>Edit</a>
-                         <a href="" class='delete-button'>Delete</a>
-                     </td>
-                 </tr>
-             </c:forEach>
-         </tbody>
-     </table>
-     <div class="delete-user none">
-         <div class="box">
-             <h3>Do you want to delete id = <span class="id">12</span></h3>
-             <div class="btns row">
-                 <button class="ok-btn btn btn-outline-primary col-6">OK</button>
-                 <button class="cencel-btn btn btn-outline-primary col-6">Cencle</button>
-             </div>
-         </div>
-     </div>
-     <div class="overlay none">
-
-     </div>
-
+	
+	<div class='container'>
+    	 <h1 class="text-center">manage user list </h1>
+	
+		<c:if test="${request.getAttribute('massage') != null}">
+		     <h1 class="text-center">
+		         <%=request.getAttribute("massage")%>
+		     </h1>	
+	    </c:if>
+    
+	    <h4 class="text-center mt-4">
+	   		<a href='user_form.jsp'>Create new User</a>
+	    </h4>
+      
+     
+     
+     
+	     <table class="table table-bordered">
+	         <thead>
+	             <tr>
+	                 <th>Index</th>
+	                 <th>ID</th>
+	                 <th>Email</th>
+	                 <th>Full Name</th>
+	                 <th>Actions</th>
+	             </tr>
+	         </thead>
+	         <tbody>
+	             <c:forEach var="user" items="${users}" varStatus="status">
+	                 <tr>
+	                     <td>${status.index+1}</td>
+	                     <td class="user-id">${user.userId}</td>
+	                     <td>${user.email}</td>
+	                     <td>${user.fullName}</td>
+	                     <td>
+	                         <a href="" class='edit-button'>Edit</a>
+	                         <a href="" class='delete-button'>Delete</a>
+	                     </td>
+	                 </tr>
+	             </c:forEach>
+	         </tbody>
+	     </table>
+	     <div class="delete-user none">
+	         <div class="box">
+	             <h3>Do you want to delete id = <span class="id">12</span></h3>
+	             <div class="btns row">
+	                 <button class="ok-btn btn btn-outline-primary col-6">OK</button>
+	                 <button class="cencel-btn btn btn-outline-primary col-6">Cencle</button>
+	             </div>
+	         </div>
+	     </div>
+	     <div class="overlay none">
+	
+	     </div>
+	</div>
      <!-- include footer  -->
      <jsp:include page="../helper/footer.jsp"></jsp:include>
 

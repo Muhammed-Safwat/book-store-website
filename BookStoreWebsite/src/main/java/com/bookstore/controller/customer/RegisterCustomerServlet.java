@@ -45,7 +45,7 @@ public class RegisterCustomerServlet extends HttpServlet {
 			request.getSession().setAttribute("customer" ,customer );
 			
 			System.out.println(getClass()+"cusotmer ====> "+customer.toString());
-			  response.sendRedirect("view-profile");
+			  response.sendRedirect("profile/view-profile");
 			  request.setAttribute("message", "Customer added succssfully");
 		}else {
 			  request.setAttribute("message", "this Account Alrady exsist!");
@@ -63,12 +63,16 @@ public class RegisterCustomerServlet extends HttpServlet {
 		 List<Customer> list =  customerService.findByEmail(email);
 		
 		 if(list.size() == 0) {
+			  
 			 customer = new Customer(); 
-			 customer.setAddress(request.getParameter("address"));
+			 customer.setAddressLine1(request.getParameter("addressLine1"));
+			 customer.setAddressLine2(request.getParameter("addressLine2"));
 			 customer.setCity(request.getParameter("city"));
+			 customer.setState(request.getParameter("state"));
 			 customer.setCountry(request.getParameter("country"));
 		     customer.setEmail(email);
-			 customer.setFullName(request.getParameter("name"));
+			 customer.setFirstName(request.getParameter("firstName"));
+			 customer.setLastName(request.getParameter("lastName"));
 			 customer.setPassword(request.getParameter("password"));
 			 customer.setPhone(request.getParameter("phone"));
 			 customer.setRegisterDate(GetCurrentDate());

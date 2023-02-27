@@ -22,6 +22,8 @@ public class AdminLoginServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private UserServices  userServices = null ;
+	private String url = null ; 
+	
 	
     public AdminLoginServlet() {
         super();
@@ -31,6 +33,10 @@ public class AdminLoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	if(request.getParameter("massage")==null || request.getParameter("massage")=="" )
     			request.setAttribute("massage", "");
+    	
+    	if(request.getAttribute("admin_url")!=null)
+   		 this.url =   request.getAttribute("admin_url").toString();
+    	
     	
 		 RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 		 dispatcher.forward(request, response);
@@ -56,8 +62,14 @@ public class AdminLoginServlet extends HttpServlet {
 		     request.setAttribute("massage", "");    
 		     request.getSession(false).setAttribute("admin", user);
 		   
- 		    request.getSession().setAttribute("useremail", email);
-		    response.sendRedirect("homepage");
+ 		     request.getSession().setAttribute("useremail", email);
+ 		    
+ 		   if(url == null)
+   	    	response.sendRedirect(request.getContextPath()+"/admin/homepage");
+   	        else 
+   	    	response.sendRedirect(url);
+ 		    
+		 
 		    
 		}
 	}

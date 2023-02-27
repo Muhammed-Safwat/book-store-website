@@ -25,6 +25,12 @@ public class createCategoryServlet extends HttpServlet {
 	}
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// redirect page 
+				 RequestDispatcher dispatcher = request.getRequestDispatcher("category_form.jsp");           
+				 dispatcher.include(request, response); 
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
 		name = name.substring(0, 1).toUpperCase() + name.substring(1); 
 		List<Category> list = categoryServices.findByName(name);
@@ -43,10 +49,6 @@ public class createCategoryServlet extends HttpServlet {
 		 dispatcher.forward(request, response); 
 		
 		
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }

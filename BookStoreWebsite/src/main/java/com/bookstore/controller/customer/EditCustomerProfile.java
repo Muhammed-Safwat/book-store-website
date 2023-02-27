@@ -55,12 +55,15 @@ public class EditCustomerProfile extends HttpServlet {
 	}
 	
 	private Customer getDataFromRequest(HttpServletRequest request) { 
-		 customer.setAddress(request.getParameter("address"));
+		 customer.setAddressLine1(request.getParameter("addressLine1"));
+		 customer.setAddressLine2(request.getParameter("addressLine2"));
 		 customer.setCity(request.getParameter("city"));
+		 customer.setState(request.getParameter("state"));
 		 customer.setCountry(request.getParameter("country"));
 	     customer.setEmail(request.getParameter("email"));
-		 customer.setFullName(request.getParameter("name"));
-		 customer.setPhone(request.getParameter("phone"));
+		 customer.setFirstName(request.getParameter("firstName"));
+		 customer.setLastName(request.getParameter("lastName"));	 
+		 customer.setPhone(request.getParameter("phone"));		  
 		 customer.setZipcode(request.getParameter("zip-code"));
 		return customer ; 
 	}

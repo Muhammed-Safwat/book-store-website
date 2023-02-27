@@ -1,7 +1,7 @@
 console.log('swwelkrfslkdf,jsakl;d,fj;salkdj,fklasj,dfklasdj,fkl');
 
 
-document.querySelector(".shopping-cart-container").addEventListener('click' , (e)=>{
+document.querySelector(".shopping-cart-container .card").addEventListener('click' , (e)=>{
   e.preventDefault();
    if(e.target.classList.contains('delete-cartItem')){
     e.target.closest('.delete-cartItem-form').submit();
@@ -9,7 +9,7 @@ document.querySelector(".shopping-cart-container").addEventListener('click' , (e
   }
 });
 
-document.querySelector(".shopping-cart-container").addEventListener('change' , (e)=>{
+document.querySelector(".shopping-cart-container .card").addEventListener('change' , (e)=>{
    
   if(e.target.classList.contains("update-cart")) {
     let form = e.target.closest('.update-cart-form');

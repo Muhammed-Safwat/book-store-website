@@ -25,25 +25,37 @@
      <!--  include sub header folder  -->
      <jsp:include page="../helper/sub-header.jsp"></jsp:include>
 
-     <h1>Customer Mangment</h1>
+	<div class='container'>
+     <h1 class="text-center">Customer Mangment</h1>
 
-     <h1>
-         <%=request.getAttribute("massage")%>
-     </h1>
-        <a href='customer_form.jsp'>Add new Customer</a>
+        <c:if test="${request.getAttribute('massage') != null}">
+		     <h1 class="text-center">
+		         <%=request.getAttribute("massage")%>
+		     </h1>	
+    	</c:if>
+    
+     <h4 class="text-center">
+      	<a href='customer_form.jsp'>Add new Customer</a>
+     </h4>
+       
     
     <div class="book-list">
         <div class="container">
-            <table>
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Index</th>
                         <th>ID</th>
                         <th>E-mail</th>
-                        <th>Full Name</th>
-                        <th>Phone</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Address Line 1</th>
+                        <th>Address Line 2</th>
                         <th>City</th>
+                        <th>state</th>
                         <th>Country</th>
+                        <th>Phone</th>
+                        <th>zipcode</th>
                         <th>Registered Date</th>
                         <th>Action</th>
                     </tr>
@@ -54,10 +66,16 @@
                             <td>${status.index+1}</td>
                             <td class="book-id">${customer.customerId}</td>           
                             <td>${customer.email}</td>
-                            <td>${customer.fullName}</td>
-                            <td>${customer.phone}</td>
+                            <td>${customer.firstName}</td>
+                            <td>${customer.lastName}</td>
+                            
+                            <td>${customer.addressLine1}</td>
+                            <td>${customer.addressLine2}</td>
                             <td>${customer.city}</td>
+                            <td>${customer.state}</td>
                             <td>${customer.country}</td>
+                            <td>${customer.phone}</td>
+                            <td>${customer.zipcode}</td>
                             <td>${customer.registerDate}</td>
                             <td>
                                 <a href="" class='edit-button edit-customer'>Edit</a>
@@ -82,7 +100,7 @@
      <div class="overlay none">
 
      </div>
-     
+     </div>
      
      
      <!-- include footer  -->

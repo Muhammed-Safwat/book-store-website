@@ -59,10 +59,10 @@ public class Book{
 	@OneToMany(fetch = FetchType.EAGER , mappedBy = "book")
 	private Set<Review> reviews = new HashSet<Review>(0);
 	
-	/*
-		@OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
-		private Set<OrderDetail> orderDetails = new HashSet<OrderDetail>(0);
- 	*/
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "book")
+	private Set<OrderDetail> BookOrders = new HashSet<OrderDetail>(0);
+ 	
+	 
 	public Book() {
 		
 	}
@@ -194,15 +194,20 @@ public class Book{
 		return reviews.size();
 	}
 
-/*	
- * public Set<OrderDetail> getOrderDetails() {
-		return orderDetails;
+	public Set<OrderDetail> getBookOrders() {
+		return BookOrders;
 	}
 
-	public void setOrderDetails(Set<OrderDetail> orderDetails) {
-		this.orderDetails = orderDetails;
+	public void setBookOrders(Set<OrderDetail> bookOrders) {
+		BookOrders = bookOrders;
 	}
-*/
- 
+
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", title=" + title + ", author=" + author + ", description=" + description
+				+ ", isbn=" + isbn + ", price=" + price + ", publishDate=" + publishDate + ", lastUpdateTime="
+				+ lastUpdateTime + "]";
+	}
+	
 
 }

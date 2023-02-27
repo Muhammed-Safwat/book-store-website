@@ -41,16 +41,16 @@ public class HomePageServlet extends HttpServlet {
 		System.out.println(categoryList);
 		*/
 		/*
-		
 		 ServletContext context = request.getServletContext();
-		 
-		context.setAttribute("categories", categoryList);
+		 context.setAttribute("categories", categoryList);
 		*/
 		// new books */
-	 	List<Book>  BookList = bookService.newList();	
-		request.setAttribute("books", BookList);
-		//System.out.println(categoryList);
-		 System.err.println("hear");
+	 	List<Book>  bookList = bookService.newList();
+	 	List<Book> mostfav = bookService.mostFav(3);
+	 	List<Book> bestSaling = bookService.bestSealing(3);
+		request.setAttribute("books", bookList);
+		request.setAttribute("mostfav", mostfav);
+		request.setAttribute("bestSaling", bestSaling);
 		 String page = "/frontend/index.jsp" ; 
 		 RequestDispatcher dispatcher  = request.getRequestDispatcher(page);
 		 dispatcher.forward(request, response); 

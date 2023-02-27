@@ -29,7 +29,7 @@
 					<h1 class="main-headline m-4 text-center"> Book store Adminstraion </h1>
 					<h4 class="sub-headline mb-4 text-center"> Admin Login </h4>
 					<h5 class="error-massage"> <%=request.getAttribute("massage")%></h5>
-					<form action="login" method="post" class="form-input row mb-5">
+					<form action="${pageContext.request.contextPath}/admin/login" method="post" class="form-input row mb-5">
 						<div class="form--input col-6">
 							<label for="email"> Email </label>
 							<input type="email" name ="email" id="email" class="form-control" placeholder="Enter Your Email" required>

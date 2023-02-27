@@ -25,19 +25,25 @@
      <!--  include sub header folder  -->
      <jsp:include page="../helper/sub-header.jsp"></jsp:include>
 
-     <h1>Manage books list </h1>
+ 	<div class='container'>
+     <h1 class='text-center mb-5'>Manage books list </h1>
 
-     <h1>
-         <%=request.getAttribute("massage")%>
-     </h1>
-     <a href='create_book'>Create new Book</a>
+       <c:if test="${request.getAttribute('massage') != null}">
+	     <h1 class="text-center">
+	         <%=request.getAttribute("massage")%>
+	     </h1>	
+    </c:if>
+     <h4 class='text-center mb-5'>
+     	 <a href='create_book'>Create new Book</a>
+     </h4>
+    
     
     <div class="book-list">
         <div class="container">
-            <table>
-                <thead>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
                     <tr>
-                        <th>Index</th>
+                        <th scope="col">Index</th>
                         <th>ID</th>
                         <th>Image</th>
                         <th>Title</th>
@@ -55,7 +61,7 @@
                             <td class="book-id">${book.bookId}</td>
                             <td>
                                 <img src="data:image/jpg;base64,${book.getBase64Image()}"/>
-                            <td>
+                            </td>
                             <td>${book.title}</td>
                             <td>${book.author}</td>
                             <td>${book.category.name}</td>
@@ -85,7 +91,7 @@
      <div class="overlay none">
 
      </div>
-
+	</div>
      <!-- include footer  -->
      <jsp:include page="../helper/footer.jsp"></jsp:include>
 

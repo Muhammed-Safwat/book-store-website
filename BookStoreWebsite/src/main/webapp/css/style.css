@@ -79,7 +79,6 @@ ul, li {
 }
 .quick-action {
   text-align: center;
-  height: 100px;
 }
 .quick-action .container ul {
   display: -webkit-box;
@@ -96,15 +95,14 @@ ul, li {
 
 .resent-seles {
   text-align: center;
-  height: 100px;
+   
 }
 .resent-reviews {
   text-align: center;
-  height: 100px;
 }
 .statistics {
   text-align: center;
-  height: 100px;
+  
 }
 footer {
   text-align: center;

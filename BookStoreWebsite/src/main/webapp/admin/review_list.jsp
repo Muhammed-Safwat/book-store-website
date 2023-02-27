@@ -5,6 +5,8 @@
  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- ================== Metro CDN ============== -->
+ 	 <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
      <!-- =============== BOXICONS ===============-->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
      <!-- ================== BOOTSTRAP ============== -->
@@ -25,15 +27,17 @@
      <!--  include sub header folder  -->
      <jsp:include page="../helper/sub-header.jsp"></jsp:include>
 
-     <h1>Manage Review list </h1>
+     <h1 class="text-center">Manage Review list </h1>
 
-     <h1>
-         <%=request.getAttribute("message")%>
-     </h1>
+   <c:if test="${request.getAttribute('massage') != null}">
+	     <h1 class="text-center">
+	         <%=request.getAttribute("massage")%>
+	     </h1>	
+    </c:if>
      
    <div class="book-list">
         <div class="container">
-            <table>
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Index</th>
@@ -52,6 +56,13 @@
                             <td>${status.index+1}</td>
                             <td class="review-id">${review.reviewId}</td>
                             <td>${review.book.title}</td>
+                            <td>
+	                            <div class="review d-flex">
+					               <input data-role="rating"
+										    data-value="${review.rating}"
+										    data-static="true">
+					            </div>
+                            </td>
                             <td>${review.headline}</td>
                             <td>${review.customer.fullName}</td>
                             
@@ -83,7 +94,7 @@
 
      <!-- include footer  -->
      <jsp:include page="../helper/footer.jsp"></jsp:include>
-
+	 <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
          <!-- =============== MAIN JS ===============-->
      <script src="../css/bootstrap/js/bootstrap.min.js"></script>
       

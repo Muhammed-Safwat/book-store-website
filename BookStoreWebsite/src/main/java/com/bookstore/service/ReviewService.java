@@ -42,4 +42,8 @@ public class ReviewService {
 	public void delete(Integer id) {
 		reviewDAO.delete(id);
 	}
+	
+	public List<Review> listAll(int max){
+		return reviewDAO.listAll(max);
+	}
 }

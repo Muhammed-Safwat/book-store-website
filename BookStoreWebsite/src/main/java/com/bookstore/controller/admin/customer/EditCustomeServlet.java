@@ -64,16 +64,16 @@ public class EditCustomeServlet extends HttpServlet {
 			 if(list.size() > 0 && list.get(0).getCustomerId() != this.id) {
 				request.setAttribute("message", "this Account Alrady exsist!");
 			} else {
-			 customer.setAddress(request.getParameter("address"));
+			 customer.setAddressLine1(request.getParameter("addressLine1"));
+			 customer.setAddressLine2(request.getParameter("addressLine2"));
 			 customer.setCity(request.getParameter("city"));
+			 customer.setState(request.getParameter("state"));
 			 customer.setCountry(request.getParameter("country"));
-		     customer.setEmail(email);
-			 customer.setFullName(request.getParameter("name"));
-			 customer.setPassword(request.getParameter("password"));
-			 customer.setPhone(request.getParameter("phone"));
-			 
+			 customer.setEmail(email);
+			 customer.setFirstName(request.getParameter("firstName"));
+			 customer.setLastName(request.getParameter("lastName"));	 
+			 customer.setPhone(request.getParameter("phone"));		  
 			 customer.setZipcode(request.getParameter("zip-code"));
-			 
 			}
 		
 			return customer ; 

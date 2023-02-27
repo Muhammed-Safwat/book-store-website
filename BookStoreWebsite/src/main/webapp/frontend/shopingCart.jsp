@@ -43,7 +43,7 @@ pageEncoding="ISO-8859-1"%>
                     <c:if test="${cart.totalItems() > 0}">
                         <c:forEach items="${cart.getItems()}" var="item" varStatus="status">
                             <div class="item row border-bottom pb-2">
-                                <div class="item-image col-3">
+                                <div class="item-image col-2">
                                     <img class="img-fluid" src="data:image/png;base64,${item.key.getBase64Image()}" >
                                 </div>
                                 <div class="item-info col-8">
@@ -54,8 +54,8 @@ pageEncoding="ISO-8859-1"%>
                                                 <p class="text-bold mr-2">Qty:</p>
                                             <form class="update-cart-form" method="post" action="update-cart">
                                                 <input type="hidden" name="id" value="${item.key.bookId}">
-                                                <input type ='number' value="${item.value }" 
-                                                            class="update-cart form-control" name="quantity" id="quantity" style="width: 60px;"/>
+                                                <input type ='number' value="${item.value}" 
+                                                    class="update-cart form-control" name="quantity" id="quantity" style="width: 60px;"/>
                                             </form>  
                                                
                                             </div>
@@ -65,16 +65,24 @@ pageEncoding="ISO-8859-1"%>
                                             </form>
                                         </div>
                                 </div>
-                                <div class="col-1">
-                                    <strong class="price">${item.key.price}$</strong>
+                                <div class="col-2">
+                                    <strong class="price">${item.key.price*item.value}$</strong>
                                 </div>
                             </div>
                     </c:forEach>
                     </c:if>
                 </div>
                 <div class=" d-flex justify-content-end">
-                    <span>Subtotal</span><span class="number-items">(${cart.getTotalQuantity()} item)</span> : <strong class="total-price">${cart.GetTotalAmount()}</strong> 
+                    <span>Subtotal</span><span class="number-items">(${cart.getTotalQuantity()} item)</span> : <strong class="total-price">${cart.GetTotalAmount()}$</strong> 
                 </div>
+            </div>
+            <div class="cark-links mt-4 mb-4">
+                <ul class="d-flex gap-2 algin-items-center justify-content-center">
+                    <li><a class="text-bold" href="${pageContext.request.contextPath}">Clear Cart</a></li>
+                    <li><a class="text-bold" href="${pageContext.request.contextPath}">Continue Shopping</a></li>
+                    <li><a class="text-bold" href="${pageContext.request.contextPath}/profile/checkout">Checkout</a></li>
+                     
+                </ul>
             </div>
         </div>
     </div>
@@ -91,8 +99,7 @@ pageEncoding="ISO-8859-1"%>
     <!-- =============== MAIN JS ===============-->
     <script type="text/javascript" src='js/update-cart.js'></script>
     <script src="../css/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+ 
 
 </body>
 </html>

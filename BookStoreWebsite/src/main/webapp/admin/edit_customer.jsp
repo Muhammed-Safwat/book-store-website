@@ -43,9 +43,15 @@
             </div>
 
             <div class="input-row col-6 mb-3">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" 
-              			value="${customer.fullName}" class="form-control" required>
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" 
+              			value="${customer.firstName}" class="form-control" required>
+            </div>
+
+            <div class="input-row col-6 mb-3">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" 
+              			value="${customer.lastName}" class="form-control" required>
             </div>
 
             <div class="input-row col-6 mb-3">
@@ -67,16 +73,29 @@
             </div>
 
             <div class="input-row col-6 mb-3">
-              <label for="address">Address</label>
-              <input type="text" id="address" name="address" 
-              				value="${customer.address}" class="form-control" required>
+              <label for="addressLine1">Address Line</label>
+              <input type="text" id="addressLine1" name="addressLine1" 
+              				value="${customer.addressLine1}" class="form-control" required>
             </div>
-            
+
+            <div class="input-row col-6 mb-3">
+              <label for="addressLine2">Address</label>
+              <input type="text" id="addressLine2" name="addressLine2" 
+              				value="${customer.addressLine2}" class="form-control" required>
+            </div>
             <div class="input-row col-6 mb-3">
               <label for="city">City</label>
               <input type="text" id="city" name="city"
               				value="${customer.city}"  class="form-control" required>
             </div>
+            
+            <div class="input-row col-6 mb-3">
+              <label for="state">State</label>
+              <input type="text" id="state" name="state"
+              				value="${customer.state}"  class="form-control" required>
+            </div>
+
+   
 
 			<div class="input-row col-6 mb-3">
               <label for="zip-code">Zip Code</label>

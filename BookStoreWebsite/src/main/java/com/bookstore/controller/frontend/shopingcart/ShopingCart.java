@@ -18,16 +18,18 @@ public class ShopingCart {
 	
 	public void addItem(Book book , Integer quantity) {
 		boolean a = false ;
-		for(Map.Entry<Book, Integer> entry : cart.entrySet()) {
-			if(entry.getKey().getBookId() == book.getBookId()){
-				a=true ;
-				Integer q = cart.get(entry.getKey()) + quantity;
-				cart.put(entry.getKey(), q);
-				break; 
-			}
-		} 
-		 
-		 if(!a) {
+		if(cart.size()>0) {
+			for(Map.Entry<Book, Integer> entry : cart.entrySet()) {
+				if(entry.getKey().getBookId() == book.getBookId()){
+					a=true ;
+					Integer q = cart.get(entry.getKey()) + quantity;
+					cart.put(entry.getKey(), q);
+					break; 
+				}
+			} 
+		}
+		
+		if(!a) {
 			cart.put(book, quantity);
 		}
 		 

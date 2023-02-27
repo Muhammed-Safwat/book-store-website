@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "customer")
+@Table(name="customer")
 public class Customer {
 
 	@Id
@@ -26,15 +26,23 @@ public class Customer {
 	@Column(name = "email")
 	private String email;
 	
-	@Column(name = "fullname")
-	private String fullName;
+	@Column(name = "firstname")
+	private String firstName;
 	
-	 
-	@Column(name = "address")
-	private String address;
+	@Column(name = "lastName")
+	private String lastName; 
+	
+	@Column(name = "address_line1")
+	private String addressLine1;
 
+	@Column(name = "address_line2")
+	private String addressLine2;
+	
 	@Column(name = "city")
 	private String city;
+	
+	@Column(name = "state")
+	private String state;
 	
 	@Column(name = "country")
 	private String country;
@@ -54,26 +62,32 @@ public class Customer {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "customer")
 	private Set<Review> reviews = new HashSet<Review>(0);
 
-	
-   // private Set<BookOrder> bookOrders = new HashSet<BookOrder>(0);
-
 	public Customer() {
 		super();
 	}
 	
-	public Customer(String email, String fullName, String address, String city,  
-			String country, String phone, String zipcode, String password, String registerDate) {
+	
+
+	public Customer(String email, String firstName, String lastName, String addressLine1, String addressLine2,
+			String city, String state, String country, String phone, String zipcode, String password,
+			String registerDate, Set<Review> reviews) {
 		super();
 		this.email = email;
-		this.fullName=fullName;
-		this.address = address;
-		this.city = city; 
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.addressLine1 = addressLine1;
+		this.addressLine2 = addressLine2;
+		this.city = city;
+		this.state = state;
 		this.country = country;
 		this.phone = phone;
 		this.zipcode = zipcode;
 		this.password = password;
 		this.registerDate = registerDate;
+		this.reviews = reviews;
 	}
+
+
 
 	public Integer getCustomerId() {
 		return customerId;
@@ -91,22 +105,42 @@ public class Customer {
 		this.email = email;
 	}
 
-	public String getFullName() {
-		return fullName;
+     
+
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
- 
 
-	public String getAddress() {
-		return address;
+
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getAddressLine1() {
+		return addressLine1;
+	}
+
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
+	}
+
+	public String getAddressLine2() {
+		return addressLine2;
+	}
+
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
 	}
 
 	public String getCity() {
@@ -115,6 +149,14 @@ public class Customer {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 	public String getCountry() {
@@ -167,10 +209,14 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + customerId + ", email=" + email + ", fullName=" + fullName + ", address="
-				+ address + ", city=" + city + ", country=" + country + ", phone=" + phone + ", zipcode=" + zipcode
-				+ ", password=" + password + ", registerDate=" + registerDate + ", reviews=" + reviews + "]";
+		return "Customer [customerId=" + customerId + ", email=" + email + ", fullName=" + firstName + ", lastName="
+				+ lastName + ", addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2 + ", city=" + city
+				+ ", state=" + state + ", country=" + country + ", phone=" + phone + ", zipcode=" + zipcode
+				+ ", password=" + password + ", registerDate=" + registerDate + "]";
 	}
+	
+	 
+	 
 
  
 	 

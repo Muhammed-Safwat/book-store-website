@@ -18,7 +18,7 @@
 
       <!-- =============== CSS ===============-->
       <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
-      <title>${customer.fullName} | profile</title>
+      <title>${customer.firstName} | profile</title>
     </head>
 
     <body>
@@ -38,38 +38,56 @@
 
 			<div class="customer-profile">
 				<div class="container">
-						<h2>welecome ${customer.fullName}</h2>
-						<ul>
-							<li>
-								<span class="">E-mail Address</span>
-								<span class="">${customer.email}</span>
-							</li>
-							<li>
-								<span class="">Full Name</span>
-								<span class="">${customer.fullName}</span>
-							</li>
-							<li>
-								<span class="">Phone Number</span>
-								<span class="">${customer.phone}</span>
-							</li>
-							<li>
-								<span class="">Address</span>
-								<span class="">${customer.address}</span>
-							</li>
-							<li>
-								<span class="">City</span>
-								<span class="">${customer.city}</span>
-							</li>
-							<li>
-								<span class="">Zip Code</span>
-								<span class="">${customer.zipcode}</span>
-							</li>
-							<li>
-								<span class="">Country</span>
-								<span class="">${customer.country}</span>
-							</li>
-						</ul>
-						<a href="edit-customer-profile">Edit Profile</a>
+						<h2 class="mt-5 text-center mb-5">welecome ${customer.firstName}</h2>
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<th>E-mail Address</th>
+									<td>${customer.email}</td>
+								</tr>
+								<tr>
+									<th><span class="">First Name</span></th>
+									<td><span class="">${customer.firstName}</span></td>
+								</tr>
+								<tr>
+									<th><span class="">Last Name</span></th>
+									<td><span class="">${customer.lastName}</span></td>
+								</tr>
+								
+								<tr>
+									<th><span class="">Address Line 1</span></th>
+									<td><span class="">${customer.addressLine1}</td>
+								</tr>
+								<tr>
+									<th><span class="">Address Line 2</span></th>
+									<td><span class="">${customer.addressLine2}</span></td>
+								</tr>
+								<tr>
+									<th><span class="">City</span></th>
+									<td><span class="">${customer.city}</span></td>
+								</tr>				
+								<tr>
+									<th><span class="">State</span></th>
+									<td><span class="">${customer.state}</span></td>
+								</tr>
+								<tr>
+									<th><span class="">Country</span></th>
+									<td><span class="">${customer.country}</span></td>
+								</tr>
+								<tr>
+									<th><span class="">Phone Number</span></th>
+									<td><span class="">${customer.phone}</span></td>
+								</tr>
+								<tr>
+									<th><span class="">Zip Code</span></th>
+									<td><span class="">${customer.zipcode}</span></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="mb-5 bt-5 text-center">
+								<a class="mb-5 bt-5 text-center" href="edit-customer-profile">Edit Profile</a>
+						</div>
+						
 				</div>
 			</div>
 
