@@ -151,9 +151,30 @@
                 </tr>
                 </c:forEach>
                 <tr>
-                    <td colspan="4" class="text-end">Total</td>
-                    <td>${order.getNumberOfCopies()}</td>
-                    <td>${order.total}</td>
+                    <td colspan="5" class="text-end">Quantity</td>
+                    
+                     <td>${order.getNumberOfCopies()}</td>
+                </tr>
+                  
+                <tr>
+                    <td colspan="5" class="text-end">SubTotal</td>
+                    
+                    <td>${order.subtotal}</td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="text-end">Tax</td>
+                     
+                    <td>${order.tax}</td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="text-end">ShoppingFee</td>
+                     
+                    <td>${order.shippingFee}</td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="text-end text-bold">Total</td>
+                 
+                    <td class="text-bold">${order.total}</td>
                 </tr>
             </tbody>
             </table>

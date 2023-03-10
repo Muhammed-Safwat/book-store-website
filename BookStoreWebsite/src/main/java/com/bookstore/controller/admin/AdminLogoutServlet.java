@@ -15,23 +15,15 @@ import javax.servlet.http.HttpSession;
 public class AdminLogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
- 
-    public AdminLogoutServlet() {
-        super();
-         
-    }
-
- 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.removeAttribute("useremail");
+		session.removeAttribute("admin");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 		dispatcher.forward(request, response);
 	}
 
- 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	 
 		doGet(request, response);
 	}
 

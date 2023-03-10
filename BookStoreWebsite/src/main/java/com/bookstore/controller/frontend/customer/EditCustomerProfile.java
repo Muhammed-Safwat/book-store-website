@@ -1,4 +1,4 @@
-package com.bookstore.controller.customer;
+package com.bookstore.controller.frontend.customer;
 
 import java.io.IOException;
 import java.util.List;
@@ -37,7 +37,7 @@ public class EditCustomerProfile extends HttpServlet {
 		 this.customer = (Customer) request.getSession().getAttribute("customer");
 		 System.out.println(this.customer.toString());
 		 updateCustomer(request);
-		 request.getRequestDispatcher("../frontend/edit-customer-profile.jsp").forward(request, response);
+		 request.getRequestDispatcher("../frontend/edit_customer_profile.jsp").forward(request, response);
 	}
 	
 	private void updateCustomer(HttpServletRequest request) {

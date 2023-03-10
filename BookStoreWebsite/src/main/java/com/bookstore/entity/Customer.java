@@ -206,6 +206,10 @@ public class Customer {
 	public void setReviews(Set<Review> reviews) {
 		this.reviews = reviews;
 	}
+	
+	public String getFullName() {
+		return this.getFirstName() + " " + this.getLastName();
+	}
 
 	@Override
 	public String toString() {

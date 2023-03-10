@@ -78,7 +78,7 @@
                   <div class="img customer-img col-2">
                     <img src="https://images-na.ssl-images-amazon.com/images/S/amazon-avatars-global/default._CR0,0,1024,1024_SX48_.png">
                   </div>
-                  <p class="col-9 text-bold customer-name">${review.customer.fullName }</p>
+                  <p class="col-9 text-bold customer-name">${review.customer.firstName }</p>
                 </div>
                 <div class="headline row align-items-center">
                   <div class="starts col-2 align-items-center">

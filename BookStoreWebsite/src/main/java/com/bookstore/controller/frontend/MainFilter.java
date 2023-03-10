@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.bookstore.controller.frontend.shopingcart.ShopingCart;
+import com.bookstore.dao.CategoryDAO;
 import com.bookstore.entity.Category;
 import com.bookstore.service.CategoryServices;
 
@@ -35,14 +36,17 @@ public class MainFilter extends HttpFilter implements Filter {
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
-
+		if(request.getParameter("massage") == null)
+			request.setAttribute("massage", "");
+		
+		
 		HttpServletRequest httpreRequest  =(HttpServletRequest) request;
 		HttpSession session = httpreRequest.getSession(true);
 		 
 		ServletContext context = request.getServletContext();
 		 if(context.getAttribute("categories")==null) {
-			    CategoryServices categoryServices  = new CategoryServices();
-				List<Category>  categoryList = categoryServices.list();
+			    CategoryDAO categoryDAO  = new CategoryDAO();
+				List<Category>  categoryList = categoryDAO.listAll();
 				context.setAttribute("categories", categoryList);
 		 }
 	 

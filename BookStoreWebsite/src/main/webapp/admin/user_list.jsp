@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-
- <head>
+<head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!-- =============== BOXICONS ===============-->
@@ -15,10 +14,11 @@
      <!-- =============== CSS ===============-->
      <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
      <link href="${pageContext.request.contextPath}/css/user_list.css" rel="stylesheet" type="text/css">
-     <title>Manage Users</title>
- </head>
 
- <body>
+     <title>Manage Users</title>
+</head>
+
+<body>
      <!--  include header folder  -->
      <jsp:include page="../helper/header.jsp"></jsp:include>
 
@@ -27,20 +27,19 @@
 	
 	<div class='container'>
     	 <h1 class="text-center">manage user list </h1>
-	
-		<c:if test="${request.getAttribute('massage') != null}">
-		     <h1 class="text-center">
-		         <%=request.getAttribute("massage")%>
-		     </h1>	
-	    </c:if>
-    
+	 	
+	 
+	     <h1 class="text-center">
+	         <%=request.getAttribute("message")%>
+	     </h1>	
+
 	    <h4 class="text-center mt-4">
 	   		<a href='user_form.jsp'>Create new User</a>
 	    </h4>
-      
-     
-     
-     
+
+      <div class="data-container">
+
+
 	     <table class="table table-bordered">
 	         <thead>
 	             <tr>
@@ -59,14 +58,19 @@
 	                     <td>${user.email}</td>
 	                     <td>${user.fullName}</td>
 	                     <td>
-	                         <a href="" class='edit-button'>Edit</a>
-	                         <a href="" class='delete-button'>Delete</a>
+												<form action="" method="post">
+													<input type="hidden" name='id' value="${user.userId}">
+													<a href="" class='edit-button'>Edit</a>
+													<a href="" class='delete-button'>Delete</a>
+												</form>   
 	                     </td>
 	                 </tr>
 	             </c:forEach>
 	         </tbody>
 	     </table>
-	     <div class="delete-user none">
+
+			</div>
+	     <div class="event-panel delete-user none">
 	         <div class="box">
 	             <h3>Do you want to delete id = <span class="id">12</span></h3>
 	             <div class="btns row">
@@ -81,10 +85,10 @@
 	</div>
      <!-- include footer  -->
      <jsp:include page="../helper/footer.jsp"></jsp:include>
-
+		  
+     <script type="module" src="../js/list_user.js"></script>
          <!-- =============== MAIN JS ===============-->
      <script src="../css/bootstrap/js/bootstrap.min.js"></script>
-     <script src="../js/delete_user.js"></script>
+     
  </body>
-
-        </html>
+</html>

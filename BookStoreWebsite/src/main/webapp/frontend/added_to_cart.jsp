@@ -45,10 +45,10 @@ pageEncoding="ISO-8859-1"%>
               <p class="total-price">${total}$</p>
             </div>
             <div class="buy-button mb-2">
-                <button class="btn btn-primary">Proceed to Buy (2 items)</button>
+                <button class="btn btn-primary"><a href='profile/checkout'>Ceckout</a></button>
             </div>
             <div class="go-to-basket mb-2">
-              <button class=" btn btn-success"><a href='view_cart'>Go to basket</a></button>
+              <button class=" btn btn-primary"><a href='view_cart'>Go to basket</a></button>
             </div>
             <p>For the best experience <a href='${pageContext.request.contextPath}/login-customer'>sign in to your account</a></p>
           </div>

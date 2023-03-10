@@ -19,35 +19,10 @@ import com.bookstore.service.CategoryServices;
 @WebServlet("/admin/delete_category")
 public class DeleteCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private CategoryServices categoryServices = null ; 
-	private BookService bookService = null ;
-    public DeleteCategoryServlet() {
-    	 categoryServices = new CategoryServices();
-    	 bookService = new BookService();
-    }
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Integer id  = Integer.valueOf(request.getParameter("id"));
-		
-		Set<Book> bookList  = bookService.findBooksByCategory(id);
-		 
-		 if(bookList.size() > 0) {
-			  request.setAttribute("massage","Con not delete category with ID ["+id+"]");
-		 }else {
-			 Category categroy  = categoryServices.get(id);
-			 if(categroy!= null) {
-			    categoryServices.delete(id);  
-			    request.setAttribute("massage",categroy.getName()+" Category deleted sucssufully");
-		 	}else {
-		 		  request.setAttribute("massage","Could not find category with ID ["+id+"]");
-		 	}
-		 }
-		RequestDispatcher requestDispatcher  =  request.getRequestDispatcher("list_category"); 
-		requestDispatcher.forward(request, response);
-	}
-  
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
+		CategoryServices categoryServices = new CategoryServices(request, response);		
+		categoryServices.deleteCategory();
+	}  
 
 }

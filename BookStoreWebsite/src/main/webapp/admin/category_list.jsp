@@ -27,38 +27,43 @@
 	<div class='container'>
 	<h1 class="text-center">Category list </h1>
 
-      <c:if test="${request.getAttribute('massage') != null}">
-	     <h1 class="text-center">
-	         <%=request.getAttribute("massage")%>
-	     </h1>	
-	</c:if>
+      <h1 class="text-center">
+         <%=request.getAttribute("message")%>
+     </h1>
+
 	<h4 class="text-center mb-5">
-		<a href='category_form.jsp'>Create new Category</a>
+		<a href='create_category'>Create new Category</a>
 	</h4>
-    
-    
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Index</th>
-                <th>ID</th>
-                <th>Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach var="categorie" items="${categories}" varStatus="status">
+
+    <div class="data-container">
+        <table class="table table-bordered">
+            <thead>
                 <tr>
-                    <td>${status.index+1}</td>
-                    <td class="user-id">${categorie.categoryId}</td>
-                    <td>${categorie.name}</td>
-                    <td>
-                        <a href="" class='edit_category'>Edit</a>
-                        <a href="" class='delete-button'>Delete</a>
-                    </td>
+                    <th>Index</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Actions</th>
                 </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <c:forEach var="categorie" items="${categories}" varStatus="status">
+                    <tr>
+                        <td>${status.index+1}</td>
+                        <td class="categorie-id">${categorie.categoryId}</td>
+                        <td>${categorie.name}</td>
+                        <td>
+                            <form>
+                                <input type="hidden" name='id' value="${categorie.categoryId}">
+                                <a href="" class='edit-button'>Edit</a>
+                                <a href="" class='delete-button'>Delete</a>
+                            </form>   
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+    </div>
+
     <div class="event-panel delete-user none">
         <div class="box">
             <h3>Do you want to delete id = <span class="id"></span></h3>
@@ -74,10 +79,10 @@
 </div>
     <!-- include footer -->
     <jsp:include page="../helper/footer.jsp"></jsp:include>
-
+ 	<script type='module' src="../js/category_list.js"></script>
     <!-- =============== MAIN JS ===============-->
     <script src="../css/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../js/category.js"></script>
+   
 </body>
 
 </html>

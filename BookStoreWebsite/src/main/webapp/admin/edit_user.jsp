@@ -28,30 +28,25 @@
 	<!-- core page  -->
  	<h1>Edit user</h1>
  	 <h1>
-            <%=request.getAttribute("massage")%>
+            <%=request.getAttribute("message")%>
      </h1>
      
   <div class="create-user">
-    <form action="edit_user" method='post' class="create-user-form row" >
-      
-      <div class="input-row col-12 mb-3">
+    <form action="update_user" method='post' class="create-user-form row" >
+      <input value="${user.userId }" name="id" type='hidden'/>
+      <div class="input-row col-6 mb-3">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" class="form-control" required  value="<%=request.getAttribute("email")%>"/>
+        <input type="email" id="email" name="email" class="form-control" required  value="${user.email }"/>
       </div>
       
-      <div class="input-row col-12 mb-3">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" class="form-control"  value="<%=request.getAttribute("password")%>" required/>
-      </div>
-      
-      <div class="input-row col-12 mb-3">
+      <div class="input-row col-6 mb-3">
         <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" class="form-control"  value="<%=request.getAttribute("name")%>" required/>
+        <input type="text" id="name" name="name" class="form-control"  value="${user.fullName }" required/>
       </div>
       
       <div class="form_button col-4 m-auto">
-        <button type="submit"  class="btn btn-outline-danger mt-3 mb-3">Submit</button>
-        <button type="reset"  class="btn btn-outline-danger mt-3 mb-3">Cencle</button>
+        <button type="submit"  class="btn btn-outline-danger mt-3 mb-3">Update</button>
+        <button type=submit  class="btn btn-outline-danger mt-3 mb-3"><a href="list_user">Save</a></button>
       </div>
       
     </form>

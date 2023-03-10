@@ -27,7 +27,7 @@
         <div class="make-review-header d-flex justify-content-between border-bottom pt-3 pb-3 ">
             <h1>Your Review</h1>
             <p class="text-muted">
-                Your public pen name is now  .${customer.fullName} <a href="">Change</a>
+                Your public pen name is now  .${customer.firstName} <a href="">Change</a>
             </p>
         </div>
         <div class="review-body row justify-content-between pt-3">

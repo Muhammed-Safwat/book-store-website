@@ -40,7 +40,7 @@
           </div>
           <div class="col-12 row mb-3">
             <span class="col-3">Customer:</span>
-            <strong class="col-9">${review.customer.fullName }</strong>
+            <strong class="col-9">${review.customer.firstName }</strong>
           </div>
           <div class="col-12">
             <label for="headline" class="">Headline</label>

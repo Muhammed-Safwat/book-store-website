@@ -27,15 +27,16 @@
 	<!-- core page  -->
  	<h1>Edit Category</h1>
  	  <h1>
-            <%=request.getAttribute("massage")%>
+            <%=request.getAttribute("message")%>
       </h1>
       
   <div class="create-user">
-    <form action="edit_category" method='post' class="create-user-form row" >
+    <form action="update_category" method='post' class="create-user-form row" >
       
       <div class="input-row col-12 mb-3">
         <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" class="form-control"  value="<%=request.getAttribute("name")%>" required/>
+        <input type="hidden" id="id" name="id" value="${categroy.categoryId }"/>
+        <input type="text" id="name" name="name" class="form-control" value="${categroy.name}" required/>
       </div>
      
       <div class="form_button col-4 m-auto">

@@ -26,13 +26,15 @@
 	
 	<!-- core page  -->
  	<h1>create user</h1>
- 	
+ 	 <h1>
+            <%=request.getAttribute("massage")%>
+     </h1>
   <div class="create-user">
     <form action="create-user" method='post' class="create-user-form row" >
     
       <div class="input-row col-12 mb-3">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" class="form-control" required>
+        <input type="email" id="email" name="email" class="form-control" value="${email}" required>
       </div>
       
       <div class="input-row col-12 mb-3">
@@ -42,7 +44,7 @@
       
       <div class="input-row col-12 mb-3">
         <label for="name">Full Name</label>
-        <input type="name" id="name" name="name" class="form-control" required>
+        <input type="name" id="name" name="name" class="form-control" value="${name}" required>
       </div>
       
       <div class="form_button col-4 m-auto">
@@ -63,6 +65,6 @@
     
     <!-- =============== MAIN JS ===============-->
     <script src="../css/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../js/user_form.js"></script>
+    <script src="../js/user_form1.js"></script>
   </body>
 </html>

@@ -1,12 +1,13 @@
 package com.bookstore.test;
 
-import com.bookstore.entity.Category;
-import com.bookstore.service.CategoryServices;
+import com.bookstore.dao.CategoryDAO;
+
 
 public class testCategory {
 	public static void main(String[] args) {
-		CategoryServices c = new CategoryServices();
-		System.out.println(c.findByName("Story") ); 
+		 
+		 CategoryDAO c = new CategoryDAO();
+		 c.CategoryLazy(11);
 		// add category 
 		
 		/*Category cat = new Category("story3");

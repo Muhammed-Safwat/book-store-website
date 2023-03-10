@@ -32,7 +32,7 @@ public class CreateCustomerReivewServlet extends HttpServlet {
 		System.out.println(book.toString());
 		request.setAttribute("book", book);
 		
-		request.getRequestDispatcher("../frontend/makeReview.jsp").include(request, response);
+		request.getRequestDispatcher("../frontend/make_review.jsp").include(request, response);
 	}
 
 }

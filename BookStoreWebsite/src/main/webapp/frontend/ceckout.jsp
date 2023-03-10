@@ -80,57 +80,58 @@ pageEncoding="ISO-8859-1"%>
         <div class="information-form d-flex justify-content-center mt-5 mb-5">
             <form action="place_order" method="post">
                 <div class="row">
-                    <div class="col-6">First Name</div>
+                    
+                    <div class="col-6">First Name</div>  
                     <div class="col-6">
-                        <input class="form-control" type="text" name="firstName" id="" required>
+                        <input class="form-control" type="text" name="firstName"   value='${customer.firstName}' id="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">Last Name</div>
                     <div class="col-6">
-                        <input class="form-control" type="text" name="lastName" id="" required>
+                        <input class="form-control" type="text" name="lastName" value='${customer.lastName}' id="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">Recipient Phone</div>
                     <div class="col-6">
-                        <input class="form-control" type="text" name="phone" id="" required>
+                        <input class="form-control" type="text" name="phone" value='${customer.phone}' id="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">Recipient Address Line1</div>
                     <div class="col-6">
-                        <input class="form-control" type="text" name="addressLine1" id="" required>
+                        <input class="form-control" type="text" name="addressLine1" value='${customer.addressLine1}' id="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">Recipient Address Line2</div>
                     <div class="col-6">
-                        <input class="form-control" type="text" name="addressLine2" id="" required>
+                        <input class="form-control" type="text" name="addressLine2" value='${customer.addressLine2}' id="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">City</div>
                     <div class="col-6">
-                        <input class="form-control" type="text" name="city" id="" required>
+                        <input class="form-control" type="text" name="city" id="" value='${customer.city}' required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">State</div>
                     <div class="col-6">
-                        <input class="form-control" type="text" name="state" id="" required>
+                        <input class="form-control" type="text" name="state" value='${customer.state}' id="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">Country</div>
                     <div class="col-6">
-                        <input class="form-control" type="text" name="country" id="" required>
+                        <input class="form-control" type="text" name="country"  value='${customer.country}' id="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">Zip Code</div>
                     <div class="col-6">
-                        <input class="form-control" type="text" name="zipcode" id="" required>
+                        <input class="form-control" type="text" name="zipcode" value='${customer.zipcode}'  id="" required>
                     </div>
                 </div>
                 <div class="row">
@@ -144,11 +145,11 @@ pageEncoding="ISO-8859-1"%>
                         </select>
                     </div>
                 </div>
-                <div class="row">
+                <!-- div class="row">
                     <div class="col-6">
                         Order Status
                     </div>
-                    <div class="col-6">
+                      <div class="col-6">
                         <select class='form-select' name="order-status">
                             <option value="Processing" >Processing</option>
                             <option value="Shipping">Shipping</option>
@@ -156,7 +157,7 @@ pageEncoding="ISO-8859-1"%>
                             <option value="Completed">Completed</option>
                             <option value="Cancelled">Cancelled</option>
                           </select>
-                    </div>
+                    </div-->
                 </div>
 
                 <div class="row mt-4">

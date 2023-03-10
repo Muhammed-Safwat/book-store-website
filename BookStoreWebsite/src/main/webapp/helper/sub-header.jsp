@@ -4,7 +4,7 @@
         welcome <span class="admin"><%=request.getServletContext().getAttribute("admin")%></span>
         <br> 
         <span class="admin"> ${admin.getFirstName()} </span>
-        <a class='logout' href=''>Logout</a>
+        <a class='logout' href='${pageContext.request.contextPath}/admin/logout'>Logout</a>
         </div>
         <ul class="links d-flex">
           <li> <a href="${pageContext.request.contextPath}/admin/list_user">Users </a></li>

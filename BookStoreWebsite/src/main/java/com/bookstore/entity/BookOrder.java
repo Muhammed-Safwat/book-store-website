@@ -330,16 +330,23 @@ public class BookOrder  {
 
 	public void setTotal() {
 		double total = 0 ;
-		for(OrderDetail order : this.orderDetails) {
-			total += order.getQuantity()*order.getBook().getPrice();
+		if(!this.orderDetails.isEmpty()) {
+			for(OrderDetail order : this.orderDetails) {
+				total += order.getQuantity()*order.getBook().getPrice();
+			}
+			    this.subtotal=total;
+			    
+				total+= this.tax + this.shippingFee;
 		}
+		
 		this.total=total;
 	}
 	
 	
 	public int getNumberOfCopies() {
 		int total = 0 ;
-		for(OrderDetail order : this.orderDetails) {
+		
+		for(OrderDetail order : this.getOrderDetails()) {
 			total += order.getQuantity();
 		}
 		return total;

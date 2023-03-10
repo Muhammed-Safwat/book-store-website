@@ -24,7 +24,7 @@ public class ViewCartServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ShopingCart cart  =	(ShopingCart) request.getSession().getAttribute("cart");
 		request.setAttribute("cart", cart);
-		request.getRequestDispatcher("frontend/shopingCart.jsp").include(request, response);
+		request.getRequestDispatcher("frontend/shoping_cart.jsp").include(request, response);
 	}
 
 

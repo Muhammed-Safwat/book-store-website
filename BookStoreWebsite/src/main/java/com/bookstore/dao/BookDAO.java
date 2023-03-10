@@ -28,10 +28,7 @@ public class BookDAO extends JpaDAO<Book> implements GenericDAO<Book> {
 		return super.findBy("Book", "title", title);
 	}
 	
-	public Set<Book> ListByCategory(Integer id){
-		CategoryServices categoryServices  = new CategoryServices();
-		return categoryServices.get(id).getBooks();
-	}
+ 
 
 	@Override
 	public void delete(Integer id) {

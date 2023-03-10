@@ -1,7 +1,13 @@
 package com.bookstore.dao;
 
 import java.util.List;
+import java.util.Set;
 
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.bookstore.entity.Book;
 import com.bookstore.entity.Category;
 
 public class CategoryDAO extends JpaDAO<Category> implements GenericDAO<Category> {
@@ -41,6 +47,19 @@ public class CategoryDAO extends JpaDAO<Category> implements GenericDAO<Category
 		return list ; 
 	}
 	
+	public Set<Book> loadBooks(Integer id){
+		return super.get(Category.class, id).getBooks();
+	}
+	  
+	public Category CategoryLazy(Integer id) {	 
+		Session session = super.LazyLodding();
+	    Transaction tx = null;
+        tx = session.beginTransaction();
+		Category  category = session.get(Category.class, id);  
+        Hibernate.initialize(category.getBooks());
+        tx.commit();        
+        return category;
+	}
 
 
 }

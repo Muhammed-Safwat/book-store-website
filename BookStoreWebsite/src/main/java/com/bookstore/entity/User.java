@@ -24,9 +24,7 @@ public class User {
 	
 	@Column(name="password")
 	private String  password ;
-	
-	  
-	
+
 	public User() {
 		super();
 	}
@@ -74,6 +72,7 @@ public class User {
 		this.password = password;
 	}
 
+	
 	public String  getFirstName() {
 		String   builder = "" ;
 		for(int i = 0 ; i<this.fullName.length() ; i++) {

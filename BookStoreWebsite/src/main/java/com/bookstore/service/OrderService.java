@@ -19,6 +19,7 @@ import com.bookstore.entity.Book;
 import com.bookstore.entity.BookOrder;
 import com.bookstore.entity.Customer;
 import com.bookstore.entity.OrderDetail;
+import com.paypal.api.payments.Payment;
 
 public class OrderService {
 	private BookOrderDAO bookOrderDAO ;
@@ -73,14 +74,30 @@ public class OrderService {
 	}
 
 	public void placeOrder() throws ServletException, IOException {
-	 	
+		String paymentMethod = request.getParameter("payment-method");
+		BookOrder order = readOrderInfo();
+		if(paymentMethod.equals("paypal")) {
+			PaymentServices paymentServices = new PaymentServices(request, response);
+			request.getSession().setAttribute("order4Paypal", order);
+			paymentServices.authorizePayment(order);
+		}else {
+			placeCOD(order);
+		}
+		
+	}
+	
+	public void placeOrderPaypal(Payment payment) {
+		BookOrder order =(BookOrder) request.getAttribute("order4Paypal");
+	}
+	
+	public BookOrder readOrderInfo() {
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String phone = request.getParameter("phone");
 		String addressLine1 = request.getParameter("addressLine1");
 		String addressLine2 = request.getParameter("addressLine2");
 		String paymentMethod = request.getParameter("payment-method");
-		String orderStatus = request.getParameter("order-status");
+		
 	 
 		String city = request.getParameter("city");
 		String state = request.getParameter("state");
@@ -97,7 +114,7 @@ public class OrderService {
 	    		customer
 	    		,date
 	    		,0.0
-	    		,orderStatus
+	    		,"Processing"
 	    		,addressLine1
 	    		,addressLine2
 	    		,paymentMethod
@@ -124,14 +141,25 @@ public class OrderService {
 										    		  subtotal);
 	    	total+=subtotal;
 	    	orderDetails.add(orderDetail);
+	    	newOrder.setSubtotal(total);
  		}
+	    
+	    newOrder.setShippingFee(cart.GetTotalAmount()*.1);
+	    newOrder.setTax(cart.getTotalQuantity()*1.0);
+	    total+=newOrder.getTax()+newOrder.getShippingFee();
 	    
 	    newOrder.setTotal(total);    
 	    newOrder.setOrderDetails(orderDetails);
 	    
+	    return newOrder;
+	}
+	public void placeCOD(BookOrder  newOrder) throws IOException {
+		
+		
 	    bookOrderDAO.create(newOrder);
 	    
 	    // clear shopping cart 
+	    ShopingCart cart = (ShopingCart) request.getSession().getAttribute("cart");
 	    cart.clear();  
 	    request.getSession().setAttribute("cart" , cart);
 	    

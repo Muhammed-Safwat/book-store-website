@@ -1,4 +1,4 @@
-package com.bookstore.controller.customer;
+package com.bookstore.controller.frontend.customer;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;

@@ -46,7 +46,7 @@ public class ViewBookServlet extends HttpServlet {
 			 System.out.println("reviewList ==>"+reviewList);
  				request.setAttribute("book", book);
 				request.setAttribute("reviewList", reviewList);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("frontend/bookDetailPage.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("frontend/book_detail_page.jsp");
 				dispatcher.forward(request, response); 
 		 }
 

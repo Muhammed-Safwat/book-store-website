@@ -64,7 +64,7 @@
 					            </div>
                             </td>
                             <td>${review.headline}</td>
-                            <td>${review.customer.fullName}</td>
+                            <td>${review.customer.firstName}</td>
                             
                             <td>${review.comment}</td>
                              

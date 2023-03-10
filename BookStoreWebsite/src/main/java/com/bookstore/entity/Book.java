@@ -52,20 +52,17 @@ public class Book{
 	@Column(name="last_update_time")
 	private String lastUpdateTime;
 	
-	@ManyToOne(fetch = FetchType.EAGER , cascade = {CascadeType.DETACH , CascadeType.MERGE , CascadeType.REFRESH ,CascadeType.PERSIST})
+	@ManyToOne(fetch = FetchType.LAZY , cascade = {CascadeType.DETACH , CascadeType.MERGE , CascadeType.REFRESH ,CascadeType.PERSIST})
 	@JoinColumn(name="category_id")
 	private Category category;
 	
-	@OneToMany(fetch = FetchType.EAGER , mappedBy = "book")
+	@OneToMany(fetch = FetchType.LAZY , mappedBy = "book")
 	private Set<Review> reviews = new HashSet<Review>(0);
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "book")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
 	private Set<OrderDetail> BookOrders = new HashSet<OrderDetail>(0);
- 	
-	 
-	public Book() {
-		
-	}
+ 		 
+	public Book() {}
 	
 	public Book(String title, String author, String description, String isbn, byte[] image ,
 			double price, String publishDate, String lastUpdateTime) {
@@ -189,6 +186,7 @@ public class Book{
 	  
 		return  averageRate ;  
 	}
+	
 	@Transient
 	public int getNumberOfReviews() {
 		return reviews.size();
