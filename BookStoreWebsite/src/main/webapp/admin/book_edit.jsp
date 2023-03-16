@@ -27,14 +27,17 @@
 
       <!-- core page  -->
       <h1 class="text-center mb-5 mt-5">Edit Book</h1>
-     <h1>
-         <%=request.getAttribute("massage")%>
-     </h1>
+     <c:if test="${not empty requestScope.message}">
+	    <h1 class="text-center">
+	        ${requestScope.message}
+	    </h1>
+	</c:if>
      
     <div class=" edit-book create-book pt-5 pb-5">
        <div class="container">
-          <form  method="post" action="edit_book"  enctype="multipart/form-data" 
+          <form action="update_book"   method='post' enctype="multipart/form-data" 
                class="create-user-form row">
+                <input type="hidden" name='id' value="${book.bookId}">
             <div class="input-row col-6 mb-3">
               <label for="category">Category</label>
               <select name="category" id="category" class="form-select">
@@ -54,6 +57,7 @@
               <label for="title">Title</label>
               <input type="text" id="title" name="title" class="form-control"
                required value="${book.getTitle()}">
+               
             </div>
 
             <div class="input-row col-6 mb-3">
@@ -90,14 +94,14 @@
 					<img src="data:image/png;base64,${book.getBase64Image()}" >
               </div>
             </div>
-
+            
             <div class="input-row col-6 mb-3"> 
               <label for="discription">Discription</label>
               <textarea type="discription" id="discription" name="discription" 
               class="form-control" required>"${book.description}</textarea>
             </div>
              
-            
+           
             <div class="form_button col-4 m-auto">
               <button type="submit" class="btn btn-outline-danger mt-3 mb-3">save</button>
               <button type="reset" class="btn btn-outline-danger mt-3 mb-3">Cencle</button>

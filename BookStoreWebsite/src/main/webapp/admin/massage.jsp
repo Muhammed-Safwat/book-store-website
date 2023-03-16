@@ -25,11 +25,11 @@
 	<jsp:include page="../helper/header.jsp"></jsp:include>
 	
 	 
- 	<h1> 
-		 <%=request.getAttribute("massage")%>
-	 		   
-     	 
-	</h1> 
+ 	<c:if test="${not empty requestScope.message}">
+	    <h1 class="text-center">
+	        ${requestScope.message}
+	    </h1>
+	</c:if> 
   
 			<jsp:include page="../helper/footer.jsp"></jsp:include>
 		</body>

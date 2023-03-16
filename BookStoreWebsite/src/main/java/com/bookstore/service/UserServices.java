@@ -143,7 +143,7 @@ public class UserServices {
 	
 	public void LoadAdminHomePage() throws ServletException, IOException {
 		List<BookOrder> orders =  bookOrderDAO.listAll(4);
-		List<Review> reviews =  reviewDAO.listAll(4); 
+		List<Review> reviews =  reviewDAO.listReviewWithBook(4); 
 		
 		 request.setAttribute("orders", orders);
 		 request.setAttribute("reviews", reviews);

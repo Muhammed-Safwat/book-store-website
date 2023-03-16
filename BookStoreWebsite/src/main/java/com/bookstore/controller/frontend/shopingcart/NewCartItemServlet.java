@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 public class NewCartItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public NewCartItemServlet() {
-      
-    }
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("frontend/added_to_cart.jsp").include(request, response);
 	}

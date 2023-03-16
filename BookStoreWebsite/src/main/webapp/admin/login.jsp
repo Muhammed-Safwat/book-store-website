@@ -28,7 +28,11 @@
 				<div class="container">
 					<h1 class="main-headline m-4 text-center"> Book store Adminstraion </h1>
 					<h4 class="sub-headline mb-4 text-center"> Admin Login </h4>
-					<h5 class="error-massage"> <%=request.getAttribute("massage")%></h5>
+					<c:if test="${not empty requestScope.message}">
+					    <h1 class="text-center">
+					        ${requestScope.message}
+					    </h1>
+					</c:if>
 					<form action="${pageContext.request.contextPath}/admin/login" method="post" class="form-input row mb-5">
 						<div class="form--input col-6">
 							<label for="email"> Email </label>

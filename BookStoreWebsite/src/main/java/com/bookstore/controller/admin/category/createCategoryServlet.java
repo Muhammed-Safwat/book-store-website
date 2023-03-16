@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bookstore.service.CategoryServices;
 
- 
 @WebServlet("/admin/create_category")
 public class createCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

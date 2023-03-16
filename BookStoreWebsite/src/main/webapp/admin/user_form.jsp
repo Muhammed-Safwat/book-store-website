@@ -26,9 +26,11 @@
 	
 	<!-- core page  -->
  	<h1>create user</h1>
- 	 <h1>
-            <%=request.getAttribute("massage")%>
-     </h1>
+ 	 <c:if test="${not empty requestScope.message}">
+	    <h1 class="text-center">
+	        ${requestScope.message}
+	    </h1>
+	</c:if>
   <div class="create-user">
     <form action="create-user" method='post' class="create-user-form row" >
     
@@ -48,8 +50,8 @@
       </div>
       
       <div class="form_button col-4 m-auto">
-        <button type="submit"  class="btn btn-outline-danger mt-3 mb-3">Submit</button>
-        <button type="reset"  class="btn btn-outline-danger mt-3 mb-3">Cencle</button>
+        <button type="submit"  class="btn btn-outline-danger mt-3 mb-3">Add</button>
+        <a  class="btn btn-outline-danger mt-3 mb-3" href="list_user">Back</a>
       </div>
       
     </form>

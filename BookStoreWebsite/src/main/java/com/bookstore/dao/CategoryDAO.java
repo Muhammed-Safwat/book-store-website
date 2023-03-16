@@ -57,7 +57,8 @@ public class CategoryDAO extends JpaDAO<Category> implements GenericDAO<Category
         tx = session.beginTransaction();
 		Category  category = session.get(Category.class, id);  
         Hibernate.initialize(category.getBooks());
-        tx.commit();        
+        tx.commit();  
+        session.close();
         return category;
 	}
 

@@ -29,11 +29,11 @@
 
 <h1 class="text-center">Manage Order List </h1>
 
-    <c:if test="${request.getAttribute('massage') != null}">
-        <h1 class="text-center">
-            <%=request.getAttribute("massage")%>
-        </h1>	
-    </c:if>
+    <c:if test="${not empty requestScope.message}">
+	    <h1 class="text-center">
+	        ${requestScope.message}
+	    </h1>
+	</c:if>
         
     <!-- ==================== start order list =======================-->
     <div class="list-templete book-list order-list">

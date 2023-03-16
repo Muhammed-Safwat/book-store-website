@@ -27,9 +27,11 @@
 	<div class='container'>
 	<h1 class="text-center">Category list </h1>
 
-      <h1 class="text-center">
-         <%=request.getAttribute("message")%>
-     </h1>
+      <c:if test="${not empty requestScope.message}">
+	    <h1 class="text-center">
+	        ${requestScope.message}
+	    </h1>
+	  </c:if>
 
 	<h4 class="text-center mb-5">
 		<a href='create_category'>Create new Category</a>

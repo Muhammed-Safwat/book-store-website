@@ -40,15 +40,17 @@
       <!-- core page  -->
       <h1 class="text-center mb-2 mt-5">Update Profile</h1>
       
-        <h1 class="text-center mb-5 mt-5">
-            <%=request.getAttribute("message")%>
-         </h1>
+       <c:if test="${not empty requestScope.message}">
+		    <h1 class="text-center">
+		        ${requestScope.message}
+		    </h1>
+	   </c:if>
     
       
      
       <div class="create-book pt-5 pb-5">
         <div class="container">
-          <form action="edit-customer-profile" method='post' class="create-user-form row">
+          <form action="edit_customer_profile" method='post' class="create-user-form row">
          
             <div class="input-row col-6 mb-3">
               <label for="email">E-mail</label>

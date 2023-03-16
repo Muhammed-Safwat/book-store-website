@@ -24,11 +24,11 @@
 
       
       <div class="container">
-     <c:if test="${request.getAttribute('massage') != null}">
-        <h1 class="text-center">
-            <%=request.getAttribute("massage")%>
-        </h1>	
-    </c:if>
+	     <c:if test="${not empty requestScope.message}">
+		    <h1 class="text-center">
+		        ${requestScope.message}
+		    </h1>
+		</c:if>
       <div class="row">&nbsp;</div>
 	
 	<div class="row">

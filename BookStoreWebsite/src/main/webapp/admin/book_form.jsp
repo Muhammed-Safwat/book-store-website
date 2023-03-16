@@ -27,9 +27,13 @@
 
       <!-- core page  -->
       <h1 class="text-center mb-2 mt-5">create Book</h1>
-      <h1 class="text-center mb-5 mt-5">
-         <%=request.getAttribute("massage")%>
-     </h1>
+      
+      <c:if test="${not empty requestScope.message}">
+	    <h1 class="text-center">
+	        ${requestScope.message}
+	    </h1>
+	</c:if>
+	
       <div class="create-book pt-5 pb-5">
         <div class="container">
           <form action="create_book" method='post' enctype="multipart/form-data" class="create-user-form row">

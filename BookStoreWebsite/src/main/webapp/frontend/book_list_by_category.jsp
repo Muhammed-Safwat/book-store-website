@@ -38,10 +38,11 @@
       <div class="container"> 
         <h1>${category.name}</h1>
         
-         <h1>
-        	<%= request.getAttribute("massage") %>
-    	</h1>
-    
+        <c:if test="${not empty requestScope.message}">
+		    <h1 class="text-center">
+		        ${requestScope.message}
+		    </h1>
+		</c:if>
         <div class="row book-list new-books-list">
         	<c:forEach var="book" items="${books}"> 
 	            <div class="col-lg-4 col-md-6 col-12">

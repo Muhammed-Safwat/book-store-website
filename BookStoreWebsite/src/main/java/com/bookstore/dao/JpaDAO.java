@@ -22,18 +22,18 @@ import com.bookstore.entity.User;
 public class JpaDAO<E>{
 	SessionFactory factory = null  ;
 	Session session =  null ;
-	
+	Transaction transaction = null;
 	public void StartFactory(){
 		this.factory = new Configuration()
-				.configure("hibernate.cfg.xml")
-				.addAnnotatedClass(User.class)
-				.addAnnotatedClass(Category.class)
+				 .configure("hibernate.cfg.xml")
+				 .addAnnotatedClass(User.class)
+				 .addAnnotatedClass(Category.class)
 				 .addAnnotatedClass(Customer.class)
 				 .addAnnotatedClass(Book.class)
 				 .addAnnotatedClass(Review.class)
 				 .addAnnotatedClass(OrderDetail.class)
 				 .addAnnotatedClass(BookOrder.class)
-				.buildSessionFactory();		
+				 .buildSessionFactory();		
 	}
 	 
 	public E create(E entity) {
@@ -90,7 +90,7 @@ public class JpaDAO<E>{
 		StartFactory();
 		List<E> list  = new LinkedList<E>();
 		session = factory.getCurrentSession();
-		session.beginTransaction();
+		transaction = session.beginTransaction();
 		list =  (List<E>) session.createQuery(quere).getResultList();
 		session.getTransaction().commit();
 		//this.factory.close();
@@ -101,7 +101,7 @@ public class JpaDAO<E>{
 		StartFactory();
 		List<E> list  = new LinkedList<E>();
 		session = factory.getCurrentSession();
-		session.beginTransaction();
+		transaction = session.beginTransaction();
 		list =  (List<E>) session.createQuery(quere).setMaxResults(max).getResultList();
 		session.getTransaction().commit();
 		//this.factory.close();
@@ -112,7 +112,7 @@ public class JpaDAO<E>{
 		StartFactory();
 		List<Object[]> list  = new LinkedList<Object[]>();
 		session = factory.getCurrentSession();
-		session.beginTransaction();
+		transaction = session.beginTransaction();
 		list =  (List<Object[]>) session.createQuery(quere).setMaxResults(max).getResultList();
 		session.getTransaction().commit();
 		//this.factory.close();

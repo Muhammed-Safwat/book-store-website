@@ -21,10 +21,16 @@ public class LoginCustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private CustomerService customerService ;  
     private String url = null ; 
-    
+    private HttpServletRequest request;
+    private HttpServletResponse response;
     
     public LoginCustomerServlet() {
-        customerService = new CustomerService();
+    	 customerService =  new CustomerService(request, response);
+    }
+    public LoginCustomerServlet(HttpServletRequest request, HttpServletResponse response) {
+    	this.request = request;
+    	this.response = response;
+        customerService =  new CustomerService(request, response);
     }
 
  

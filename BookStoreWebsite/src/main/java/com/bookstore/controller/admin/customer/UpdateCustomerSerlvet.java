@@ -1,4 +1,4 @@
-package com.bookstore.controller.frontend.shopingcart;
+package com.bookstore.controller.admin.customer;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,15 +7,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bookstore.service.ShoppingCartService;
-
-@WebServlet("/delete-item")
-public class DeleteCartItemServelt extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+import com.bookstore.service.CustomerService;
+ 
+@WebServlet("/admin/update_customer")
+public class UpdateCustomerSerlvet extends HttpServlet {
+	private static final long serialVersionUID = 1L; 
+ 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ShoppingCartService cartService = new ShoppingCartService(request, response);
-		cartService.deleteShippingCart();
+		  CustomerService customerService = new CustomerService(request, response);
+		  customerService.UpdateCustomer();
 	}
 
 }

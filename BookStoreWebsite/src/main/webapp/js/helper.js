@@ -40,17 +40,22 @@ export class Helper {
       this._removePanel();
     });
     
-     window.addEventListener('unload',  () =>{
+     window.addEventListener('unload',  (e) =>{
 	     let currentUrl = window.location.href;
-		if (!currentUrl.endsWith(this.mapping)) {
-		  // Replace the last word in the URL with "user_list"
-		  let urlParts = currentUrl.split("/");
-		  urlParts[urlParts.length - 1] = this.mapping;
-		  let newUrl = urlParts.join("/");
-		  console.log("log out")
-		  // Redirect to the new URL
-		  window.location.href = newUrl;
-		}
+       //e.preventDefault();
+	     console.log(e.target.activeElement)
+         console.log(document.body)
+         
+      if (e.target.activeElement.nodeName === "BODY" &&!currentUrl.endsWith(this.mapping)) {
+        // Replace the last word in the URL with "user_list"
+        console.log(true);
+        let urlParts = currentUrl.split("/");
+        urlParts[urlParts.length - 1] = this.mapping;
+        let newUrl = urlParts.join("/");
+        console.log("log out")
+        // Redirect to the new URL
+        window.location.href = newUrl;
+      } 
 	});
   }
   

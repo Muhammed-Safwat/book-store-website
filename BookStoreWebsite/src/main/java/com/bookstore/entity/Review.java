@@ -1,5 +1,6 @@
 package com.bookstore.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,11 +22,14 @@ public class Review {
 	@Column(name = "review_id")
 	private Integer reviewId;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="book_id")
 	private Book book;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY,cascade = {
+			CascadeType.DETACH,CascadeType.MERGE,
+			CascadeType.REFRESH ,CascadeType.PERSIST
+	})
 	@JoinColumn(name="customer_id")
 	private Customer customer;
 	

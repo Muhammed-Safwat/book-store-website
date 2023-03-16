@@ -26,9 +26,11 @@
 	
 	<!-- core page  -->
  	<h1>Edit Category</h1>
- 	  <h1>
-            <%=request.getAttribute("message")%>
-      </h1>
+ 	  <c:if test="${not empty requestScope.message}">
+	    <h1 class="text-center">
+	        ${requestScope.message}
+	    </h1>
+	</c:if>
       
   <div class="create-user">
     <form action="update_category" method='post' class="create-user-form row" >
@@ -40,8 +42,8 @@
       </div>
      
       <div class="form_button col-4 m-auto">
-        <button type="submit"  class="btn btn-outline-danger mt-3 mb-3">Submit</button>
-        <button type="reset"  class="btn btn-outline-danger mt-3 mb-3">Cencle</button>
+        <button type="submit"  class="btn btn-outline-danger mt-3 mb-3">Update</button>
+        <a  class="btn btn-outline-danger mt-3 mb-3" href="list_category">Back</a>
       </div>
     
     </form>
@@ -55,7 +57,7 @@
     
     <!-- =============== MAIN JS ===============-->
     <script src="../css/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../js/user_form.js"></script>
+     
     
   </body>
 </html>

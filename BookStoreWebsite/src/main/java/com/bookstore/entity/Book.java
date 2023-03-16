@@ -56,7 +56,7 @@ public class Book{
 	@JoinColumn(name="category_id")
 	private Category category;
 	
-	@OneToMany(fetch = FetchType.LAZY , mappedBy = "book")
+	@OneToMany(fetch = FetchType.EAGER , mappedBy = "book")
 	private Set<Review> reviews = new HashSet<Review>(0);
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "book")

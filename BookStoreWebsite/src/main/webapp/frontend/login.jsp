@@ -20,9 +20,11 @@
 
     <h1 class="text-center mt-5 mb-5">Customer Login</h1>
     
-    <h1>
-         <%=request.getAttribute("message")%>
-     </h1>
+    <c:if test="${not empty requestScope.message}">
+	    <h1 class="text-center">
+	        ${requestScope.message}
+	    </h1>
+	</c:if>
     
 	<div class="customer-login">
       <div class="container">

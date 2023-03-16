@@ -14,13 +14,8 @@ import com.bookstore.service.OrderService;
 public class DeleteOrderServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		 OrderService orderService = new OrderService(request, response);
-		 orderService.delete();	  
-		  
+		 orderService.delete();	  	  
 	}
-
-	 
-
 }

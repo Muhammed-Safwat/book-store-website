@@ -29,12 +29,12 @@
 
      <h1 class="text-center">Manage Review list </h1>
 
-   <c:if test="${request.getAttribute('massage') != null}">
-	     <h1 class="text-center">
-	         <%=request.getAttribute("massage")%>
-	     </h1>	
-    </c:if>
-     
+   <c:if test="${not empty requestScope.message}">
+	    <h1 class="text-center">
+	        ${requestScope.message}
+	    </h1>
+	</c:if>
+    <div class="data-container">
    <div class="book-list">
         <div class="container">
             <table class="table table-bordered">
@@ -65,12 +65,14 @@
                             </td>
                             <td>${review.headline}</td>
                             <td>${review.customer.firstName}</td>
-                            
                             <td>${review.comment}</td>
                              
                             <td>
-                                <a href="edit_review"   class='edit-button edit-book'>Edit</a>
-                                <a href="delete_review" class='delete-button delete-book'>Delete</a>
+                                <form action="" method="post">
+                                    <input type="hidden" name='id' value="${review.reviewId}">
+                                    <a href="" class='edit-button'>Edit</a>
+                                    <a href="" class='delete-button'>Delete</a>
+                                </form> 
                             </td>
                         </tr>
                     </c:forEach>
@@ -78,7 +80,7 @@
             </table>       
         </div>
     </div>
-
+</div>
      <div class="delete-user delete  event-panel none">
          <div class="box">
              <h3>Do you want to delete id = <span class="id">12</span></h3>
@@ -99,7 +101,7 @@
      <script src="../css/bootstrap/js/bootstrap.min.js"></script>
       
     
-     <script src="../js/edit_review.js"></script>
+     <script type="module" src="../js/review_list.js"></script>
  </body>
 
  </html>

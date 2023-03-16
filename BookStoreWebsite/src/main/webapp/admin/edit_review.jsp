@@ -7,8 +7,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- =============== BOXICONS ===============-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    
+     <!-- ================== Metro CDN ============== -->
+ 	 <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+ 	 
+     <!-- =============== BOXICONS ===============-->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     
     <!-- ================== BOOTSTRAP ============== -->
     <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -25,18 +29,27 @@
     <!--  -->
     <jsp:include page="../helper/header.jsp"></jsp:include>
     
+    <c:if test="${not empty requestScope.message}">
+	    <h1 class="text-center">
+	        ${requestScope.message}
+	    </h1>
+	</c:if>
+    
     	 
     <div class="container d-flex justify-content-center mt-5 edit-review-container"> 
      <div class="row">
-        <form class="form-control" action="edit_review" method="post">
+        <form class="form-control" action="update_review" method="post">
+        	<input name='id' value='${review.reviewId}' type='hidden'/>
         	<h1 class="text-center mt-2 mb-5">Edit Review</h1>
             <div class="col-12 row mb-3">
               <span class="col-3">Book:</span>
               <strong class="col-9">${review.book.title}</strong>
             </div>
-            <div class="col-12 row mb-3">
+            <div class="col-12 row d-flex mb-3">
               <span class="col-3">Rating:</span>
-              <strong class="col-9">${review.rating }</strong>
+              <span class=" col-9 review d-flex">
+				<input data-role="rating" data-value="${review.rating}" data-static="true">
+              </span>
           </div>
           <div class="col-12 row mb-3">
             <span class="col-3">Customer:</span>
@@ -55,7 +68,7 @@
                 <button type="submit" class="btn btn-primary">Save</button>
               </div>
               <div class="col d-flex justify-content-center">
-                <a href="/back" class="btn btn-primary">Cencle</a>
+                <a href="list_review" class="btn btn-primary">Cencle</a>
               </div>
           </div>
 
@@ -65,6 +78,7 @@
 
 
 	
-	
+	<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 </body>
+
 </html>

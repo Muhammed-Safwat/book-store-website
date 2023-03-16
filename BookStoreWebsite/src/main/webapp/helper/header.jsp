@@ -6,9 +6,13 @@
             <div class="logo"><a href="${pageContext.request.contextPath}">Evergreen</a></div>
           </div>
           <div class="header-content col-lg-8 col-md-8 col-6">
-            <div class="header-search d-flex align-items-center">
-              <input type="text" class='form-control search-input'>
-              <button type="button" class="btn btn-primary search-btn me-1 ms-1">Submit</button>
+            <div class="header-search ">
+              <form action="search" method="post">
+              	<div class="d-flex align-items-center"> 
+	                <input type="text" name="key" class='form-control search-input'>
+	                <button type="submit" class="btn btn-primary search-btn me-1 ms-1">Submit</button>
+                </div>
+              </form>
             </div>
             <ul class="links d-flex align-items-center justify-content-end">
              <c:if test="${customer != null}">

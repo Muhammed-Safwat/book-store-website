@@ -85,7 +85,7 @@
 							</tbody>
 						</table>
 						<div class="mb-5 bt-5 text-center">
-								<a class="mb-5 bt-5 text-center" href="edit-customer-profile">Edit Profile</a>
+								<a class="mb-5 bt-5 text-center" href="edit_customer_profile">Edit Profile</a>
 						</div>
 						
 				</div>

@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 import com.bookstore.entity.Book;
+import com.bookstore.entity.Category;
 import com.bookstore.service.CategoryServices;
 
 public class BookDAO extends JpaDAO<Book> implements GenericDAO<Book> {
@@ -28,8 +33,6 @@ public class BookDAO extends JpaDAO<Book> implements GenericDAO<Book> {
 		return super.findBy("Book", "title", title);
 	}
 	
- 
-
 	@Override
 	public void delete(Integer id) {
 		super.delete(Book.class, id);
@@ -45,9 +48,7 @@ public class BookDAO extends JpaDAO<Book> implements GenericDAO<Book> {
 		return super.listAll("from Book");
 	}
 	
-	public List<Book> newList(){
-		return super.decOrderList("Book" , "publishDate");
-	}
+
 
 	public long count() {
 		 return super.count("select count(*) from Book");
@@ -61,7 +62,6 @@ public class BookDAO extends JpaDAO<Book> implements GenericDAO<Book> {
 		  
 		return books;
 	}
-	
 	public List<Book> bestSealing(int max) {
 		List<Book> books = listAll("SELECT od.book FROM OrderDetail od  GROUP by od.book.bookId ORDER BY SUM(od.quantity) DESC ",max);
 		return books;
@@ -81,8 +81,21 @@ public class BookDAO extends JpaDAO<Book> implements GenericDAO<Book> {
 
 		  return books;
 	}
-
 	
+	public List<Book> newList(){
+		return super.decOrderList("Book" , "publishDate");
+	}
+
+	public Book getBookWithCategory(int id) {
+		Session session = super.LazyLodding();
+	    Transaction tx = null;
+	    tx = session.beginTransaction();
+	    Book  Book = session.get(Book.class, id);  
+        Hibernate.initialize(Book.getCategory());
+        tx.commit();  
+        session.close();
+        return Book;
+	}
 	 
 
 }

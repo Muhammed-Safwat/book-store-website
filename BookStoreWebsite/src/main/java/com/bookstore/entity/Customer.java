@@ -4,6 +4,7 @@ package com.bookstore.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -59,7 +60,10 @@ public class Customer {
 	@Column(name = "register_date")
 	private String registerDate;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "customer")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "customer" , cascade = {
+			CascadeType.DETACH,CascadeType.MERGE,
+			CascadeType.REFRESH ,CascadeType.PERSIST
+	})
 	private Set<Review> reviews = new HashSet<Review>(0);
 
 	public Customer() {

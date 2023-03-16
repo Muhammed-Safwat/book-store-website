@@ -6,8 +6,8 @@ import com.bookstore.service.BookService;
 
 public class testBook {
 	 public static void main(String[] args) {
-		 String a = "safwat.mp3";
-		System.out.println(a.substring(0, a.length()-4)); ;
+		 String a = "44.0";
+		System.out.println(Double.valueOf(a)); ;
 	}
 	
 	

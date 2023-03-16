@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
@@ -24,7 +24,11 @@
   
   <!-- include footer file -->
 	<jsp:include page="../helper/header.jsp"></jsp:include>
-	
+	<c:if test="${not empty requestScope.message}">
+	    <h1 class="text-center">
+	        ${requestScope.message}
+	    </h1>
+	</c:if>
 	<!-- core page  -->
  	<h1>create category</h1>
  	
@@ -37,8 +41,8 @@
       </div>
       
       <div class="form_button col-4 m-auto">
-        <button type="submit"  class="btn btn-outline-danger mt-3 mb-3">Submit</button>
-        <button type="reset"  class="btn btn-outline-danger mt-3 mb-3">Cencle</button>
+        <button type="submit"  class="btn btn-outline-danger mt-3 mb-3">Add</button>
+          <a  class="btn btn-outline-danger mt-3 mb-3" href="list_category">Back</a>
       </div>
       
     </form>

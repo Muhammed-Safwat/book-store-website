@@ -28,15 +28,16 @@
  	<div class='container'>
      <h1 class='text-center mb-5'>Manage books list </h1>
 
-       <c:if test="${request.getAttribute('massage') != null}">
-	     <h1 class="text-center">
-	         <%=request.getAttribute("massage")%>
-	     </h1>	
-    </c:if>
+      <c:if test="${not empty requestScope.message}">
+	    <h1 class="text-center">
+	        ${requestScope.message}
+	    </h1>
+	</c:if>
      <h4 class='text-center mb-5'>
      	 <a href='create_book'>Create new Book</a>
      </h4>
     
+     <div class="data-container">
     
     <div class="book-list">
         <div class="container">
@@ -69,8 +70,11 @@
                             <td>${book.lastUpdateTime}</td>
                              
                             <td>
-                                <a href="" class='edit-button edit-book'>Edit</a>
-                                <a href="" class='delete-button delete-book'>Delete</a>
+                                <form action="" method="post">
+                                    <input type="hidden" name='id' value="${book.bookId}">
+                                    <a href="" class='edit-button'>Edit</a>
+                                    <a href="" class='delete-button'>Delete</a>
+                                </form> 
                             </td>
                         </tr>
                     </c:forEach>
@@ -78,7 +82,7 @@
             </table>       
         </div>
     </div>
-
+</div>
      <div class="delete-user delete  event-panel none">
          <div class="box">
              <h3>Do you want to delete id = <span class="id">12</span></h3>
@@ -98,7 +102,7 @@
          <!-- =============== MAIN JS ===============-->
      <script src="../css/bootstrap/js/bootstrap.min.js"></script>
       
-     <script src="../js/edit_book.js"></script>
+     <script type="module" src="../js/book_list.js"></script>
  </body>
 
  </html>

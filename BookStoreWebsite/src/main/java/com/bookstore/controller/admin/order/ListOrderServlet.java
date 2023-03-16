@@ -19,9 +19,4 @@ public class ListOrderServlet extends HttpServlet {
 		orderService.orderList();
 	}
 
-	 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		  
-	}
-
 }
