@@ -15,11 +15,17 @@ import com.bookstore.service.OrderService;
 public class EditOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	   OrderService orderService = new OrderService(request, response);
 	   orderService.ListBook();
 	   orderService.editOrder(); 
 	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		   OrderService orderService = new OrderService(request, response);
+		   orderService.ListBook();
+		   orderService.editOrder(); 
+		}
 
 
 }

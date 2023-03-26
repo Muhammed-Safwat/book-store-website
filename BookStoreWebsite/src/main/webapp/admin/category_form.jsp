@@ -18,12 +18,16 @@
     
     <!-- =============== CSS =============== -->
     <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
     <title>Create Form</title>
   </head>
   <body> 	
   
-  <!-- include footer file -->
-	<jsp:include page="../helper/header.jsp"></jsp:include>
+  		<!-- include header file -->
+      <jsp:include page="../helper/header_admin.jsp"></jsp:include>
+      
+      
 	<c:if test="${not empty requestScope.message}">
 	    <h1 class="text-center">
 	        ${requestScope.message}

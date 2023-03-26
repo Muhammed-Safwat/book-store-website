@@ -1,4 +1,4 @@
-<div class="sub-header"> 
+<!--div class="sub-header"> 
       <div class="container">
         <div class="welcome text-center">
         welcome <span class="admin"><%=request.getServletContext().getAttribute("admin")%></span>
@@ -15,13 +15,13 @@
           <li> <a href="${pageContext.request.contextPath}/admin/list_order">Orders</a></li>
         </ul>
       </div>
-    </div>
+    </-div
     <div class="admin-dashboard "> 
       <div class="container"> 
         <h1>Adminstraion Dashboard</h1>
       </div>
     </div>
-    <div class="quick-action border-bottom mb-5"> 
+    <div class="quick-action border-bottom"> 
       <div class="container"> 
         <h1>Quick Actions: </h1>
         <ul class="quick-action-links"> 
@@ -31,4 +31,4 @@
           <li> <a href="${pageContext.request.contextPath}/admin/create_customer">New Customer </a></li>
         </ul>
       </div>
-    </div>
+    </div>-->

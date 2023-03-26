@@ -1,0 +1,37 @@
+.breadcrumb-item::before{
+  color:white !important;
+  opacity: .75;
+}
+
+.rating-wrap{
+    align-items: center;
+    display: flex;
+}
+
+.quntity-button{
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+}
+
+.quntity-button span{
+  cursor: pointer;
+}
+
+.price-lable{
+  font-size: 14px;
+  margin: 3px 3px 0;
+}
+.title{
+  color: #1a1723;
+}
+.sub-head{
+  min-width: 100px;
+  font-weight: bold;
+  color: #1a1723;
+}
+
+.book-image{
+  max-width:300px;
+}

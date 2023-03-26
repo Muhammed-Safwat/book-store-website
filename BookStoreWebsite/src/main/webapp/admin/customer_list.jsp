@@ -15,13 +15,14 @@
      <!-- =============== CSS ===============-->
      <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
      <link href="${pageContext.request.contextPath}/css/user_list.css" rel="stylesheet" type="text/css">
+     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
+     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
      <title>Customer Mangment</title>
  </head>
 
  <body>
-     <!--  include header folder  -->
-     <jsp:include page="../helper/header.jsp"></jsp:include>
-
+     <!-- include header file -->
+      <jsp:include page="../helper/header_admin.jsp"></jsp:include>
      <!--  include sub header folder  -->
      <jsp:include page="../helper/sub-header.jsp"></jsp:include>
 

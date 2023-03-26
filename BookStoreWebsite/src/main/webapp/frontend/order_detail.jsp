@@ -15,6 +15,8 @@
   <!-- =============== CSS ===============-->
   <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
   <link href="${pageContext.request.contextPath}/css/user_list.css" rel="stylesheet" type="text/css">
+  <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
+  <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
   <title>Manage Users</title>
 </head>
 
@@ -135,11 +137,11 @@
                 <tr>
                     <td>${status.index+1}</td>
                     <td>
-                        <div class="row d-flex align-items-center">
-                            <div class="item-image col-4">
+                        <div class=" d-flex  gap-3 align-items-center">
+                            <div class="item-image img mr-4">
                                 <img class="img-fluid" src="data:image/png;base64,${item.book.getBase64Image()}" >
                             </div>
-                            <div class="book-tilte text-bold col-8">
+                            <div class="book-tilte text-bold ">
                                 ${item.book.title}
                             </div> 
                         </div>

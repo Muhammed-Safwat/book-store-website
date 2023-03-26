@@ -20,7 +20,7 @@ public class OrderDetail {
 	@Column(name="order_detail_id")
 	private int id ; 
 	
-	@ManyToOne(fetch = FetchType.LAZY 
+	@ManyToOne(fetch = FetchType.EAGER 
 			,cascade = {CascadeType.DETACH , CascadeType.MERGE , CascadeType.REFRESH ,CascadeType.PERSIST})
 	@JoinColumn(name = "book_id")
 	private Book book;

@@ -92,7 +92,6 @@ public class BookOrder  {
 			Double subtotal) {
 		super();
 		this.customer = customer;
-		this.orderDetails = orderDetails;
 		this.orderDate = orderDate;
 		this.total = total;
 		this.status = status;
@@ -332,11 +331,12 @@ public class BookOrder  {
 		double total = 0 ;
 		if(!this.orderDetails.isEmpty()) {
 			for(OrderDetail order : this.orderDetails) {
-				total += order.getQuantity()*order.getBook().getPrice();
+				total += order.getQuantity() * order.getBook().getPrice();
 			}
 			    this.subtotal=total;
-			    
-				total+= this.tax + this.shippingFee;
+			    this.shippingFee = this.subtotal * 0.1; 
+			    this.tax = this.getNumberOfCopies() * 1.0;
+				total += this.subtotal + this.tax + this.shippingFee;
 		}
 		
 		this.total=total;

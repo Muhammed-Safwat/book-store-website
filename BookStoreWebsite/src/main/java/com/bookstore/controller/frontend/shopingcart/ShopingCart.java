@@ -61,6 +61,23 @@ public class ShopingCart {
 		return total ;	
 	}
 	
+	public double getTax() {
+		double total = 0.0f; 
+		for(Map.Entry<Book, Integer> entry : cart.entrySet()) {
+			int quentity = entry.getValue();
+			total +=(quentity * 1.0);
+		} 
+		return total ;
+	}
+	
+	public double getShippingFee() {
+		double total = GetTotalAmount(); 
+		 
+		return total * .1 ;
+	}
+	
+	 
+	
 	public void clear() {
 		cart.clear();
 	}

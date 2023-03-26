@@ -1,53 +1,69 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
-	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-		<!DOCTYPE html>
-		<html>
 
-		<head>
-			<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- =============== BOXICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- ================== BOOTSTRAP ============== -->
+    <link href="${pageContext.request.contextPath}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- ================== Font Awesome ============== -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/fontawesome/css/all.min.css">
+    <!-- =============== CSS ===============-->
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
+		<title>Login | Story Adminstration</title>
+  </head>
+<body>
+ 
+	
 
-			<!-- =============== BOXICONS ===============-->
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+					<div class="text-center my-5">
+            <a class="main-color display-4" href="${pageContext.request.contextPath}">
+              Book Store
+               <i class="main-color fa-solid fa-book-open"></i>
+           </a>
+					</div>
+					<div class="card shadow-lg">
+						<div class="card-body p-5">
+							<h1 class="fs-5 card-title fw-bold mb-4 main-color">Login</h1>
+							<form class="needs-validation" action="${pageContext.request.contextPath}/admin/login" method="post">
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="email">E-Mail Address</label>
+									<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+									<div class="error">
+										${requestScope.message}
+									</div>
+								</div>
 
-			<!-- ================== BOOTSTRAP ============== -->
-			<link href="${pageContext.request.contextPath}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-			<!-- ================== Font Awesome ============== -->
-			<link rel="stylesheet" href="${pageContext.request.contextPath}/css/fontawesome/css/all.min.css">
-
-			<!-- =============== CSS ===============-->
-			<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
-			<title>Login | Story Adminstration</title>
-		</head>
-
-		<body>
-			<jsp:include page="../helper/header.jsp"></jsp:include>
-
-			<div class="login d-flex align-items-center justifay-content-center">
-				<div class="container">
-					<h1 class="main-headline m-4 text-center"> Book store Adminstraion </h1>
-					<h4 class="sub-headline mb-4 text-center"> Admin Login </h4>
-					<c:if test="${not empty requestScope.message}">
-					    <h1 class="text-center">
-					        ${requestScope.message}
-					    </h1>
-					</c:if>
-					<form action="${pageContext.request.contextPath}/admin/login" method="post" class="form-input row mb-5">
-						<div class="form--input col-6">
-							<label for="email"> Email </label>
-							<input type="email" name ="email" id="email" class="form-control" placeholder="Enter Your Email" required>
+								<div class="mb-3">
+									<div class="mb-2 w-100">
+										<label class="text-muted " for="password">Password</label>
+									</div>
+									<input id="password" type="password" class="form-control" name="password" required>
+								</div>
+                <div class="row justify-content-center mt-3">
+                  <button type="submit" class="btn ms-auto text-white bg-main">
+										Login
+									</button>
+                </div>
+							</form>
 						</div>
-						<div class="form--input col-6">
-							<label for="password">Password</label>
-							<input type="password" name ="password" id="password" class="form-control" placeholder="Enter Your password" required>
-						</div>
-						<button type="submit" class="btn btn-primary">Login</button>
-					</form>
+					</div>
+					<div class="text-center mt-5 text-muted">
+						Copyright &copy; 2022-2023 &mdash; Book Store
+					</div>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<jsp:include page="../helper/footer.jsp"></jsp:include>
-		</body>
-
-		</html>
+ 
+</body>
+</html>

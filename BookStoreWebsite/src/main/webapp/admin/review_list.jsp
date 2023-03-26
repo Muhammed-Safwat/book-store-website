@@ -17,26 +17,27 @@
      <!-- =============== CSS ===============-->
      <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
      <link href="${pageContext.request.contextPath}/css/user_list.css" rel="stylesheet" type="text/css">
+
+     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
+     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
      <title>Review List</title>
  </head>
 
  <body>
-     <!--  include header folder  -->
-     <jsp:include page="../helper/header.jsp"></jsp:include>
-
-     <!--  include sub header folder  -->
-     <jsp:include page="../helper/sub-header.jsp"></jsp:include>
-
-     <h1 class="text-center">Manage Review list </h1>
+   <!-- include header file -->
+      <jsp:include page="../helper/header_admin.jsp"></jsp:include>
 
    <c:if test="${not empty requestScope.message}">
 	    <h1 class="text-center">
 	        ${requestScope.message}
 	    </h1>
 	</c:if>
+
+    
     <div class="data-container">
    <div class="book-list">
         <div class="container">
+            <h3 class="main-color my-3 ">Manage Review list </h3>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -68,10 +69,10 @@
                             <td>${review.comment}</td>
                              
                             <td>
-                                <form action="" method="post">
+                                <form action="" method="post" cla>
                                     <input type="hidden" name='id' value="${review.reviewId}">
-                                    <a href="" class='edit-button'>Edit</a>
-                                    <a href="" class='delete-button'>Delete</a>
+                                    <a href="" class='edit-button main-color'>Edit</a>
+                                    <a href="" class='delete-button main-color'>Delete</a>
                                 </form> 
                             </td>
                         </tr>

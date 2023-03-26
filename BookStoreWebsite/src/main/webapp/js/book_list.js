@@ -9,14 +9,14 @@ class BookList extends Helper {
        let id = this.form.querySelector('input').value;
        this._showPanel(id);
      } else if(e.target.classList.contains("edit-button")) {
-       this.form.action='';
+       this.form.action='edit_book';
        this.form.method="post";
        this.form.submit();
      }
    });
    
    this.okBtn.addEventListener('click' , ()=>{
-     this.form.action='';
+     this.form.action='delete_book';
      this.form.method='post';
      this._removePanel();
      this.form.submit();

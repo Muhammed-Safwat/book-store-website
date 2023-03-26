@@ -18,17 +18,30 @@ pageEncoding="ISO-8859-1"%>
 
   <!-- =============== CSS ===============-->
   <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
+  <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
+  <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
   <title>Added to Cart</title>
 </head>
 <body> 
 
     <!-- include header file -->
     <jsp:include page="../helper/header.jsp"></jsp:include>
-
+    <section class="bg-warning bg-main d-flex align-items-center mb-9 ">
+        <div class="container">
+            <ol class="breadcrumb ondark my-3">
+                <li class="breadcrumb-item">
+                    <a class="text-white opacity-75" href="${pageContext.request.contextPath}">Home</a>
+                </li>
+                <li class="breadcrumb-item text-white">
+                    Shopping Cart
+                </li>
+            </ol>
+        </div>
+    </section>
     <div class="shopping-cart-container">
         <div class="container">
            <div class="card p-4">
-                <div class="h2 card-header border-bottom">
+                <div class="h2 card-header bg-main text-white border-bottom">
                     Shopping Cart
                 </div>
                 <div class="card-body">
@@ -48,40 +61,34 @@ pageEncoding="ISO-8859-1"%>
                                 </div>
                                 <div class="item-info col-8">
                                         <div class="h2 item-title">${item.key.title}</div>
-                                        <div class="p">in stock</div>
+                                        <div class="p my-2 "><strong class="price h4 my-0">${item.key.price*item.value}$</strong></div>
                                         <div class="d-flex mt-3">
                                             <div class="d-flex align-items-center mb-2">
-                                                <p class="text-bold mr-2">Qty:</p>
-                                            <form class="update-cart-form" method="post" action="update-cart">
-                                                <input type="hidden" name="id" value="${item.key.bookId}">
-                                                <input type ='number' value="${item.value}" 
-                                                    class="update-cart form-control" name="quantity" id="quantity" style="width: 60px;"/>
-                                            </form>  
-                                               
+                                                <p class="text-bold mr-2 mb-0">Quantity:</p>
+                                                <form class="update-cart-form" method="post" action="update-cart">
+                                                    <input type="hidden" name="id" value="${item.key.bookId}">
+                                                    <input type ='number' value="${item.value}" 
+                                                        class="update-cart form-control" name="quantity" id="quantity" style="width: 60px;"/>
+                                                </form>  
                                             </div>
-                                            <form action='delete-item' class="delete-cartItem-form" method="post">
+                                            <form action='delete-item' class="delete-cartItem-form d-flex align-items-center ms-3 " method="post">
                                             	<input  type='hidden' name='id' value="${item.key.bookId}">
-                                                <a class='delete-cartItem' href=''>Delete</a>
+                                                <a class='delete-cartItem main-color' href=''>Delete</a>
                                             </form>
                                         </div>
-                                </div>
-                                <div class="col-2">
-                                    <strong class="price">${item.key.price*item.value}$</strong>
                                 </div>
                             </div>
                     </c:forEach>
                     </c:if>
                 </div>
-                <div class=" d-flex justify-content-end">
+                <div class=" d-flex justify-content-end h5 mb-0">
                     <span>Subtotal</span><span class="number-items">(${cart.getTotalQuantity()} item)</span> : <strong class="total-price">${cart.GetTotalAmount()}$</strong> 
                 </div>
             </div>
             <div class="cark-links mt-4 mb-4">
                 <ul class="d-flex gap-2 algin-items-center justify-content-center">
-                    <li><a class="text-bold" href="${pageContext.request.contextPath}">Clear Cart</a></li>
-                    <li><a class="text-bold" href="${pageContext.request.contextPath}">Continue Shopping</a></li>
-                    <li><a class="text-bold" href="${pageContext.request.contextPath}/profile/checkout">Checkout</a></li>
-                     
+                    <li><a class="text-bold main-color" href="${pageContext.request.contextPath}">Continue Shopping</a></li>
+                    <li><a class="text-bold main-color" href="${pageContext.request.contextPath}/profile/checkout">Checkout</a></li>
                 </ul>
             </div>
         </div>

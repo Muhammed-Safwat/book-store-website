@@ -15,15 +15,14 @@
     <!-- =============== CSS ===============-->
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/css/user_list.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
     <title>Manage Users</title>
 </head>
 
 <body>
-<!--  include header folder  -->
-<jsp:include page="../helper/header.jsp"></jsp:include>
-
-<!--  include sub header folder  -->
-<jsp:include page="../helper/sub-header.jsp"></jsp:include>
+		<!-- include header file -->
+      <jsp:include page="../helper/header_admin.jsp"></jsp:include>
 
  
 
@@ -36,6 +35,7 @@
 	</c:if>
         
     <!-- ==================== start order list =======================-->
+    <div class="data-container"> 
     <div class="list-templete book-list order-list">
         <div class="container">
             <table class="table table-striped">
@@ -64,7 +64,7 @@
                             <td>${order.status}</td>
                             <td>${order.orderDate}</td>
                             <td class="actions-row">
-                                <form method="Get">
+                                <form  action="" method="post">
                                     <a href="" class='detail-button book-details'>Details</a>
                                     <a href="" class='edit-button edit-book'>Edit</a>
                                     <a href="" class='delete-button delete-book'>Delete</a>
@@ -79,7 +79,7 @@
         </div>
     </div>
 
-
+</div>
     <!-- ==================== end order list =======================-->
     <div class="delete-user delete  event-panel none">
         <div class="box">
@@ -99,7 +99,7 @@
     <!-- =============== MAIN JS ===============-->
     <script src="../css/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="../js/edit_order.js"></script>
+    <script type='module' src="../js/order_list.js"></script>
 </body>
 
 </html>

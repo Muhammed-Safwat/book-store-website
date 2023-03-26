@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -236,21 +237,24 @@ public class BookService {
 	}
 	
 	public void viewBookDetails() throws ServletException, IOException {
-		  ReviewService  reviewService =  new ReviewService(request, response);
-		  String stringId  = request.getParameter("id");
+		  	ReviewService  reviewService =  new ReviewService(request, response);
+		  	String stringId  = request.getParameter("id");
 			 Integer id = Integer.valueOf(stringId);
-			 
-			 Book book = get(id);
 			 List<Review> reviewList = reviewService.findByBookId(stringId);
-			 
+			 Book book = get(id);
+			
 			 if(book==null) {
 				 request.setAttribute("massage", "Sorry, the book with ID ["+id+"] is not available");
 				 HomePageService homePageService = new HomePageService(request, response);
 				 homePageService.loadHomePage();
 			 }else {
+				 Category category = categoryDAO.CategoryLazy(book.getCategory().getCategoryId()); 
+					
+				 Set<Book> books =category.getBooks();
 				    System.out.println("reviewList ==>"+reviewList);
 	 				request.setAttribute("book", book);
 					request.setAttribute("reviewList", reviewList);
+					request.setAttribute("books", books);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("frontend/book_detail_page.jsp");
 					dispatcher.forward(request, response); 
 			 }
@@ -259,12 +263,8 @@ public class BookService {
 	public void searchBook() throws ServletException, IOException {
 		  String keyword = request.getParameter("key");
 		  List<Book> books = findByKeyWord(keyword);
-		  if(books.size() == 0) {
-			  request.setAttribute("massage", "No books");
-		  }else {
-			  request.setAttribute("massage", "");
-		  }
-		  
+		 System.out.println(books.size());System.out.println(books.size());
+		 System.out.println(keyword);
 		  request.setAttribute("books", books);
 		  request.setAttribute("key", keyword);
 		  
@@ -273,6 +273,5 @@ public class BookService {
 			 RequestDispatcher dispatcher  = request.getRequestDispatcher(page);
 			 dispatcher.forward(request, response);
 	}
-
 
 }

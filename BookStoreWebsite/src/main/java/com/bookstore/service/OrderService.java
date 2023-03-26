@@ -153,18 +153,17 @@ public class OrderService {
 	    
 	    return newOrder;
 	}
-	public void placeCOD(BookOrder  newOrder) throws IOException {
-		
-		
+	public void placeCOD(BookOrder  newOrder) throws IOException, ServletException {	
 	    bookOrderDAO.create(newOrder);
 	    
 	    // clear shopping cart 
 	    ShopingCart cart = (ShopingCart) request.getSession().getAttribute("cart");
 	    cart.clear();  
 	    request.getSession().setAttribute("cart" , cart);
-	    
+	    request.setAttribute("order", newOrder);
 	    // redirect 
-	   response.sendRedirect(request.getContextPath()+"/profile/order_history");
+	    request.getRequestDispatcher("../frontend/complete_order.jsp").forward(request, response);
+	    // response.sendRedirect(request.getContextPath()+"/profile/order_history");
 	}
 	
 	protected String GetCurrentDate() {
@@ -202,7 +201,7 @@ public class OrderService {
 		 request.setAttribute("bookList", list);
 	}
 	 
-	public void updateOrder() throws IOException {
+	public void updateOrder() throws IOException, ServletException {
 		
 		Integer orderId = Integer.valueOf(request.getParameter("orderId")) ;
 		String firstName = request.getParameter("firstName");
@@ -238,7 +237,10 @@ public class OrderService {
 		
 		*/
 		bookOrderDAO.update(bookOrder);
-		response.sendRedirect(request.getContextPath()+"/admin/order_detail?id="+orderId); 
+		request.setAttribute("order", bookOrder); 
+		request.setAttribute("message", "Book Order Updated Succssfully");
+		request.getRequestDispatcher("order_detail").forward(request, response);
+		//response.sendRedirect(request.getContextPath()+"/admin/order_detail"); 
 	}
 
 	public void addBookToOrder()  throws ServletException, IOException {
@@ -261,6 +263,12 @@ public class OrderService {
 	    		  total);
 		 
 		 newOrder.getOrderDetails().add(orderDetail);
+		/* int q = newOrder.getNumberOfCopies()+quantity;
+		 newOrder.setShippingFee((newOrder.getTotal()+total)*.1);
+		 newOrder.setTax(q * 1.0);
+		 total += newOrder.getTax() + newOrder.getShippingFee();*/
+		    
+		 //newOrder.setTotal(total); 
 		 newOrder.setTotal();
 		 
 		 bookOrderDAO.update(newOrder);
@@ -307,24 +315,32 @@ public class OrderService {
 		 BookOrder newOrder =  bookOrderDAO.get(orderId);
 		 Integer bookId = Integer.valueOf(request.getParameter("bookId"));
 		 Integer quantity = Integer.valueOf(request.getParameter("quantity"));
+		// double total = 0 ;
 		 for(OrderDetail detaile : newOrder.getOrderDetails()) {
 			 if(detaile.getBook().getBookId() == bookId) {
 				 System.out.println("DDDDDDDDDDDD  "+quantity);
 				 detaile.setQuantity(quantity);
 				 detaile.setSubtotal();
+				 //total = detaile.getBook().getPrice() * detaile.getBook().getPrice(); 
 				 break;
 			 }
-		 }	
+		 }
+		  
+		 /*int q = newOrder.getNumberOfCopies() + quantity;
+		 newOrder.setShippingFee((newOrder.getTotal() + total)*.1);
+		 newOrder.setTax(q * 1.0);*/
 		 
 		 newOrder.setTotal(); 
+
 		 bookOrderDAO.update(newOrder);
 		 response.sendRedirect(request.getContextPath()+"/admin/edit_order?id="+orderId);
 	}
 
-	public void delete() throws IOException {
+	public void delete() throws IOException, ServletException {
 		Integer id = Integer.valueOf(request.getParameter("id"));
 		bookOrderDAO.delete(id);
-		 response.sendRedirect(request.getContextPath()+"/admin/list_order");
+		request.setAttribute("message", "Order deleted Sucssfully");
+		orderList();
 	}
 	
 	

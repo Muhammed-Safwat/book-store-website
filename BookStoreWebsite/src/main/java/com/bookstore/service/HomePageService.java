@@ -22,8 +22,8 @@ public class HomePageService {
 	
 	public void loadHomePage() throws ServletException, IOException{
 		List<Book>  bookList = bookService.newList();
-	 	List<Book> mostfav = bookService.mostFav(3);
-	 	List<Book> bestSaling = bookService.bestSealing(3);
+	 	List<Book> mostfav = bookService.mostFav(6);
+	 	List<Book> bestSaling = bookService.bestSealing(6);
 		request.setAttribute("books", bookList);
 		request.setAttribute("mostfav", mostfav);
 		request.setAttribute("bestSaling", bestSaling);

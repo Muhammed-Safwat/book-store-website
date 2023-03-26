@@ -22,12 +22,14 @@
     
     <!-- =============== CSS ===============-->
     <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
     <title>Responsive website delivery</title>
   </head>
   <body> 
 
-    <!--  -->
-    <jsp:include page="../helper/header.jsp"></jsp:include>
+    <!-- include header file -->
+      <jsp:include page="../helper/header_admin.jsp"></jsp:include>
     
     <c:if test="${not empty requestScope.message}">
 	    <h1 class="text-center">
@@ -38,20 +40,20 @@
     	 
     <div class="container d-flex justify-content-center mt-5 edit-review-container"> 
      <div class="row">
-        <form class="form-control" action="update_review" method="post">
+        <form class="form-control card shadow" action="update_review" method="post">
         	<input name='id' value='${review.reviewId}' type='hidden'/>
-        	<h1 class="text-center mt-2 mb-5">Edit Review</h1>
-            <div class="col-12 row mb-3">
-              <span class="col-3">Book:</span>
+        	<h2 class="text-center mt-2 mb-5 main-color">Edit Review</h2>
+            <div class="col-12 row mb-1">
+              <span class="col-2">Book:</span>
               <strong class="col-9">${review.book.title}</strong>
             </div>
-            <div class="col-12 row d-flex mb-3">
-              <span class="col-3">Rating:</span>
+            <div class="col-12 row d-flex mb-1">
+              <span class="col-2">Rating:</span>
               <span class=" col-9 review d-flex">
 				<input data-role="rating" data-value="${review.rating}" data-static="true">
               </span>
           </div>
-          <div class="col-12 row mb-3">
+          <div class="col-12 row mb-1">
             <span class="col-3">Customer:</span>
             <strong class="col-9">${review.customer.firstName }</strong>
           </div>
@@ -63,12 +65,12 @@
             <label for="comment" class="">Comment</label>
             <textarea type="text" name='comment' id="comment" class="comment form-control">${review.comment }</textarea>
           </div>
-          <div class="col row justify-content-center mt-3 mb-3">
-              <div class="col d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary">Save</button>
+          <div class="col-12 row justify-content-center mt-2 mb-3">
+              <div class="col-4 d-flex justify-content-center">
+                <button type="submit" class="btn w-100 bg-main text-white">Save</button>
               </div>
-              <div class="col d-flex justify-content-center">
-                <a href="list_review" class="btn btn-primary">Cencle</a>
+              <div class="col-4 d-flex justify-content-center">
+                <a href="list_review" class="btn w-100 bg-main text-white">Cencle</a>
               </div>
           </div>
 

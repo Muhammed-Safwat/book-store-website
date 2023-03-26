@@ -143,7 +143,7 @@ public class JpaDAO<E>{
 		StartFactory();
 		session = factory.getCurrentSession();
 		session.beginTransaction();
-		List<E> list = session.createQuery("select u from "+className+" u order by u."+attr+" desc").setMaxResults(3).getResultList()	 ;
+		List<E> list = session.createQuery("select u from "+className+" u order by u."+attr+" desc").setMaxResults(6).getResultList()	 ;
 		session.getTransaction().commit();
 		//this.factory.close();
 		return list; 

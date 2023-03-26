@@ -15,28 +15,33 @@
      <!-- =============== CSS ===============-->
      <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
      <link href="${pageContext.request.contextPath}/css/user_list.css" rel="stylesheet" type="text/css">
-     <title>Manage Users</title>
+     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
+     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
+     <title>Manage books list</title>
  </head>
 
  <body>
-     <!--  include header folder  -->
-     <jsp:include page="../helper/header.jsp"></jsp:include>
+     <!-- include header file -->
+      <jsp:include page="../helper/header_admin.jsp"></jsp:include>
 
      <!--  include sub header folder  -->
      <jsp:include page="../helper/sub-header.jsp"></jsp:include>
 
  	<div class='container'>
-     <h1 class='text-center mb-5'>Manage books list </h1>
-
+     <h4 class='text-center mt-3 mb-5 h4 main-color'>
+     	Manage books list 
+     </h4>
+	<h5 class='text-start ms-3'>
+		<a href='create_book' class='main-color'>
+	     	Add New Book 
+	     	<i class="fa-solid fa-book"></i>
+     	</a>
+     </h5>
       <c:if test="${not empty requestScope.message}">
 	    <h1 class="text-center">
 	        ${requestScope.message}
 	    </h1>
 	</c:if>
-     <h4 class='text-center mb-5'>
-     	 <a href='create_book'>Create new Book</a>
-     </h4>
-    
      <div class="data-container">
     
     <div class="book-list">
@@ -61,7 +66,7 @@
                             <td>${status.index+1}</td>
                             <td class="book-id">${book.bookId}</td>
                             <td>
-                                <img src="data:image/jpg;base64,${book.getBase64Image()}"/>
+                                <img class='book-list-image' src="data:image/jpg;base64,${book.getBase64Image()}"/>
                             </td>
                             <td>${book.title}</td>
                             <td>${book.author}</td>
@@ -70,16 +75,23 @@
                             <td>${book.lastUpdateTime}</td>
                              
                             <td>
-                                <form action="" method="post">
+                                <form class='d-flex gap-1' action="" method="post">
                                     <input type="hidden" name='id' value="${book.bookId}">
-                                    <a href="" class='edit-button'>Edit</a>
-                                    <a href="" class='delete-button'>Delete</a>
+                                    <a class='main-color' href="" class='edit-button'>Edit</a>
+                                    |
+                                    <a class='main-color' href="" class='delete-button'>Delete</a>
                                 </form> 
                             </td>
                         </tr>
                     </c:forEach>
                 </tbody>
-            </table>       
+            </table> 
+             <div class="pages d-flex mb-2 gap-2 align-items-center justify-content-center  mt-2">
+                 <a href="page=1" class="btn bg-main text-white mr-1">1</a>
+                 <a href="page=1" class="btn bg-main text-white mr-1">2</a>
+                 <a href="page=1" class="btn bg-main text-white mr-1">3</a>
+                 <a href="page=1" class="btn bg-main text-white mr-1">4</a>
+             </div>      
         </div>
     </div>
 </div>

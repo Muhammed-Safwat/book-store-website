@@ -115,7 +115,7 @@ public class UserServices {
 		 
 		 if(user == null || !(user != null && user.getPassword().equals(password))) {
 			
-			 request.setAttribute("massage", "invalid email and passward");
+			 request.setAttribute("message", "invalid email and passward");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 			
 		 }else {

@@ -21,34 +21,19 @@
 </head>
 <body>
 	
-	  <!-- include header file -->
-	  <jsp:include page="../helper/header.jsp"></jsp:include>
-	
-<div id="notfound">
-<div class="notfound">
-<div class="notfound-404">
-<h1>Oops!</h1>
-<h2>404 - The Page can't be found</h2>
+  <div class="main-wrapper">
+    <div class="page-wrapper full-page">
+        <div class="page-content d-flex align-items-center justify-content-center">
+            <div class="row w-100 mx-0 auth-page">
+                <div class="col-md-8 col-xl-6 mx-auto d-flex flex-column align-items-center">
+                    <img src="${pageContext.request.contextPath}/images/404.svg" class="img-fluid mb-2" alt="404">
+                    <h6 class="text-muted mb-3 text-center">Page not found 404</h6>
+                    <a href="${pageContext.request.contextPath}" class="btn bg-main text-white">Back to home</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
-<a href="${pageContext.request.contextPath}">Go TO Homepage</a>
-</div>
-</div>
-
-
-	
-	<!-- include footer file -->
-	<jsp:include page="../helper/footer.jsp"></jsp:include>
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-	
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
-</script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"7a42c50849d60777","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.2.0","si":100}' crossorigin="anonymous"></script>
 </body>
 </html>

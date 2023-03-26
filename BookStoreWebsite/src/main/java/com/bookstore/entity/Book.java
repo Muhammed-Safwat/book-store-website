@@ -52,14 +52,14 @@ public class Book{
 	@Column(name="last_update_time")
 	private String lastUpdateTime;
 	
-	@ManyToOne(fetch = FetchType.LAZY , cascade = {CascadeType.DETACH , CascadeType.MERGE , CascadeType.REFRESH ,CascadeType.PERSIST})
+	@ManyToOne(fetch = FetchType.EAGER , cascade = {CascadeType.DETACH , CascadeType.MERGE , CascadeType.REFRESH ,CascadeType.PERSIST})
 	@JoinColumn(name="category_id")
 	private Category category;
 	
-	@OneToMany(fetch = FetchType.EAGER , mappedBy = "book")
+	@OneToMany(fetch = FetchType.EAGER , mappedBy = "book" , cascade = CascadeType.ALL)
 	private Set<Review> reviews = new HashSet<Review>(0);
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "book" , cascade = {CascadeType.DETACH , CascadeType.MERGE , CascadeType.REFRESH ,CascadeType.PERSIST})
 	private Set<OrderDetail> BookOrders = new HashSet<OrderDetail>(0);
  		 
 	public Book() {}

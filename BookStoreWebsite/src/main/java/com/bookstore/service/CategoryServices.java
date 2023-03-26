@@ -117,7 +117,7 @@ public class CategoryServices {
 	}
 	
 	public void GetBooksOfCategory() throws ServletException, IOException {
-		String stringId  = request.getParameter("id");
+		 String stringId  = request.getParameter("id");
 		 Integer id = Integer.valueOf(stringId);
 		 Category category = categoryDAO.CategoryLazy(id); 
 		
@@ -132,7 +132,7 @@ public class CategoryServices {
 			 request.setAttribute("books", list);
 			 request.setAttribute("massage", "");
 			 if(list.size()==0){
-				 request.setAttribute("massage", "no Books");
+				 request.setAttribute("message", "no Books Found");
 			 } 
 		 }
 		 RequestDispatcher dispatcher = request.getRequestDispatcher("frontend/book_list_by_category.jsp");

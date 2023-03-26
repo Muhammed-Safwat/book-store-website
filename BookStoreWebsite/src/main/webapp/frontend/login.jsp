@@ -16,34 +16,71 @@
     <title>Login</title>
   </head>
 <body>
-	<jsp:include page="../helper/header.jsp"></jsp:include>
+ 
 
-    <h1 class="text-center mt-5 mb-5">Customer Login</h1>
-    
-    <c:if test="${not empty requestScope.message}">
-	    <h1 class="text-center">
-	        ${requestScope.message}
-	    </h1>
-	</c:if>
-    
-	<div class="customer-login">
-      <div class="container">
-        <form action="login-customer" method="post" class="row">
-          <div class="col-lg-6 col-md-6 col-12 mb-3">
-            <label for="email">User name</label>
-            <input id="email"  name="email" type="email" class="form-control" required>
-          </div>
-          <div class="col-lg-6 col-md-6 col-12 mb-3">
-            <label for="password">Password</label>
-            <input id="password" type="password" name="password" class="form-control" required>
-          </div>
-          <div class="col-4 m-auto mt-3 mb-3">
-          
-            <button type="submit" class="btn btn-primary w-100">Login</button>
-          </div>
-        </form>
-      </div>
-     </div>
-	<jsp:include page="../helper/footer.jsp"></jsp:include>
+
+  <section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+					<div class="text-center my-5">
+            <a class="main-color display-4" href="${pageContext.request.contextPath}">
+              Book Store
+               <i class="main-color fa-solid fa-book-open"></i>
+           </a>
+					</div>
+					<div class="card shadow-lg">
+						<div class="card-body p-5 pb-3">
+							<h1 class="fs-5 card-title fw-bold mb-4 main-color">Login</h1>
+							<form class="needs-validation" action="login-customer" method="post">
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="email">E-Mail Address</label>
+									<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+									<div class="error">
+										${requestScope.message}
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<div class="mb-2 w-100">
+										<label class="text-muted " for="password">Password</label>
+										
+									</div>
+									<input id="password" type="password" class="form-control" name="password" required>
+								    <div class="invalid-feedback">
+								    	${requestScope.message}
+							    	</div>
+								</div>
+
+								<div class="d-flex ">
+									<div >
+                    <a href="${pageContext.request.contextPath}/forgot_password" class="fl nd main-color">
+											Forgot Password?
+										</a>
+									</div>
+
+								</div>
+                <div class="row justify-content-center mt-3">
+                  <button type="submit" class="btn ms-auto text-white bg-main">
+										Login
+									</button>
+                </div>
+							</form>
+						</div>
+						<div class="card-footer pb-3 border-0">
+							<div class="text-center">
+								Don't have an account? <a href="${pageContext.request.contextPath}/register_new_customer" class="text-dark main-color">Create One</a>
+							</div>
+						</div>
+					</div>
+					<div class="text-center mt-5 text-muted">
+						Copyright &copy; 2022-2023 &mdash; Book Store
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+ 
 </body>
 </html>

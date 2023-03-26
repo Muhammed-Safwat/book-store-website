@@ -22,7 +22,7 @@ public class Review {
 	@Column(name = "review_id")
 	private Integer reviewId;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH , CascadeType.MERGE , CascadeType.REFRESH ,CascadeType.PERSIST})
 	@JoinColumn(name="book_id")
 	private Book book;
 	

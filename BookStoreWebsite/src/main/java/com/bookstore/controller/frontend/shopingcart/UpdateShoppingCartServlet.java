@@ -18,8 +18,6 @@ public class UpdateShoppingCartServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ShoppingCartService cartService =new ShoppingCartService(request, response);
 		cartService.updateCart();
-		
-		
 	}
 
 }

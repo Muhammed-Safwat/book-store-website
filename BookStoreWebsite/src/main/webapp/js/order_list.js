@@ -1,3 +1,45 @@
+import {Helper}  from './helper.js';
+class OrderList extends Helper {
+  
+ handleForm(){
+   this.parent.addEventListener('click', (e) =>{
+     e.preventDefault(); 
+     this.form = e.target.closest("form");
+     if(e.target.classList.contains("delete-button")){
+        let id = this.form.querySelector('input').value;
+        this._showPanel(id);
+     }else if(e.target.classList.contains("edit-button")) {
+       this.form.action='edit_order';
+       this.form.method="post";
+        this.form.submit();
+     }else if(e.target.classList.contains("detail-button")){
+       this.form.action='order_detail';
+       this.form.method="post";
+       this.form.submit();
+     }
+   });
+   
+   this.okBtn.addEventListener('click' , ()=>{
+     this.form.action='delete_order';
+     this.form.method='post';
+     this._removePanel();
+     this.form.submit();
+   });
+ }
+}
+
+const obj = new OrderList();
+obj.setMapping("list_order");
+obj.handleForm();
+
+
+
+
+
+
+/*
+
+
 let editBtn = document.querySelector('.edit-button');
 let detailBtn = document.querySelector('.detail-button');
 let deleteBtn = document.querySelector('.delete-button');
@@ -8,16 +50,8 @@ let okBtn = document.querySelector('.ok-btn');
 let table = document.querySelector('table');
 let deletePanel = document.querySelector('.delete');
  
-  console.log(table);
-  console.log(logoutPanel);
-  console.log(overlay);
-  console.log(editBtn);
-  console.log(deleteBtn); 
-  console.log(deletePanel); 
-  console.log(detailBtn); 
-
-
-  let id  ; 
+ 
+let id  ; 
 let outerForm ;
 table.addEventListener('click', (e)=>{
   e.preventDefault();
@@ -61,6 +95,6 @@ okBtn.addEventListener('click'  , ()=>{
 overlay.addEventListener('click'  , removeMenu);
 cencelBtn.addEventListener('click' ,removeMenu);
  
-
+*/
 
  

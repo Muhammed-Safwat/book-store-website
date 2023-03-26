@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
     <!-- =============== CSS ===============-->
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
     <title>Make Review</title>
  </head>
  <body>
@@ -24,10 +26,10 @@
 	
 	  <!-- container -->
       <div class="container mb-5">
-        <div class="make-review-header d-flex justify-content-between border-bottom pt-3 pb-3 ">
-            <h1>Your Review</h1>
-            <p class="text-muted">
-                Your public pen name is now  .${customer.firstName} <a href="">Change</a>
+        <div class="make-review-header text-end   border-bottom pt-3 pb-3 ">
+             
+            <p class="text-muted ">
+                Your public pen name is now  .${customer.firstName} <a class="main-color" href="">Change</a>
             </p>
         </div>
         <div class="review-body row justify-content-between pt-3">
@@ -37,13 +39,13 @@
             <div class="col-8">
                 <div class="book-info">
                     <div class="book-name">
-                        <a href="viewbook " class="text-bold">${book.title}</a>
+                        <a href="viewbook" class="h5 mb-0 text-bold main-color">${book.title}</a>
                         <div class="text-muted">${book.category.name }</div>
                     </div>
                     <form class="from" method="post" action="save_review">
                     	
                         <div class="starts makeRating align-items-center">
-                            <input class="mt-2" name='rating' data-role="rating"
+                            <input class="mt-2 main-color" name='rating' data-role="rating"
                             data-value=""
                             data-on-star-click="document.querySelector('.makeRating input').dataset['value'] = arguments[0];" 
                             data-static="false" required>
@@ -58,7 +60,7 @@
                         	<input type="hidden" name ="id" value="${book.bookId }">
                        	</div>
                         <div>
-                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            <button type="submit" class="btn text-white mt-3 bg-main">Submit</button>
                         </div>
                     </form>
                 </div>

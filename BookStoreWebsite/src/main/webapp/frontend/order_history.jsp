@@ -18,6 +18,8 @@ pageEncoding="ISO-8859-1"%>
 
   <!-- =============== CSS ===============-->
   <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
+  <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
+  <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
   <title>Added to Cart</title>
 </head>
 <body> 
@@ -25,7 +27,7 @@ pageEncoding="ISO-8859-1"%>
     <!-- include header file -->
     <jsp:include page="../helper/header.jsp"></jsp:include>
 
-    <div class="container">
+    <div class="container my-10">
       <h3 class="text-center mb-4 mt-4">My Order History</h3>
       <div class="list-templete order-history-list">
         <div class="container">

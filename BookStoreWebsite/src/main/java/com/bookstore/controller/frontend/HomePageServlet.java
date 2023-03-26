@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.bookstore.controller.frontend.shopingcart.ShopingCart;
+
 import com.bookstore.service.HomePageService;
 
 @WebServlet("")
@@ -19,8 +19,4 @@ public class HomePageServlet extends HttpServlet {
 		homePageService.loadHomePage();		
 	}
 
-	/*private void CreateLocalStorge(HttpServletRequest request) {
-			 request.getSession().setAttribute("cart", new ShopingCart());
-		}
-	 */
 }
