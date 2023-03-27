@@ -119,7 +119,7 @@
       
                   <div class="form_button row justify-content-around col-4 m-auto">
                     <button type="submit" class="btn submitBtn col-5 mt-3 bg-main text-white">Save</button>
-                    <a href="login-customer" class="btn btn-outline-danger  col-5 mt-3 bg-main text-white">Login</a>
+                    <a href="${pageContext.request.contextPath}/admin" class="btn btn-outline-danger  col-5 mt-3 bg-main text-white">Cencle</a>
                   </div>
       
                 </form>

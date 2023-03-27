@@ -23,21 +23,19 @@
  <body>
      <!-- include header file -->
       <jsp:include page="../helper/header_admin.jsp"></jsp:include>
-     <!--  include sub header folder  -->
-     <jsp:include page="../helper/sub-header.jsp"></jsp:include>
-
+     
 	<div class='container'>
-     <h1 class="text-center">Customer Mangment</h1>
-
+     
+		<h2 class="text-center main-color  mb-4 mt-4 main-color">Customer Mangment List</h2>
         <c:if test="${not empty requestScope.message}">
 		    <h1 class="text-center">
 		        ${requestScope.message}
 		    </h1>
 		</c:if>
     
-     <h4 class="text-center">
-      	<a href='customer_form.jsp'>Add new Customer</a>
-     </h4>
+     <h5 class="text-start  ms-3">
+      	<a class='main-color' href='customer_form.jsp'>Add new Customer</a>
+     </h5>
        
 <div class="data-container">
     <div class="book-list">
@@ -49,9 +47,7 @@
                         <th>ID</th>
                         <th>E-mail</th>
                         <th>Full Name</th>
-                        <th>City</th>
-                        <th>state</th>
-                        <th>Country</th>
+                        <th>Address</th>
                         <th>Phone</th>
                         <th>Registered Date</th>
                         <th>Action</th>
@@ -64,22 +60,26 @@
                             <td class="book-id">${customer.customerId}</td>           
                             <td>${customer.email}</td>
                             <td>${customer.firstName} ${customer.lastName}</td>
-                            <td>${customer.city}</td>
-                            <td>${customer.state}</td>
-                            <td>${customer.country}</td>
+                            <td>${customer.addressLine1}, ${customer.addressLine2}, ${customer.city}, ${customer.state}, ${customer.zipcode}, ${customer.country}</td>
                             <td>${customer.phone}</td>
                             <td>${customer.registerDate}</td>
                             <td>
-                                <form action="" method="post">
+                                <form action="" method="post" class='d-flex gap-2'>
                                     <input type="hidden" name='id' value="${customer.customerId}">
-                                    <a href="" class='edit-button'>Edit</a>
-                                    <a href="" class='delete-button'>Delete</a>
+                                    <a href="" class='edit-button main-color'>Edit</a>|
+                                    <a href="" class='delete-button main-color'>Delete</a>
                                 </form> 
                             </td>
                         </tr>
                     </c:forEach>
                 </tbody>
-            </table>       
+            </table> 
+              <div class="pages d-flex mb-2 gap-2 align-items-center justify-content-center  mt-2">
+                 <a href="page=1" class="btn bg-main text-white mr-1">1</a>
+                 <a href="page=1" class="btn bg-main text-white mr-1">2</a>
+                 <a href="page=1" class="btn bg-main text-white mr-1">3</a>
+                 <a href="page=1" class="btn bg-main text-white mr-1">4</a>
+             </div>       
         </div>
     </div>
 </div>

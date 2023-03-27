@@ -28,7 +28,7 @@
       <jsp:include page="../helper/header_admin.jsp"></jsp:include>
 
       <!-- core page  -->
-      <h1 class="text-center mb-2 mt-5">create Customer</h1>
+      <h1 class="text-center mb-2 mt-5 main-color">Edit Customer</h1>
      
       <c:if test="${not empty requestScope.message}">
 	    <h1 class="text-center">
@@ -113,11 +113,10 @@
               				value="${customer.country}" class="form-control" required>
             </div>
 
-            <div class="form_button col-4 m-auto">
-              <button type="submit" class="btn btn-outline-danger mt-3 mb-3">save</button>
-              <button type="reset" class="btn btn-outline-danger mt-3 mb-3">Cencle</button>
-            </div>
-
+ 			<div class="form_button col-12 row justify-content-center gap-3">
+		        <button type="submit"  class="btn col-2 bg-main  text-white  mt-3 mb-3">Update</button>
+		        <a  class="btn col-2 bg-main text-white mt-3 mb-3 text-white" href="list_customer">Back</a>
+	      	</div>
           </form>
         </div>
       </div>

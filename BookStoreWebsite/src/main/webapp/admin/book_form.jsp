@@ -28,16 +28,15 @@
       <jsp:include page="../helper/header_admin.jsp"></jsp:include>
 
       <!-- core page  -->
-      <h1 class="text-center mb-2 mt-5">create Book</h1>
-      
       <c:if test="${not empty requestScope.message}">
 	    <h1 class="text-center">
 	        ${requestScope.message}
 	    </h1>
 	</c:if>
 	
-      <div class="create-book pt-5 pb-5">
+      <div class="create-book pt-2 pb-5">
         <div class="container">
+        <h1 class="text-center mb-5 mt-5 main-color">Add new Book <i class="ms-2 fa-solid fa-book"></i></h1>
           <form action="create_book" method='post' enctype="multipart/form-data" class="create-user-form row">
             <div class="input-row col-6 mb-3">
               <label for="category">Category</label>
@@ -46,8 +45,6 @@
                 <c:forEach var="ct" items="${categoryList}">
                   <option value="${ct.categoryId}">${ct.name}</option>
                 </c:forEach>
-
-
               </select>
 
             </div>
@@ -94,9 +91,9 @@
               <textarea type="discription" id="discription" name="discription" class="form-control" required></textarea>
             </div>
 
-            <div class="form_button col-4 m-auto">
-              <button type="submit" class="btn btn-outline-danger mt-3 mb-3">save</button>
-              <button type="reset" class="btn btn-outline-danger mt-3 mb-3">Cencle</button>
+            <div class="form_button col-12 m-auto row d-flex justify-content-center gap-3 ">
+              <button type="submit" class="btn col-2 bg-main  text-white  mt-3 mb-3">Add</button>
+              <button class="btn col-2 bg-main text-white mt-3 mb-3"><a href="list_book" class='text-white'>Cencle</a> </button>
             </div>
 
           </form>

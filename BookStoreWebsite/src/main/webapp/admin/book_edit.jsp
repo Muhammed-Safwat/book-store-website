@@ -28,7 +28,7 @@
       <jsp:include page="../helper/header_admin.jsp"></jsp:include>
 
       <!-- core page  -->
-      <h1 class="text-center mb-5 mt-5">Edit Book</h1>
+      <h1 class="text-center mb-4 mt-4 main-color">Edit Book</h1>
      <c:if test="${not empty requestScope.message}">
 	    <h1 class="text-center">
 	        ${requestScope.message}
@@ -104,9 +104,9 @@
             </div>
              
            
-            <div class="form_button col-4 m-auto">
-              <button type="submit" class="btn btn-outline-danger mt-3 mb-3">save</button>
-              <button type="reset" class="btn btn-outline-danger mt-3 mb-3">Cencle</button>
+            <div class="form_button col-12 m-auto row d-flex justify-content-center gap-3 ">
+              <button type="submit" class="btn col-2 bg-main  text-white  mt-3 mb-3">Update</button>
+             <button class="btn col-2 bg-main text-white mt-3 mb-3"><a href="list_book" class='text-white'>Cencle</a> </button>
             </div>
 
           </form>

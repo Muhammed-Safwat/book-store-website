@@ -208,8 +208,10 @@ body{
  
 
 /* list book */ 
+ 
 .review-image img {
-  width:150px;
+  max-height: 100px;
+  height: 100%;
 }
 
 .book-list img{

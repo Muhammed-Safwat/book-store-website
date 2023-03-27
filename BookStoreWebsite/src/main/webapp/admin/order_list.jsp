@@ -26,7 +26,7 @@
 
  
 
-<h1 class="text-center">Manage Order List </h1>
+	<h2 class="text-center main-color my-4">Manage Order List </h2>
 
     <c:if test="${not empty requestScope.message}">
 	    <h1 class="text-center">
@@ -64,10 +64,10 @@
                             <td>${order.status}</td>
                             <td>${order.orderDate}</td>
                             <td class="actions-row">
-                                <form  action="" method="post">
-                                    <a href="" class='detail-button book-details'>Details</a>
-                                    <a href="" class='edit-button edit-book'>Edit</a>
-                                    <a href="" class='delete-button delete-book'>Delete</a>
+                                <form  action="" method="post" class='d-flex gap-2'>
+                                    <a href="" class='detail-button book-details main-color'>Details</a>|
+                                    <a href="" class='edit-button edit-book main-color'>Edit</a>|
+                                    <a href="" class='delete-button delete-book main-color'>Delete</a>
                                     <input type="hidden" name="id" value="${order.orderId}">
                                 </form>
 
@@ -76,6 +76,12 @@
                     </c:forEach>
                 </tbody>
             </table>
+             <div class="pages d-flex mb-2 gap-2 align-items-center justify-content-center  mt-2">
+	                 <a href="page=1" class="btn bg-main text-white mr-1">1</a>
+	                 <a href="page=1" class="btn bg-main text-white mr-1">2</a>
+	                 <a href="page=1" class="btn bg-main text-white mr-1">3</a>
+	                 <a href="page=1" class="btn bg-main text-white mr-1">4</a>
+	             </div> 
         </div>
     </div>
 

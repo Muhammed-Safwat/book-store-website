@@ -37,7 +37,7 @@
     <div class="data-container">
    <div class="book-list">
         <div class="container">
-            <h3 class="main-color my-3 ">Manage Review list </h3>
+            <h3 class="text-center main-color my-4 ">Manage Review list </h3>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -69,16 +69,23 @@
                             <td>${review.comment}</td>
                              
                             <td>
-                                <form action="" method="post" cla>
+                                <form action="" method="post" class='d-flex gap-2'>
                                     <input type="hidden" name='id' value="${review.reviewId}">
-                                    <a href="" class='edit-button main-color'>Edit</a>
+                                    <a href="" class='edit-button main-color'>Edit</a>|
                                     <a href="" class='delete-button main-color'>Delete</a>
                                 </form> 
                             </td>
                         </tr>
                     </c:forEach>
                 </tbody>
-            </table>       
+            </table>  
+            
+             <div class="pages d-flex mb-2 gap-2 align-items-center justify-content-center  mt-2">
+	                 <a href="page=1" class="btn bg-main text-white mr-1">1</a>
+	                 <a href="page=1" class="btn bg-main text-white mr-1">2</a>
+	                 <a href="page=1" class="btn bg-main text-white mr-1">3</a>
+	                 <a href="page=1" class="btn bg-main text-white mr-1">4</a>
+	             </div>      
         </div>
     </div>
 </div>

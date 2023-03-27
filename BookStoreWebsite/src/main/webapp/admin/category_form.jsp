@@ -27,31 +27,32 @@
   		<!-- include header file -->
       <jsp:include page="../helper/header_admin.jsp"></jsp:include>
       
-      
-	<c:if test="${not empty requestScope.message}">
+    <div class='container'> 
+ 	<h1 class="text-center mb-4 mt-4 main-color">Add new Category</h1>
+ 	  <c:if test="${not empty requestScope.message}">
 	    <h1 class="text-center">
 	        ${requestScope.message}
 	    </h1>
 	</c:if>
 	<!-- core page  -->
- 	<h1>create category</h1>
- 	
-  <div class="create-user">
-    <form action="create_category" method='post' class="create-user-form row" >
   
-      <div class="input-row col-12 mb-3">
+ 	
+  <div class="create-category mb-5">
+    <form action="create_category" method='post' class="create-user-form row justify-content-center" >
+  
+      <div class="input-row col-6 mb-3">
         <label for="name">Category Name</label>
         <input type="name" id="name" name="name" class="form-control" required>
       </div>
       
-      <div class="form_button col-4 m-auto">
-        <button type="submit"  class="btn btn-outline-danger mt-3 mb-3">Add</button>
-          <a  class="btn btn-outline-danger mt-3 mb-3" href="list_category">Back</a>
-      </div>
+      <div class="form_button d-flex gap-2 col-12 justify-content-center">
+                    <button type="submit" class="btn submitBtn col-2 mt-3 bg-main text-white">Save</button>
+                    <a href="${pageContext.request.contextPath}/admin" class="btn btn-outline-danger  col-2 mt-3 bg-main text-white">Cencle</a>
+     </div>
       
     </form>
   </div>
-
+</div>
     <!-- include footer file -->
     <jsp:include page="../helper/footer.jsp"></jsp:include>
 	

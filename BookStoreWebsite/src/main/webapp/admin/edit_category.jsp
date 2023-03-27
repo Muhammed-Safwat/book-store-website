@@ -27,30 +27,28 @@
       <jsp:include page="../helper/header_admin.jsp"></jsp:include>
 	
 	<!-- core page  -->
- 	<h1>Edit Category</h1>
+ 
+ 	<h1 class="text-center mb-4 mt-4 main-color">Edit Category</h1>
  	  <c:if test="${not empty requestScope.message}">
 	    <h1 class="text-center">
 	        ${requestScope.message}
 	    </h1>
 	</c:if>
-      
-  <div class="create-user">
-    <form action="update_category" method='post' class="create-user-form row" >
-      
-      <div class="input-row col-12 mb-3">
-        <label for="name">Full Name</label>
-        <input type="hidden" id="id" name="id" value="${categroy.categoryId }"/>
-        <input type="text" id="name" name="name" class="form-control" value="${categroy.name}" required/>
-      </div>
-     
-      <div class="form_button col-4 m-auto">
-        <button type="submit"  class="btn btn-outline-danger mt-3 mb-3">Update</button>
-        <a  class="btn btn-outline-danger mt-3 mb-3" href="list_category">Back</a>
-      </div>
-    
-    </form>
+  <div class='container'>
+	  <div class="create-category">
+	    <form action="update_category" method='post' class="create-user-form row justify-content-center" >
+	      <div class="input-row col-6 mb-3">
+	        <label for="name">Full Name</label>
+	        <input type="hidden" id="id" name="id" value="${categroy.categoryId }"/>
+	        <input type="text" id="name" name="name" class="form-control" value="${categroy.name}" required/>
+	      </div>
+	      <div class="form_button col-12 row justify-content-center gap-3">
+	        <button type="submit"  class="btn col-2 bg-main  text-white  mt-3 mb-3">Update</button>
+	        <a  class="btn col-2 bg-main text-white mt-3 mb-3 text-white" href="list_category">Back</a>
+	      </div>
+	    </form>
+	  </div>
   </div>
-  
 	<!-- include footer file -->
 	<jsp:include page="../helper/footer.jsp"></jsp:include>
 	

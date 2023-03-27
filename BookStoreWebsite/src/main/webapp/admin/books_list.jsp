@@ -77,9 +77,9 @@
                             <td>
                                 <form class='d-flex gap-1' action="" method="post">
                                     <input type="hidden" name='id' value="${book.bookId}">
-                                    <a class='main-color' href="" class='edit-button'>Edit</a>
+                                    <a class='main-color edit-button' href="">Edit</a>
                                     |
-                                    <a class='main-color' href="" class='delete-button'>Delete</a>
+                                    <a class='main-color delete-button' href="">Delete</a>
                                 </form> 
                             </td>
                         </tr>

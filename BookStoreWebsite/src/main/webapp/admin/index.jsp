@@ -37,7 +37,7 @@
           <li><a href="${pageContext.request.contextPath}/admin/" class="h5 text-white active"><i class="fa-solid fa-house"></i>Overview</a></li>
           <li><a href="${pageContext.request.contextPath}/admin/list_book"><i class="fa-solid fa-book-bookmark"></i>Books</a></li>
           <li><a href="${pageContext.request.contextPath}/admin/list_category"><i class="fa-solid fa-layer-group"></i>Categories</a></li>
-          <li><a href="${pageContext.request.contextPath}/admin/list_user"><i class="fa-solid fa-user-group"></i>Customers</a></li>
+          <li><a href="${pageContext.request.contextPath}/admin/list_customer"><i class="fa-solid fa-user-group"></i>Customers</a></li>
           <li><a href="${pageContext.request.contextPath}/admin/list_user"><i class="fa-solid fa-user-tie"></i>Admins</a></li>
           <li><a href="${pageContext.request.contextPath}/admin/list_review"><i class="fa-solid fa-comments"></i>Reviews</a></li>
           <li><a href="${pageContext.request.contextPath}/admin/list_order"><i class="fa-solid fa-bag-shopping"></i>Orders</a></li>

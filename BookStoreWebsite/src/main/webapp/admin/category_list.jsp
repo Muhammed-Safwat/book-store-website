@@ -32,10 +32,11 @@
 	        ${requestScope.message}
 	    </h1>
 	  </c:if>
-    <div class="data-container">
-	    <h5 class="text-start mb-3">
+	  <h5 class="text-start mb-3">
 			<a class='main-color mr-3 mr-2' href='create_category'>Add new Category<i class="ms-1 fa-solid fa-layer-group"></i></a>
 		</h5>
+    <div class="data-container">
+	    
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -54,9 +55,9 @@
                         <td>
                             <form>
                                 <input type="hidden" name='id' value="${categorie.categoryId}">
-                                <a class='main-color' href="" class='edit-button'>Edit</a>
+                                <a class='main-color edit-button' href="">Edit</a>
                                |
-                                <a class='main-color' href="" class='delete-button'>Delete</a>
+                                <a class='main-color delete-button' href="">Delete</a>
                             </form>   
                         </td>
                     </tr>

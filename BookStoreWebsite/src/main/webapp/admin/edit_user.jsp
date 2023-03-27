@@ -20,7 +20,7 @@
     <link href="../css/style.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
-    <title>Create New User</title>
+    <title>Edit New User</title>
   </head>
   <body> 	
   
@@ -28,7 +28,9 @@
       <jsp:include page="../helper/header_admin.jsp"></jsp:include>
 	
 	<!-- core page  -->
- 	<h1>Edit user</h1>
+  	<div class='container mb-5'>
+ 	<h1 class="text-center mb-4 mt-4 main-color">Edit User</h1>
+ 	
  	<c:if test="${not empty requestScope.message}">
 	    <h1 class="text-center">
 	        ${requestScope.message}
@@ -48,14 +50,14 @@
         <input type="text" id="name" name="name" class="form-control"  value="${user.fullName }" required/>
       </div>
       
-      <div class="form_button col-4 m-auto">
-        <button type="submit"  class="btn btn-outline-danger mt-3 mb-3">Update</button>
-        <a  class="btn btn-outline-danger mt-3 mb-3" href="list_user">Back</a>
-      </div>
-      
+       
+       <div class="form_button col-12 row justify-content-center gap-3">
+	        <button type="submit"  class="btn col-2 bg-main  text-white  mt-3 mb-3">Update</button>
+	        <a  class="btn col-2 bg-main text-white mt-3 mb-3 text-white" href="list_category">Cencle</a>
+	   </div>
     </form>
   </div>
-  
+  </div>
 	<!-- include footer file -->
 	<jsp:include page="../helper/footer.jsp"></jsp:include>
 	
