@@ -58,18 +58,17 @@
               </div>
               <div class="col-lg-4 col-sm-3 col-4 order-lg-last">
                   <div class="header-shop-links float-end">
-                    <a href="" class="header-wishlist">
+                    <!--a href="" class="header-wishlist">
                         <i class="fa-solid fa-bell main-color"></i>
                         <span class="number">4</span>
-                    </a>
-                      <a href="${pageContext.request.contextPath}/view_cart" class="header-wishlist">
+                    </a!-->
+                      <a href="${pageContext.request.contextPath}/wishlist" class="header-wishlist">
                           <i class="fa-solid fa-heart text-danger main-color"></i>
-                          <span class="number">4</span>
+                          <span class="number">${wishlist.totalItems()}</span>
                       </a>
                       <a href="${pageContext.request.contextPath}/view_cart" class="header-cart">
-                           
                           <i class="main-color fa-solid fa-cart-shopping"></i>
-                          <span class="number">12</span>
+                          <span class="number">${cart.totalItems()}</span>
                       </a>
                   </div>
               </div>
@@ -79,21 +78,24 @@
                       <form action="search" method="post">
                           <div class="input-group">
                               <input type="search" name="key" class="form-control" style="width:55%" placeholder="Search" required>
-                              <div class="dropdown ">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Category
-                                </a>
-                                <ul class="dropdown-menu categoryList">
+                               
+                              <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Category
+                                </button> 
+                                <div class="dropdown-menu categoryList" aria-labelledby="dropdownMenu2">
                                   <c:forEach var="category" items="${categories}">
-                                    <li><a class="dropdown-item" href="view_category?id=${category.categoryId}">${category.name}</a></li>
+                                        <button class="dropdown-item" type="button"><a class="text-black " href="view_category?id=${category.categoryId}">${category.name}</a></button>
+                                            
                                   </c:forEach>
-                                </ul>
+                                </div>
                               </div>
-                              <button type="submit" class="bg-main btn btn-warning">
+                              <button type="submit" class="bg-main btn">
                                   <i class="text-white fa fa-search"></i>
                               </button>
                           </div>
                       </form>
+                      
                   </div>
               </div>
               <div class="mobile-menu order-12 d-block d-lg-none col"></div>

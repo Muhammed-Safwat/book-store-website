@@ -60,12 +60,14 @@ public class Customer {
 	@Column(name = "register_date")
 	private String registerDate;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "customer" , cascade = {
-			CascadeType.DETACH,CascadeType.MERGE,
-			CascadeType.REFRESH ,CascadeType.PERSIST
-	})
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "customer" , cascade =  CascadeType.ALL)
 	private Set<Review> reviews = new HashSet<Review>(0);
 
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "customer" , cascade =  CascadeType.ALL)
+	private Set<BookOrder> orders  = new HashSet<BookOrder>(0);
+	
+	
 	public Customer() {
 		super();
 	}
@@ -214,6 +216,20 @@ public class Customer {
 	public String getFullName() {
 		return this.getFirstName() + " " + this.getLastName();
 	}
+	
+	
+
+	public Set<BookOrder> getOrders() {
+		return orders;
+	}
+
+
+
+	public void setOrders(Set<BookOrder> orders) {
+		this.orders = orders;
+	}
+
+
 
 	@Override
 	public String toString() {

@@ -37,7 +37,7 @@ public class CategoryServices {
 		}else {
 			Category newCategory = new Category(name);
 			categoryDAO.create(newCategory);
-			request.setAttribute("message", name+" add sucssufly");
+			request.setAttribute("message", name+" add successfully");
 		}
 		
 		 categoryList();	
@@ -63,7 +63,7 @@ public class CategoryServices {
 		}else {			 			 
 			 newCategory.setName(name);
 			 categoryDAO.update(newCategory);
-			 request.setAttribute("message", newCategory.getName()+" updateted sucssufly");
+			 request.setAttribute("message", newCategory.getName()+" updateted successfully");
 			 categoryList();				 
 		}
  
@@ -75,7 +75,7 @@ public class CategoryServices {
 		 
 		 Category categroy = categoryDAO.CategoryLazy(id);
 		 if (categroy == null || !categroy.getBooks().isEmpty() ) {
-			    request.setAttribute("message", "Cannot delete category with ID [" + id + "]");
+			    request.setAttribute("message", "Can't delete category with ID [" + id + "]");
 			}else {
 			    categoryDAO.delete(id);
 			    request.setAttribute("message", "Category " + categroy.getName() + " deleted successfully");
@@ -103,7 +103,7 @@ public class CategoryServices {
 		Integer id =Integer.valueOf(request.getParameter("id")) ;
 		 Category categroy  = get(id);
 		 if(categroy == null) {
-			  request.setAttribute("massage","Could not find category with ID ["+id+"]");
+			  request.setAttribute("message","Could not find category with ID ["+id+"]");
 		 }else {
 			 request.setAttribute("categroy", categroy);
 		 }
@@ -130,7 +130,7 @@ public class CategoryServices {
 			 System.out.println(list);
 			 request.setAttribute("category", category);
 			 request.setAttribute("books", list);
-			 request.setAttribute("massage", "");
+			 
 			 if(list.size()==0){
 				 request.setAttribute("message", "no Books Found");
 			 } 

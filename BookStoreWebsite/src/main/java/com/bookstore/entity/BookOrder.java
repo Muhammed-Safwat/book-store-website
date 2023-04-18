@@ -24,7 +24,10 @@ public class BookOrder  {
 	@Column(name = "order_id")
 	private Integer orderId;
 	 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {
+			CascadeType.DETACH,CascadeType.MERGE,
+			CascadeType.REFRESH ,CascadeType.PERSIST
+	})
 	@JoinColumn(name="customer_id")
 	private Customer customer;
 	

@@ -34,29 +34,12 @@
         <div class="month-image mt-4 mb-4">
           <img src="${pageContext.request.contextPath}/images/Bhp_Mar_2023_1500x300.jpg" alt="">
         </div>
-        <div class="section--header d-flex align-items-center justify-between">
+        <div class="section--header border-bottom mb-3 d-flex align-items-center justify-between">
           <h1>New Arrivals & Global Trends</h1>
           <a href="">View more</a>
         </div>
-        
           <div class="row new-books-list">
             <c:forEach var="book" items="${books}"> 
-	            <!--div class="col-lg-4 col-md-6 col-12">
-	                <div class="card book-card">
-	                  <div class="book-image">
-	                   <img class="img-fluid" src="data:image/png;base64,${book.getBase64Image()}" >
-	                  </div>
-	                  <div class="book-body">
-	                    <a href="view_book?id=${book.bookId}">${book.title}</a>
-	                    <p>${book.author}</p>
-	                    
-	                    <input data-role="rating"
-							    data-value="${book.getAverageRating()}"  
-							    data-static="true">
-	                    <p>${book.price}$</p>
-	                  </div>
-	                </div>
-	            </!--div-->
               <div class="col-lg-2 col-md-6 col-12">  
                 <div class="product">
                   <div class="product-image">
@@ -92,56 +75,16 @@
                 </div>
               </div>
             </c:forEach>
-            <!--div class="col-lg-4">
-              <div class="product">
-                <div class="product-image">
-                    <a style="height: 227px;" href="view_book?id=${book.bookId}">
-                        <img class="img-fluid" src="data:image/png;base64,${book.getBase64Image()}" alt="Book_image">
-                        <img class="img-fluid" src="data:image/png;base64,${book.getBase64Image()}" alt="Book_image">
-                    </a>
-                    <p class="product-sale">New</p>
-                    <button type="button" class="btn-favourite btn-circle">
-                        <i class="fa-solid fa-heart"></i>
-                    </button>
-                </div>
-                <div class="product-content">
-                    <a class="product-name d-flex justify-content-between align-items-center"
-                        href="view_book?id=${book.bookId}">
-                        <span class="item-title">${book.title}</span>
-                        <span class="badge badge-pill bg-warning p-1">${book.category.name}</span>
-                    </a>
-                    <div class='d-flex justify-content-start'>
-                      <ul class="rating-stars">
-                        <input data-role="rating"
-                        data-value="${book.getAverageRating()}"  
-                        data-static="true">
-                      </ul>
-                    </div>
-                    <div class="product-content__footer">
-                        <div class="product-content__footer-price">
-                            <h5 class="product-price">${book.price}$</h5>
-                            <span>${book.price*.2}</span>
-                        </div>
-                        <span class="product-atc rounded-circle">
-                            <button type="button" class="btn btn-circle text-muted">
-                                <i class="fa fa-shopping-cart"></i>
-                            </button>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            </!--div -->
         </div>
       </div>
     </div>
   
     <div class="best-selling">
       <div class="container"> 
-        <div class="section--header d-flex align-items-center justify-between">
+        <div class="section--header border-bottom mb-3 d-flex align-items-center justify-between">
           <h1>Best Sellers of the Week</h1>
           <a href="">View more</a>
         </div>
-         
         <div class="row best-selling">
           <c:forEach var="book" items="${bestSaling}"> 
             <div class="col-lg-2 col-md-6 col-12">  
@@ -179,22 +122,6 @@
                 </div>
               </div>
             </div>
-            <!-- div class="col-lg-4 col-md-6 col-12">
-                <div class="card book-card">
-                  <div class="book-image">
-                   <img class="img-fluid" src="data:image/png;base64,${book.getBase64Image()}" >
-                  </div>
-                  <div class="book-body">
-                    <a href="view_book?id=${book.bookId}">${book.title}</a>
-                    <p>${book.author}</p>
-                    
-                    <input data-role="rating"
-                data-value="${book.getAverageRating()}"  
-                data-static="true">
-                    <p>${book.price}$</p>
-                  </div>
-                </div>
-            </ -->
           </c:forEach>
         </div>
       </div>
@@ -203,7 +130,7 @@
     <div class="most-favored">
       <div class="container"> 
          
-        <div class="section--header d-flex align-items-center justify-between">
+        <div class="section--header border-bottom mb-3 d-flex align-items-center justify-between">
           <h1>Highest Rating</h1>
           <a href="">View more</a>
         </div>
@@ -272,12 +199,15 @@
     <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>
     
     <!-- =============== MAIN JS ===============-->
-    <script src="${pageContext.request.contextPath}/css/bootstrap/js/bootstrap.min.js"></script>
+     
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
     <script src="${pageContext.request.contextPath}/js/common.js"></script>
- 	<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script src="${pageContext.request.contextPath}/js/cart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 	  <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+     
    
 </body>
 </html>

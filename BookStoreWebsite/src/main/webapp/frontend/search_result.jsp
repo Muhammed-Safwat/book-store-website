@@ -98,6 +98,6 @@
     <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
     <script src="${pageContext.request.contextPath}/css/bootstrap/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
- 
+    <script src="${pageContext.request.contextPath}/js/cart.js"></script>
 </body>
 </html>

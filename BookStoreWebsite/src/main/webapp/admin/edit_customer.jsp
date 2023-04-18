@@ -7,9 +7,6 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <!-- =============== BOXICONS ===============-->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
       <!-- ================== BOOTSTRAP ============== -->
       <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
@@ -20,7 +17,7 @@
       <link href="../css/style.css" rel="stylesheet" type="text/css">
       <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
       <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
-      <title>Add New Customer</title>
+      <title>Edit Customer</title>
     </head>
 
     <body>
@@ -31,10 +28,12 @@
       <h1 class="text-center mb-2 mt-5 main-color">Edit Customer</h1>
      
       <c:if test="${not empty requestScope.message}">
-	    <h1 class="text-center">
-	        ${requestScope.message}
-	    </h1>
-	  </c:if>
+        <div class=" error-message hidden d-flex align-items-center gap-2">
+          
+          <i class="err fa-solid fa-circle-exclamation"></i>
+          ${requestScope.message}
+        </div>
+	    </c:if>
      
       <div class="create-book pt-5 pb-5">
         <div class="container">
@@ -120,6 +119,7 @@
           </form>
         </div>
       </div>
+
       <!-- include footer file -->
       <jsp:include page="../helper/footer.jsp"></jsp:include>
 
@@ -127,10 +127,7 @@
       <a class="scroll-up" href="#">
         <i class="bx bx-up-arrow-alt"></i>
       </a>
+      <script  src="../js/notification.js"></script>
+  </body>
 
-      <!-- =============== MAIN JS ===============-->
-      <script src="../css/bootstrap/js/bootstrap.min.js"></script>
-       
-    </body>
-
-    </html>
+</html>

@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.bookstore.controller.frontend.shopingcart.ShopingCart;
+import com.bookstore.controller.frontend.shopingcart.WishList;
 import com.bookstore.dao.CategoryDAO;
 import com.bookstore.entity.Category;
 import com.bookstore.service.CategoryServices;
@@ -23,16 +24,6 @@ import com.bookstore.service.CategoryServices;
 @WebFilter("/*")
 public class MainFilter extends HttpFilter implements Filter {
        
- 
-    public MainFilter() {
-        super();
-  
-    }
-
-	public void destroy() {
-		
-	}
-
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
@@ -55,14 +46,17 @@ public class MainFilter extends HttpFilter implements Filter {
 			 session.setAttribute("cart", new ShopingCart());	 
 		 } 
 			 
-		
+		 
+		 if(session.getAttribute("wishlist")==null) {
+			 WishList wishlist  = new WishList();
+			 session.setAttribute("wishlist", wishlist);
+	     } 
+		 
 		 System.out.println("main filter ==>");
 		 chain.doFilter(request, response); 
 	}
 
 
-	public void init(FilterConfig Config) throws ServletException {
-		 
-	}
+ 
 
 }

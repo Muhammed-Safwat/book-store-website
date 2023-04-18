@@ -27,15 +27,34 @@
     <body>
       <!-- include footer file -->
       <jsp:include page="../helper/header.jsp"></jsp:include>
+			<c:if test="${not empty requestScope.message}">
+        <div class="error-message hidden d-flex align-items-center gap-2">
+          <i class="done fa-solid fa-circle-check"></i>
+          
+          ${requestScope.message}
+        </div>
+	    </c:if>
+			<section class=" bg-main d-flex align-items-center mb-9 ">
+        <div class="container">
+            <ol class="breadcrumb ondark m-0 p-2">
+                <li class="breadcrumb-item">
+                    <a class="text-white opacity-75" href="${pageContext.request.contextPath}">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a class="text-white opacity-75" href="${pageContext.request.contextPath}/profile/view-profile">Profile</a>
+                </li>
+            </ol>
+        </div>
+    </section>
+
 			<section class="padding-y my-5">
 				<div class="container">
 			
 					<div class="row">
 						<aside class="col-lg-3 col-xl-3  bg-light align-self-start">
 							<nav class="nav flex-lg-column nav-pills mb-4">
-								<a class="nav-link bg-main text-white">Profile setting</a>
-								<a href="" class="nav-link">My wishlist</a>
-								<a href="" class="nav-link">Massages</a>
+								<a class="nav-link bg-main text-white">Profile Setting</a>
+								<a href="${pageContext.request.contextPath}/wishlist" class="nav-link">My wishlist</a>					 
 								<a href= "${pageContext.request.contextPath}/profile/order_history" class="nav-link">My Orders</a>
 								<a href="${pageContext.request.contextPath}/profile/change_passward" class="nav-link" >Change Password</a>
 								<a href="${pageContext.request.contextPath}/logout" class="nav-link" >Log out</a>
@@ -55,7 +74,7 @@
 												</div>
 												<figcaption class="info d-flex justify-content-between align-items-center">
 														<h6 class="title fw-bold">${customer.firstName}  ${customer.lastName}</h6>
-														<a href="${pageContext.request.contextPath}/profile/edit_customer_profile" class="bg-main btn btn-warning rounded py-2 px-1">
+														<a href="${pageContext.request.contextPath}/profile/edit_customer_profile" class="bg-main btn   rounded py-2 px-1">
 																<i class=" text-white fa fa-pen px-2"></i>
 														</a>
 												</figcaption>
@@ -94,7 +113,7 @@
 																<b class="mx-2 text-muted">
 																		<i class="main-color fa fa-map-marker-alt"></i>
 																</b>
-																${customer.addressLine1}, ${customer.addressLine2}, ${customer.city}, ${customer.state}, ${customer.zipcode}, ${customer.country}
+																Address: ${customer.addressLine1}, ${customer.addressLine2}, ${customer.city}, ${customer.state}, ${customer.zipcode}, ${customer.country}
 														</article>
 												</div>
 										</div>
@@ -116,8 +135,9 @@
       </a>
 
       <!-- =============== MAIN JS ===============-->
+			<script  src="../js/notification.js"></script>
       <script src="${pageContext.request.contextPath}/css/bootstrap/js/bootstrap.min.js"></script>
-       
+	  <script src="${pageContext.request.contextPath}/js/cart.js"></script>
  
 
 </body>

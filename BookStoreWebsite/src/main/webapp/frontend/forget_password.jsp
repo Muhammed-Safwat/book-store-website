@@ -59,7 +59,7 @@
                 </div>
             </div>
         </section>
-    
+        <script src="${pageContext.request.contextPath}/js/cart.js"></script>
         <script src="js/login.js"></script>
     </body>
     </html>

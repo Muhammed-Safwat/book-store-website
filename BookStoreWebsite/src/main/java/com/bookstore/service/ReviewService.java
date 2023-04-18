@@ -50,15 +50,16 @@ public class ReviewService {
 			Customer customer = (Customer) request.getSession().getAttribute("customer");
 			
 			
-		 Review review = new Review(book,customer,reviewRating,headline,comment,date);
-		 reviewDAO.create(review);
+			 Review review = new Review(book,customer,reviewRating,headline,comment,date);
+			 reviewDAO.create(review);
 		     request.setAttribute("book", book);
-		     request.setAttribute("message" , "Reivew added sucssfully");
+		     request.setAttribute("message" , "Reivew added successfully");
 		     ReviewService reviewService = new ReviewService(request, response);
 		     List<Review> reviewList = reviewService.findByBookId(id);
 		     request.setAttribute("reviewList", reviewList);
-			 RequestDispatcher dispatcher = request.getRequestDispatcher("../frontend/book_detail_page.jsp");
-			 dispatcher.forward(request, response); 
+			/* RequestDispatcher dispatcher = request.getRequestDispatcher("../frontend/book_detail_page.jsp");
+			 dispatcher.forward(request, response); */
+		     response.sendRedirect(request.getContextPath()+"/view_book?id="+book.getBookId());
 	}
 	
 	
@@ -79,7 +80,7 @@ public class ReviewService {
 		review.setComment(comment); 
 		review.setHeadline(headline);
 		 reviewDAO.update(review);
-		request.setAttribute("message", "updated succsussfully");
+		request.setAttribute("message", "Review updated successfully");
 		listReviews();	
 	}
 	
@@ -91,11 +92,11 @@ public class ReviewService {
 		 
 		String idParameter= request.getParameter("id");
 		if(idParameter==null) {
-			request.setAttribute("message", "Could not find review with ID ");
+			request.setAttribute("message", "Could not find this review");
 		}else {
 			Integer id  = Integer.valueOf(idParameter);
 			reviewDAO.delete(id);
-			request.setAttribute("message", "Review Deleted succssfuly");
+			request.setAttribute("message", "Review deleted successfully");
 		}
 		 listReviews();
 	}
@@ -108,12 +109,14 @@ public class ReviewService {
 		BookDAO  bookDAO =new BookDAO();
 		String stringId = 	request.getParameter("id");
 		Integer id = Integer.valueOf(stringId);
+		
 		Book book = bookDAO.getBookWithCategory(id);
 		 
 		request.setAttribute("book", book);
 		
 		request.getRequestDispatcher("../frontend/make_review.jsp").include(request, response);
 	}
+	 
 	
 	protected String GetCurrentDate() {
 	     Date date = new Date() ;

@@ -25,8 +25,8 @@ pageEncoding="ISO-8859-1"%>
 	    <!-- include header file -->
 	    <jsp:include page="../helper/header.jsp"></jsp:include>
       
-      <section id="checkout-complete">
-        <div class="checkout-complete-header text-center">
+      <section id="checkout-complete d-flex justify-content-center pb-3 my-6">
+        <div class="checkout-complete-header text-center mt-5">
             <div class="rounded-circle checkmark">
                <i class="fa-solid fa-check main-color "></i>
             </div>
@@ -35,7 +35,7 @@ pageEncoding="ISO-8859-1"%>
             </h4>
             <p>We have recieved your order and it will be delivered in the next 3 days</p>
         </div>
-        <div class="checkout-complete-summary text-center">
+        <div class="checkout-complete-summary d-flex gap-4 justify-content-center text-center">
             <div class="item">
                 <h5>Order Number</h5>
                 <p>${order.orderId}</p>
@@ -53,8 +53,10 @@ pageEncoding="ISO-8859-1"%>
                 <p>${order.paymentMethod}</p>
             </div>
         </div>
-        <button class="btn bg-main text-white rounded mt-4">Back to store</button>
-    </section>
+        <div class="d-flex justify-content-center mt-2 mb-5">
+            <a class="btn bg-main text-white rounded mt-4" href="${pageContext.request.contextPath}">Back to store</a>  
+        </div>
+       </section>
     	
       <!-- include footer file -->
 	    <jsp:include page="../helper/footer.jsp"></jsp:include>
@@ -66,6 +68,7 @@ pageEncoding="ISO-8859-1"%>
 	      <script src="js/showCart.js"></script>
 	      <script src="../css/bootstrap/js/bootstrap.min.js"></script>
 	      <script src="../js/main.js"></script>
+          <script src="${pageContext.request.contextPath}/js/cart.js"></script>
 	      <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
  
   </body>

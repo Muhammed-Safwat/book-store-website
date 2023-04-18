@@ -30,7 +30,7 @@
 		    <h1 class="text-center">
 		        ${requestScope.message}
 		    </h1>
-		</c:if>
+		   </c:if>
       <div class="row">&nbsp;</div>
 	
 	<div class="row">
@@ -39,7 +39,7 @@
 	
 	<div class="row">&nbsp;</div>
 	
-	<div class="row">
+	<div class="row mt-4">
 		<div class="col-sm-2"></div>
 		
 		<div class="col-sm-8">

@@ -13,13 +13,9 @@ import com.bookstore.service.OrderService;
 public class OrderHistoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      
-    
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	OrderService orderService = new OrderService(request, response);
 		orderService.viewHistory();
-	}
-
-	
-	 
-
+	}	
+    
 }

@@ -20,6 +20,7 @@ public class EditCustomerProfile extends HttpServlet {
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CustomerService customerService = new CustomerService(request, response);
+		
 		customerService.updateCustomerInfo();
 	}
 	

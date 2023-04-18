@@ -1,20 +1,11 @@
+document.addEventListener('DOMContentLoaded', function() {
+  // Your code here
+  console.log('Page loaded!');
+  
 
-if(window.localStorage.getItem("cart")==null){
-	window.localStorage.setItem("cart",JSON.stringify([]));
-}/*
-const myBlogs = ["https://catalins.tech", "https://exampleblog.com"];
-localStorage.setItem('links', JSON.stringify(myBlogs)); 
-console.log(obj.name)*/
-
-
-
-
-
-
-
+});
 
 // search 
- 
 console.log(document.querySelector('.search-btn'));
 document.querySelector('.search-btn').addEventListener('click' , ()=>{
   let keyword =  document.querySelector(".search-input").value ;
@@ -60,36 +51,9 @@ okBtn.addEventListener('click'  , ()=>{
 overlay.addEventListener('click'  , removeMenu);
 cencelBtn.addEventListener('click' ,removeMenu);
 
- 
- 
-
-
-/**    old requests  */
-/*
-const xhr = new XMLHttpRequest()
-	//open a get request with the remote server URL
-	xhr.open("post", "http://localhost:8086/BookStoreWebsite/")
-	//send the Http request
-	xhr.send()
-
-	//EVENT HANDLERS
-
-	//triggered when the response is completed
-	xhr.onload = function() {
-	  if (xhr.status === 200) {
-	    //parse JSON datax`x
-	    console.log(xhr);
-	   let  data  = JSON.parse(xhr.response);
-	    console.log(xhr.response);
-	   
-	   
-	    console.log(data);
-	     console.log(data.price);
-	  }else if (xhr.status === 404) {
-	    console.log("No records found")
-	  }
-	}
-*/
+document.querySelector('.scroll-up').addEventListener('click', function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 
 

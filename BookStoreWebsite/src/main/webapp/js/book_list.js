@@ -25,7 +25,7 @@ class BookList extends Helper {
 }
 
 const obj = new BookList();
-obj.setMapping("list_customer");
+obj.setMapping("list_book");
 obj.handleForm();
 
 console.log(obj);

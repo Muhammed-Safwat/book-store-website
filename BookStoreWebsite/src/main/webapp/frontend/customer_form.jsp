@@ -121,7 +121,7 @@
             </div>
         </div>
       </div>
-    
+      <script src="${pageContext.request.contextPath}/js/cart.js"></script>
       <script src="${pageContext.request.contextPath}/js/customer_Form.js"></script>
     </body>
 

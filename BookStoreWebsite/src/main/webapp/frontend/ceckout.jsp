@@ -31,186 +31,20 @@ pageEncoding="ISO-8859-1"%>
 
     <c:if test="${cart.totalItems() == 0}">
         <div class="empty-cart">
-            <div class="empty-cart__icon">
-                <img src="${pageContext.request.contextPath}/images/31554827.jpeg" alt="">
-            </div>
+            <img src="${pageContext.request.contextPath}/images/31554827.jpeg" alt="Not found"
+			 	style="max-height: 150px">
             <div class="empty-cart__title">Your cart is empty</div>
             <div class="empty-cart__subtitle">Looks like you haven’t added any items to your cart yet.</div>
             <a href="${pageContext.request.contextPath}" class="btn bg-main text-white">Continue shopping</a>
         </div>		
     </c:if>
-<!-- 
-    <c:if test="${cart.totalItems() > 0}">
-        <div class="container mt-10">
-            <div class="order-books mb-5">
-                <table class="table table-bordered ">
-                <thead>
-                    <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Book</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="item" items="${cart.getItems()}" varStatus="status">
-                    <tr>
-                        <td>${status.index+1}</td>
-                        <td>
-                            <div class="row d-flex align-items-center">
-                                <div class="item-image col-4">
-                                    <img class="img-fluid" src="data:image/png;base64,${item.key.getBase64Image()}" >
-                                </div>
-                                <div class="book-tilte text-bold col-8">
-                                    ${item.key.title}
-                                </div> 
-                            </div>
-                        </td>
-                        <td>${item.key.author}</td>
-                        <td>${item.key.price}</td>
-                        <td>${item.value}</td>
-                        <td>${item.key.price*item.value}$ </td>
-                    </tr>
-                    </c:forEach>
-                    <tr>
-                        <td colspan="4" class="text-end">Total</td>
-                        <td>${cart.getTotalQuantity()} </td>
-                        <td>${cart.GetTotalAmount()}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" class="text-end">SubTotal</td>
-                        <td></td>
-                        <td>${cart.GetTotalAmount()}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" class="text-end">Tax</td>
-                        <td></td>
-                        <td>${cart.getTax()}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" class="text-end">ShoppingFee</td>
-                        <td></td>
-                        <td>${cart.getShippingFee()}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" class="text-end text-bold">Total</td>
-                        <td>${cart.getTotalQuantity()}</td>
-                        <td class="text-bold">${cart.getShippingFee()+cart.getTax()+cart.GetTotalAmount()}</td>
-                    </tr>
-                </tbody>
-                </table>
-            </div>
-            
-            <div class="shopping-information">
-                <h3 class="text-center mb-4">Your Shopping Information</h3>
-            </div>
-
-            <div class="information-form d-flex justify-content-center mt-5 mb-5">
-                <form action="place_order" method="post">
-                    <div class="row">
-                        
-                        <div class="col-6">First Name</div>  
-                        <div class="col-6">
-                            <input class="form-control" type="text" name="firstName"   value='${customer.firstName}' id="" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">Last Name</div>
-                        <div class="col-6">
-                            <input class="form-control" type="text" name="lastName" value='${customer.lastName}' id="" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">Recipient Phone</div>
-                        <div class="col-6">
-                            <input class="form-control" type="text" name="phone" value='${customer.phone}' id="" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">Recipient Address Line1</div>
-                        <div class="col-6">
-                            <input class="form-control" type="text" name="addressLine1" value='${customer.addressLine1}' id="" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">Recipient Address Line2</div>
-                        <div class="col-6">
-                            <input class="form-control" type="text" name="addressLine2" value='${customer.addressLine2}' id="" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">City</div>
-                        <div class="col-6">
-                            <input class="form-control" type="text" name="city" id="" value='${customer.city}' required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">State</div>
-                        <div class="col-6">
-                            <input class="form-control" type="text" name="state" value='${customer.state}' id="" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">Country</div>
-                        <div class="col-6">
-                            <input class="form-control" type="text" name="country"  value='${customer.country}' id="" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">Zip Code</div>
-                        <div class="col-6">
-                            <input class="form-control" type="text" name="zipcode" value='${customer.zipcode}'  id="" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            Chosse your payment method
-                        </div>
-                        <div class="col-6">
-                            <select class="form-select" name="payment-method" required>
-                                <option value="Cach on delevriy">Cach on delevriy</option> 
-                                <option value="paypal">pay pal</option>    
-                            </select>
-                        </div>
-                    </div>
-                    < div class="row">
-                        <div class="col-6">
-                            Order Status
-                        </div>
-                        <div class="col-6">
-                            <select class='form-select' name="order-status">
-                                <option value="Processing" >Processing</option>
-                                <option value="Shipping">Shipping</option>
-                                <option value="Delivered">Delivered</option>
-                                <option value="Completed">Completed</option>
-                                <option value="Cancelled">Cancelled</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row mt-4">
-                        <div class="col-6">
-                            <button type="submit" class="btn btn-primary">Place Order</button>
-                        </div>
-                        <div class="col-6">
-                            <a href="" >Countinue Shopping</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </c:if>
-
-    -->
-
+ 
 <c:if test="${cart.totalItems() > 0}">
 <section class="padding-y ">
-    <div class="container">
+    <div class="container mt-4">
         <div class="row">
             <main class="col-xl-8 col-lg-8">
-                <article class="card">
+                <article class="card mt-0">
                     <div class="content-body">
                         <h5 class="card-title"> Billing details</h5>
                         <form action="place_order" method="post">
@@ -309,7 +143,9 @@ pageEncoding="ISO-8859-1"%>
 
                     <dl class="dlist-align">
                         <dt>Sub Total:</dt>
-                        <dd class="text-end"> ${cart.GetTotalAmount()}</dd>
+                        <dd class="text-end"> 
+                            <fmt:formatNumber value="${cart.GetTotalAmount()}" type="currency" currencySymbol="$" maxFractionDigits="2" /></span>
+                        </dd>
                     </dl>
                     <dl class="dlist-align">
                         <dt>Tax:</dt>
@@ -317,11 +153,15 @@ pageEncoding="ISO-8859-1"%>
                     </dl>
                     <dl class="dlist-align">
                         <dt>Shopping cost:</dt>
-                        <dd class="text-end">${cart.getShippingFee()} </dd>
+                        <dd class="text-end">
+                            <fmt:formatNumber value="${cart.getShippingFee()}" type="currency" currencySymbol="$" maxFractionDigits="2" /></span>
+                             </dd>
                     </dl>
                     <dl class="dlist-align">
                         <dt>Total price:</dt>
-                        <dd class="text-end">${cart.getShippingFee()+cart.getTax()+cart.GetTotalAmount()} </dd>
+                        <dd class="text-end">
+                            <fmt:formatNumber value="${cart.getShippingFee()+cart.getTax()+cart.GetTotalAmount()}" type="currency" currencySymbol="$" maxFractionDigits="2" /></span>
+                            </dd>
                     </dl>
                      
                     <div class="input-group my-4">
@@ -360,6 +200,7 @@ pageEncoding="ISO-8859-1"%>
     <script type="text/javascript" src='js/update-cart.js'></script>
     <script src="../css/bootstrap/js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
+    <script src="${pageContext.request.contextPath}/js/cart.js"></script>
     <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 
 </body>

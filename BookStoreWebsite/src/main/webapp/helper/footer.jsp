@@ -11,12 +11,13 @@
 </!--footer -->
 <footer class="footer-top">
   <div class="container">
-
+    
   <div class="row">
       <div class="col-lg-3 col-md-6 col-12 mb-40">
           <div class="footer-widget">
-
-              <h4 class="widget-title">CONTACT INFO</h4>
+                <h5 class="widget-title main-color">
+                    Book Store <i class="main-color fa-solid fa-book-open"></i> 
+                </h5>
 
               <p class="contact-info">
                   <span><i class="fa-solid fa-location-dot"></i> Address</span>

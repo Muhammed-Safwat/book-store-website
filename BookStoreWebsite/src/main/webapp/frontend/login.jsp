@@ -36,7 +36,7 @@
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="email">E-Mail Address</label>
 									<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
-									<div class="error">
+									<div class="error invalid-feedback">
 										${requestScope.message}
 									</div>
 								</div>
@@ -47,7 +47,7 @@
 										
 									</div>
 									<input id="password" type="password" class="form-control" name="password" required>
-								    <div class="invalid-feedback">
+								    <div class="error invalid-feedback">
 								    	${requestScope.message}
 							    	</div>
 								</div>

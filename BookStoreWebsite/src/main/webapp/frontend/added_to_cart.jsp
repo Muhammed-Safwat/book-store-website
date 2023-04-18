@@ -66,6 +66,7 @@ pageEncoding="ISO-8859-1"%>
     
 	      <!-- =============== MAIN JS ===============-->
 	      <script src="js/showCart.js"></script>
+        <script src="${pageContext.request.contextPath}/js/cart.js"></script>
 	      <script src="../css/bootstrap/js/bootstrap.min.js"></script>
 	      <script src="../js/main.js"></script>
 	      <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>

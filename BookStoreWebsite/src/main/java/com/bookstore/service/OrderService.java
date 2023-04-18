@@ -60,12 +60,16 @@ public class OrderService {
 	}
 	
 	public void viewOrderDetail() throws ServletException, IOException  {
+			
 			Customer customer  = (Customer) request.getSession().getAttribute("customer");
+			
 			String sId = request.getParameter("id");
+			
 			if(sId != null) {
 				List<BookOrder> order = bookOrderDAO.getOrderWithCustomerId(sId , String.valueOf(customer.getCustomerId()));
 				request.setAttribute("order", order.get(0));
 			}
+			
 			request.getRequestDispatcher("../frontend/order_detail.jsp").include(request, response);
 	}
 	
@@ -275,6 +279,7 @@ public class OrderService {
 		 System.out.println("Runnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
 		 
 		request.setAttribute("orderId", id);
+		request.setAttribute("message", book.getTitle()+" Added");
 	}
 
 	public void removeBook() throws IOException {
@@ -310,7 +315,7 @@ public class OrderService {
 		 response.sendRedirect(request.getContextPath()+"/admin/edit_order?id="+orderId);
 	}
 	
-	public void UpdateBookInOrder() throws IOException {
+	public void UpdateBookInOrder() throws IOException, ServletException {
 		 Integer orderId = Integer.valueOf(request.getParameter("orderId")) ;
 		 BookOrder newOrder =  bookOrderDAO.get(orderId);
 		 Integer bookId = Integer.valueOf(request.getParameter("bookId"));
@@ -333,7 +338,9 @@ public class OrderService {
 		 newOrder.setTotal(); 
 
 		 bookOrderDAO.update(newOrder);
-		 response.sendRedirect(request.getContextPath()+"/admin/edit_order?id="+orderId);
+		 request.setAttribute("message", "Quntity Updated");
+		 
+		  response.sendRedirect(request.getContextPath()+"/admin/edit_order?id="+orderId);
 	}
 
 	public void delete() throws IOException, ServletException {

@@ -37,10 +37,10 @@ public class CustomerService {
 		Customer customer  =  getDataFromRequest(request , response);
 		if(customer != null ) {
 			customerDAO.create(customer);			  
-			  request.setAttribute("message", "Customer added succssfully");
+			  request.setAttribute("message", "Customer added successfully");
 			  listCustomer();
 		}else {
-			  request.setAttribute("message", "this Account Alrady exsist!");
+			  request.setAttribute("message", "This Account Alrady exsist!");
 			  showCustomerForm();
 		}		
 	}
@@ -54,7 +54,7 @@ public class CustomerService {
 			    response.sendRedirect("profile/view-profile");
 			 
 		}else {
-			  request.setAttribute("message", "this Account Alrady exsist!");
+			  request.setAttribute("message", "This Account Alrady exsist!");
 			  dispatcher =request.getRequestDispatcher("frontend/customer_form.jsp");
 			  dispatcher.include(request, response);
 		}
@@ -75,7 +75,7 @@ public class CustomerService {
 		String email = request.getParameter("email");
 		Customer customer  = null;
 		 if(CheckEmail(email ,id)) {
-			request.setAttribute("message", "this Account Alrady exsist!");
+			request.setAttribute("message", "This Account Alrady exsist!");
 			showEditFrom();
 		} else {
 			customer = getCustomerById(id);
@@ -90,7 +90,7 @@ public class CustomerService {
 			customer.setPhone(request.getParameter("phone"));		  
 			customer.setZipcode(request.getParameter("zip-code"));
 			customerDAO.update(customer);
-			request.setAttribute("message", "Customer Updated Sucssfully!");
+			request.setAttribute("message", "Customer Updated successfully!");
 			listCustomer();
 		}
 		
@@ -108,11 +108,11 @@ public class CustomerService {
 	    Customer customer  = getCustomerById(id);
 	    
 	    if(customer == null) {
-	    	request.setAttribute("message", "This customer deleted by anther admin");
+	    	request.setAttribute("message", "This customer not found");
 	    }else {
 	    	 customerDAO.delete(id);
 	    	 System.out.println("customer deleted ==> ");
-	    	 request.setAttribute("message", "customer deleted succssfully");
+	    	 request.setAttribute("message", "Customer deleted successfully");
 	    }   
 	    listCustomer();
 	}
@@ -163,11 +163,10 @@ public class CustomerService {
 		    System.out.println("id ==> " + id);
 		     Customer customer  = getCustomerById(id); 
 		    if(customer==null) {
-		    	request.setAttribute("massage", "This customer deleted by anther admin");
+		    	request.setAttribute("massage", "This customer not found");
 		    	 listCustomer();
 		    }else {
 		    	request.setAttribute("customer", customer);
-		    	request.setAttribute("massage", "");
 		    	RequestDispatcher dispatcher =  request.getRequestDispatcher("edit_customer.jsp");
 				dispatcher.forward(request, response);
 		    }
@@ -200,8 +199,8 @@ public class CustomerService {
  		 }else {
  			  customer = getDataFromRequest(request ,customer);
 			  customerDAO.update(customer);
-			  request.setAttribute("message", "Customer Updated sucssfully");
-			  response.sendRedirect("view-profile");
+			  request.setAttribute("message", "Profile Updated sucssfully");
+			  request.getRequestDispatcher("../frontend/veiw_profile.jsp").include(request, response);
 		 }
 	}
 	

@@ -27,108 +27,10 @@
       <!-- include footer file -->
       <jsp:include page="../helper/header.jsp"></jsp:include>
 
-     
-     <!--div class="categories">
-		  <div class="container">
-		    <ul class="list d-flex align-items-center justify-content-between">
-		     <c:forEach var="category" items="${categories}">
-		      <li><a href='view_category?id=${category.categoryId}'>${category.name}</a></li>
-		     </c:forEach>
-		    </ul>
-		  </div>
-	</-div>
-   
-      <div class="create-book pt-5 pb-5">
-        <div class="container">
-          <form action="edit_customer_profile" method='post' class="create-user-form row">
-         
-            <div class="input-row col-6 mb-3">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="email" 
-              				value="${customer.email}"  class="form-control" required>
-            </div>
 
-            <div class="input-row col-6 mb-3">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" name="firstName" 
-              			value="${customer.firstName}" class="form-control" required>
-            </div>
-
-            <div class="input-row col-6 mb-3">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName" 
-              			value="${customer.lastName}" class="form-control" required>
-            </div>
-
-            <div class="input-row col-6 mb-3">
-              <label for="password">Password</label>
-              <input type="password" id="password" name="password" 
-              				value="${customer.password}"  class="form-control" required>
-            </div>
-            
-			<div class="input-row col-6 mb-3">
-              <label for="confirm-password">confirm-password</label>
-              <input type="password" id="confirm-password" name="confirm-password" 
-              			     class="form-control" required>
-            </div>
-            
-            <div class="input-row col-6 mb-3">
-              <label for="phone">Phone Number</label>
-              <input type="text" id="phone" name="phone"
-              			value="${customer.phone}" class="form-control" required>
-            </div>
-
-            <div class="input-row col-6 mb-3">
-              <label for="addressLine1">Address Line</label>
-              <input type="text" id="addressLine1" name="addressLine1" 
-              				value="${customer.addressLine1}" class="form-control" required>
-            </div>
-
-            <div class="input-row col-6 mb-3">
-              <label for="addressLine2">Address</label>
-              <input type="text" id="addressLine2" name="addressLine2" 
-              				value="${customer.addressLine2}" class="form-control" required>
-            </div>
-            <div class="input-row col-6 mb-3">
-              <label for="city">City</label>
-              <input type="text" id="city" name="city"
-              				value="${customer.city}"  class="form-control" required>
-            </div>
-            
-            <div class="input-row col-6 mb-3">
-              <label for="state">State</label>
-              <input type="text" id="state" name="state"
-              				value="${customer.state}"  class="form-control" required>
-            </div>
-
-   
-
-			<div class="input-row col-6 mb-3">
-              <label for="zip-code">Zip Code</label>
-              <input type="text" id="zip-code" name="zip-code"
-              				value="${customer.zipcode}" class="form-control" required>
-            </div>
-            
-            <div class="input-row col-6 mb-3">
-              <label for="country">Country</label>
-              <input type="text" id="country" name="country" 
-              				value="${customer.country}" class="form-control" required>
-            </div>
-
-            <div class="form_button col-4 m-auto">
-              <button type="submit" class="btn btn-outline-danger mt-3 mb-3">save</button>
-              <button type="reset" class="btn btn-outline-danger mt-3 mb-3">Cencle</button>
-            </div>
-
-          </form>
-        </div>
-      </div -->
-
-
-      <div>
         <div class="container my-5 pt-3">
              
-            <div class="card shadow-lg ">
+            <div class="card ">
 
               <div class="card-body p-5">
 
@@ -201,9 +103,9 @@
               				value="${customer.country}" class="form-control" required>
                   </div>
       
-                  <div class="form_button row justify-content-around col-12 m-auto">
-                    <button type="submit" class="btn submitBtn col-3 mt-3 bg-main text-white">Save</button>
-                    <a href="${pageContext.request.contextPath}/profile/view-profile" class="btn btn-outline-danger  col-3 mt-3 bg-main text-white">Cencle</a>
+                  <div class="form_button row justify-content-center gap-3 col-12 m-auto">
+                    <button type="submit" class="btn submitBtn col-2 mt-3 bg-main text-white">Save</button>
+                    <a href="${pageContext.request.contextPath}/profile/view-profile" class="btn btn-outline-danger  col-2 mt-3 bg-main text-white">Cencle</a>
                   </div>
       
                 </form>
@@ -225,7 +127,7 @@
 
       <!-- =============== MAIN JS ===============-->
       <script src="${pageContext.request.contextPath}/css/bootstrap/js/bootstrap.min.js"></script>
-       
+      <script src="${pageContext.request.contextPath}/js/cart.js"></script>
     </body>
 
     </html>

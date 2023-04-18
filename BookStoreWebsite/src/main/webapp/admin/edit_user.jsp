@@ -7,9 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- =============== BOXICONS ===============-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    
     <!-- ================== BOOTSTRAP ============== -->
     <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     
@@ -20,7 +17,7 @@
     <link href="../css/style.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
-    <title>Edit New User</title>
+    <title>Edit User</title>
   </head>
   <body> 	
   
@@ -31,11 +28,13 @@
   	<div class='container mb-5'>
  	<h1 class="text-center mb-4 mt-4 main-color">Edit User</h1>
  	
- 	<c:if test="${not empty requestScope.message}">
-	    <h1 class="text-center">
-	        ${requestScope.message}
-	    </h1>
-	</c:if>
+   <c:if test="${not empty requestScope.message}">
+    <div class=" error-message d-flex hidden align-items-center gap-2">
+       
+      <i class="err fa-solid fa-circle-exclamation"></i>
+      ${requestScope.message}
+    </div>
+  </c:if>
      
   <div class="create-user">
     <form action="update_user" method='post' class="create-user-form row" >
@@ -64,7 +63,7 @@
     <!-- =============== SCROLL UP ===============-->
     <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>
     
-    <!-- =============== MAIN JS ===============-->
+    <!-- =============== MAIN JS ===============--><script  src="../js/notification.js"></script>
     <script src="../css/bootstrap/js/bootstrap.min.js"></script>
     <script src="../js/user_form.js"></script>
   </body>

@@ -6,11 +6,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ================== Metro CDN ============== -->
+     <!-- ================== Metro CDN ============== -->
  	 <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
-    <!-- =============== BOXICONS ===============-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    
     <!-- ================== BOOTSTRAP ============== -->
     <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     
@@ -127,7 +124,6 @@
           </div>
           <div class="resent-reviews"> 
             <div class="container"> 
-              
             <div class="title text-md-center mb-2">
                 <h4 class="text-bold text-start main-color my-4 ">Recent reviews</h4>
             </div>
@@ -167,7 +163,6 @@
               </div>
             </div>
           </div>
-
           <div class="event-panel logout-panel none">
             <div class="box">
                 <h3>Are you sure to logout</h3>
@@ -184,13 +179,10 @@
 
 	<!-- include footer file -->
 	<jsp:include page="../helper/footer.jsp"></jsp:include>
-	
-    <!-- =============== SCROLL UP ===============-->
-    <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>
-    
-    <!-- =============== MAIN JS ===============-->
-    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
-    <script src="../css/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
+
+  <!-- =============== MAIN JS ===============--><script  src="../js/notification.js"></script>
+  <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="../js/main.js"></script>
   </body>
 </html>

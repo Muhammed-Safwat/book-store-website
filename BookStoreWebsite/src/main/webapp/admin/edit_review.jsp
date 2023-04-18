@@ -24,18 +24,20 @@
     <link href="../css/style.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
-    <title>Responsive website delivery</title>
+    <title>Edit Review</title>
   </head>
   <body> 
 
     <!-- include header file -->
       <jsp:include page="../helper/header_admin.jsp"></jsp:include>
     
-    <c:if test="${not empty requestScope.message}">
-	    <h1 class="text-center">
-	        ${requestScope.message}
-	    </h1>
-	</c:if>
+      <c:if test="${not empty requestScope.message}">
+        <div class=" error-message  hidden d-flex align-items-center gap-2">
+           
+          <i class="err fa-solid fa-circle-exclamation"></i>
+          ${requestScope.message}
+        </div>
+	    </c:if>
     
     	 
     <div class="container d-flex justify-content-center mt-5 edit-review-container"> 
@@ -79,7 +81,7 @@
     </div>
 
 
-	
+    <script  src="../js/notification.js"></script>
 	<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 </body>
 

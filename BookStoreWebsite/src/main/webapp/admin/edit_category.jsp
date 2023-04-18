@@ -7,9 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- =============== BOXICONS ===============-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    
     <!-- ================== BOOTSTRAP ============== -->
     <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     
@@ -20,7 +17,7 @@
     <link href="../css/style.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet" type="text/css">
-    <title>Create New User</title>
+    <title>Edit Category</title>
   </head>
   <body> 	
    <!-- include header file -->
@@ -29,11 +26,15 @@
 	<!-- core page  -->
  
  	<h1 class="text-center mb-4 mt-4 main-color">Edit Category</h1>
- 	  <c:if test="${not empty requestScope.message}">
-	    <h1 class="text-center">
-	        ${requestScope.message}
-	    </h1>
-	</c:if>
+
+  <c:if test="${not empty requestScope.message}">
+    <div class=" error-message hidden d-flex align-items-center gap-2">
+ 
+      <i class="err fa-solid fa-circle-exclamation"></i>
+      ${requestScope.message}
+    </div>
+  </c:if>
+
   <div class='container'>
 	  <div class="create-category">
 	    <form action="update_category" method='post' class="create-user-form row justify-content-center" >
@@ -54,10 +55,6 @@
 	
     <!-- =============== SCROLL UP ===============-->
     <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>
-    
-    <!-- =============== MAIN JS ===============-->
-    <script src="../css/bootstrap/js/bootstrap.min.js"></script>
-     
-    
+    <script  src="../js/notification.js"></script>
   </body>
 </html>

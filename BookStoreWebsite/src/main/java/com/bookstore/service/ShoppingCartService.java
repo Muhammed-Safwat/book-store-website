@@ -44,6 +44,7 @@ public class ShoppingCartService {
 	public void showViewCart() throws ServletException, IOException {
 		ShopingCart cart  =	(ShopingCart) request.getSession().getAttribute("cart");
 		request.setAttribute("cart", cart);
+		;
 		request.getRequestDispatcher("frontend/shoping_cart.jsp").include(request, response);
 	}
 

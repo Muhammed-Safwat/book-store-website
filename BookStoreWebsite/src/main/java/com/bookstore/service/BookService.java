@@ -4,21 +4,29 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import com.bookstore.controller.frontend.shopingcart.WishList;
 import com.bookstore.dao.BookDAO;
 import com.bookstore.dao.CategoryDAO;
 import com.bookstore.entity.Book;
 import com.bookstore.entity.Category;
 import com.bookstore.entity.Review;
 
+@MultipartConfig(
+		  fileSizeThreshold = 1024 * 15, // 10 kB
+		  maxFileSize = 1024 * 400,      // 300 kB
+		  maxRequestSize = 1024 * 1024 * 2    // 1 MB
+	)
 public class BookService {	
 	private BookDAO bookDAO  = null ; 
 	private HttpServletRequest request;
@@ -43,10 +51,10 @@ public class BookService {
 		 Book book = get(id);
 		 
 		 if(book == null){
-			 request.setAttribute("message", "This book deleted");
+			 request.setAttribute("message", "Book deleted");
 		 }else {
 			 bookDAO.delete(id);
-			 request.setAttribute("message", "book "+id+" deleted sucssufly ");
+			 request.setAttribute("message", "Book "+id+" deleted successfully ");
 		 }	
 		 BookList();
 	}
@@ -58,18 +66,19 @@ public class BookService {
 		 RequestDispatcher("book_form.jsp", request , response);
 	}
 	
-	public void addBook() throws ServletException, IOException {
+	public void addBook(HttpServletRequest request, HttpServletResponse response , byte[] image) throws ServletException, IOException {
 		if(isExist(request.getParameter("title"))) {
-			request.setAttribute("massage", "This Book is alrady exsist");
+			request.setAttribute("message", "This Book is alrady exsist");
 			RequestDispatcher("book_form.jsp",request, response); 
 		}else{
-			createBook(request , response);
+			createBook(request , response, image);
 			BookList();
 		}
 	}
 	
-	private void createBook(HttpServletRequest request, HttpServletResponse response) {
+	private void createBook(HttpServletRequest request, HttpServletResponse response ,byte[] image) {
 		Book book = new Book();
+		book.setImage(image);
 		selectData(book , request ,response);
 		bookDAO.create(book);
 	}
@@ -78,12 +87,11 @@ public class BookService {
 		 Integer id = Integer.valueOf(request.getParameter("id"));
 		 Book book = get(id);
 		 if(book == null) {
-			 request.setAttribute("massage", "This book not exsist");
+			 request.setAttribute("message", "This Book Deleted from anathor admin");
 			 BookList();
 		 }else {
 			 SetCategoryListToRequest(request);	
 			 request.setAttribute("book", book);
-			 request.setAttribute("massage", "");
 		     // change page 
 			 RequestDispatcher("book_edit.jsp" , request, response); 
 		 }
@@ -189,12 +197,11 @@ public class BookService {
 		return true ;
 	}
 	
-	protected Book SetBookData(Book book , String title , String author , String description ,String isbn,String lastUpdateTime ,String publishDate,Category category,double price  ,byte[] image) {
+	protected Book SetBookData(Book book , String title , String author , String description ,String isbn,String lastUpdateTime ,String publishDate,Category category,double price ) {
 		book.setTitle(title);
 		book.setAuthor(author);
 		book.setCategory(category);
 		book.setDescription(description);
-		if(image!=null) book.setImage(image);
 		book.setIsbn(isbn);
 		book.setLastUpdateTime(lastUpdateTime);
 		book.setPublishDate(publishDate);
@@ -204,25 +211,24 @@ public class BookService {
 	
 	protected Book selectData(Book book ,HttpServletRequest request, HttpServletResponse response)  {
 		// declare attribute 
-		String title , author , description, isbn ,publishDate ="" , lastUpdateTime="";	 
-		byte[] image;  
+		String title , author , description, isbn ,publishDate ="" , lastUpdateTime="";	   
 		double price;
 		Category category = null  ; 
 		// get data 
+		 
+		price = Double.valueOf(request.getParameter("price"));
+		System.out.println(request.getParameter("price"));
 		title = request.getParameter("title");
 		author = request.getParameter("author");
-		description = request.getParameter("discription");
-		isbn = request.getParameter("ispn");
+		description = request.getParameter("description");
+		isbn = request.getParameter("isbn");
 		lastUpdateTime = GetCurrentDate();
 		publishDate = request.getParameter("publish-date");
-		price = Float.parseFloat(request.getParameter("price"));
-		//price = Double.parseDouble(request.getParameter("price"));
-		System.out.println(request.getParameter("price"));
+		//price =  request.getParameter("price") 
+
 		category = GetCategoy(request);
-	    image = GetImage(request, response);
-	    
-	    
-	   return this.SetBookData(book , title , author , description ,  isbn, lastUpdateTime , publishDate, category, price  ,image);
+
+	   return this.SetBookData(book , title , author , description ,  isbn, lastUpdateTime , publishDate, category, price);
 		 
 	}
 	
@@ -244,17 +250,36 @@ public class BookService {
 			 Book book = get(id);
 			
 			 if(book==null) {
-				 request.setAttribute("massage", "Sorry, the book with ID ["+id+"] is not available");
+				 request.setAttribute("message", "Sorry, the book isn't available");
 				 HomePageService homePageService = new HomePageService(request, response);
 				 homePageService.loadHomePage();
 			 }else {
 				 Category category = categoryDAO.CategoryLazy(book.getCategory().getCategoryId()); 
 					
-				 Set<Book> books =category.getBooks();
+				  
+				 
+				Set<Book> sourceSet = category.getBooks();
+
+				Set<Book> books = new HashSet<Book>();
+
+				int counter = 0;
+				for (Book b : sourceSet) {
+				    if (counter < 6) {
+				        books.add(b); 
+				        counter++; 
+				    } else {
+				        break; 
+				    }
+				}
+					     		 
+				
 				    System.out.println("reviewList ==>"+reviewList);
 	 				request.setAttribute("book", book);
 					request.setAttribute("reviewList", reviewList);
 					request.setAttribute("books", books);
+					WishList wishlist = (WishList) request.getSession().getAttribute("wishlist");
+					boolean isExsit = wishlist.isExsit(id);
+					request.setAttribute("isFav", isExsit);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("frontend/book_detail_page.jsp");
 					dispatcher.forward(request, response); 
 			 }

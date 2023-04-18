@@ -18,13 +18,14 @@ public class AdminLoginFilter extends HttpFilter implements Filter {
  
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 																				throws IOException, ServletException {
-
 		HttpServletRequest httpRequest  =(HttpServletRequest) request;
-		HttpSession session = httpRequest.getSession(false);
+		HttpSession session = httpRequest.getSession(true);
 		
         if(session.getAttribute("admin_url") == null){
+        	System.out.println("admin_url");
         	session.setAttribute("admin_url", httpRequest.getRequestURL());
 		 }
+        
         
 		String loginURI = httpRequest.getContextPath() + "/admin/login";
 		boolean loginRequest = httpRequest.getRequestURI().equals(loginURI);
@@ -35,10 +36,16 @@ public class AdminLoginFilter extends HttpFilter implements Filter {
 		if(loggedIn || loginRequest) {
 			 chain.doFilter(request, response); 
 		}else {
-        
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 			dispatcher.forward(request, response);
-			
 		}	
+		
 	}
+
+	 @Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		super.destroy();
+	}
+
 }

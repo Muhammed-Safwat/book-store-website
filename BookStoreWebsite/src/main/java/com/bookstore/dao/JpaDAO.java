@@ -42,7 +42,7 @@ public class JpaDAO<E>{
 		session.beginTransaction();
 		session.save(entity);
 		session.getTransaction().commit();
-		//this.factory.close();
+		this.factory.close();
 		return entity;
 	}
 	
@@ -52,7 +52,7 @@ public class JpaDAO<E>{
 		session.beginTransaction();
 		session.update(entity);
 		session.getTransaction().commit();
-		//this.factory.close();
+		this.factory.close();
 		return entity;
 	}
 	
@@ -63,8 +63,7 @@ public class JpaDAO<E>{
 		session.beginTransaction();
 	    E obj = session.get(type, id);
 		session.getTransaction().commit();
-		//session.close();
-		//this.factory.close();
+		 
 		return obj ;
 	}
 
@@ -74,7 +73,7 @@ public class JpaDAO<E>{
 		session.beginTransaction();
 	    session.delete(session.get(type , id ));
 		session.getTransaction().commit();
-		///this.factory.close();
+		this.factory.close();
 	}
 	
 	public void deleteObject(Class<E> type , E obj ) {
@@ -83,7 +82,7 @@ public class JpaDAO<E>{
 		session.beginTransaction();
 	    session.delete(obj);
 		session.getTransaction().commit();
-		//this.factory.close();
+		this.factory.close();
 	}
 	
 	public List<E> listAll(String quere) {
@@ -93,7 +92,7 @@ public class JpaDAO<E>{
 		transaction = session.beginTransaction();
 		list =  (List<E>) session.createQuery(quere).getResultList();
 		session.getTransaction().commit();
-		//this.factory.close();
+		this.factory.close();
 		return list ; 
 	}
 	
@@ -104,7 +103,7 @@ public class JpaDAO<E>{
 		transaction = session.beginTransaction();
 		list =  (List<E>) session.createQuery(quere).setMaxResults(max).getResultList();
 		session.getTransaction().commit();
-		//this.factory.close();
+		this.factory.close();
 		return list ; 
 	}
 	
@@ -115,7 +114,7 @@ public class JpaDAO<E>{
 		transaction = session.beginTransaction();
 		list =  (List<Object[]>) session.createQuery(quere).setMaxResults(max).getResultList();
 		session.getTransaction().commit();
-		//this.factory.close();
+		this.factory.close();
 		return list ; 
 	}
 	
@@ -125,7 +124,7 @@ public class JpaDAO<E>{
 		session.beginTransaction();
 		long num = (Long) session.createQuery(quere).uniqueResult();
 		session.getTransaction().commit();
-		//this.factory.close();
+		this.factory.close();
 		return num ; 
 	}
 	
@@ -135,7 +134,7 @@ public class JpaDAO<E>{
 		session.beginTransaction();
 		List<E> list = session.createQuery("select u from "+className+" u where u."+attribute+" = '"+value+"'").getResultList();		 
 		session.getTransaction().commit();
-		//this.factory.close();
+		this.factory.close();
 		return list; 
 	}
 	
@@ -145,7 +144,7 @@ public class JpaDAO<E>{
 		session.beginTransaction();
 		List<E> list = session.createQuery("select u from "+className+" u order by u."+attr+" desc").setMaxResults(6).getResultList()	 ;
 		session.getTransaction().commit();
-		//this.factory.close();
+		this.factory.close();
 		return list; 
 	}
 	
@@ -155,7 +154,7 @@ public class JpaDAO<E>{
 		session.beginTransaction();
 		List<E> list = session.createQuery("select b from "+className+" b where b."+attr+" like '%"+keyword+"%'").getResultList()	 ;
 		session.getTransaction().commit();
-		//this.factory.close();
+		this.factory.close();
 		return list;
 	}
 	
@@ -165,7 +164,7 @@ public class JpaDAO<E>{
 		session.beginTransaction();
 		List<E> list = session.createQuery("select b from "+className+" b where b."+attr1+" like '%"+keyword1+"%' and b."+attr2+" like '%"+keyword2+"%'").getResultList()	 ;
 		session.getTransaction().commit();
-		//this.factory.close();
+		this.factory.close();
 		return list;
 	}
 	
@@ -177,7 +176,7 @@ public class JpaDAO<E>{
 		Query q = session.createQuery("update "+className+" set "+attribute+"="+value+" where "+IdAttr+"="+idValue+"");	 ;
 		q.executeUpdate();
 		session.getTransaction().commit();
-		//this.factory.close();
+		this.factory.close();
 	} 
 	 
 	public Session LazyLodding() {

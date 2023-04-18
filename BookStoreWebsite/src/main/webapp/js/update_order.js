@@ -12,7 +12,6 @@ document.querySelector('.addNewBookLink').addEventListener('click',(e)=>{
 });
 
 let remvoePanel = ()=>{
-  console.log("rmove")
   overlay.classList.remove('add-panale');
   BookForm.classList.remove('add-panale');
   document.body.style.overflow= "scroll";
@@ -32,8 +31,6 @@ document.querySelector('.edit-table').addEventListener('change' , (e)=>{
   if(e.target.classList.contains('book-quantity')){
     let form = e.target.closest('.quantities').querySelector('form'); 
   	form.submit();
-    console.log(form);
-    console.log(inputs)
   }
 });
 
