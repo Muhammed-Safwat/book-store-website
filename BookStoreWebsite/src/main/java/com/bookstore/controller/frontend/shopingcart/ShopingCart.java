@@ -83,11 +83,7 @@ public class ShopingCart {
 	}
 	
 	public void showShoppingCart() {
-		System.err.println("========================================showShoppingCart=====================================");
-		for(Map.Entry<Book, Integer> entry : cart.entrySet()) {
-			System.out.println("**** Value ==> "+entry.getValue()+" Key id ======= "+entry.getKey().getBookId()+"  ***** === "+entry.getKey()); 
-		} 
-		System.err.println("========================================showShoppingCart=====================================");
+		 
 	}
 	
 	public void updateCart(Integer id , int q) {

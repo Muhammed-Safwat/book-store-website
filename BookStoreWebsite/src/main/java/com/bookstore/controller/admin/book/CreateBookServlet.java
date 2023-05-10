@@ -29,22 +29,16 @@ public class CreateBookServlet extends HttpServlet {
 	}
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		 System.out.println("Start doPut ===========");
 		byte[] image = GetImage(req , resp);
 		req.getSession(true).setAttribute("bookImage", image);
-		System.out.println(image.length);
-		System.out.println("Done doPut ===========");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 BookService bookService = new BookService(request, response);
-		
-		 System.out.println("Start ===========");
 		 byte[] image =(byte[]) request.getSession().getAttribute("bookImage");
 	     request.getSession().removeAttribute("bookImage");
 		 bookService.addBook(request , response ,image);
 		 
-		 System.out.println("Done ===========");
 	}
 	
 	protected byte[] GetImage(HttpServletRequest request, HttpServletResponse response) {
@@ -58,9 +52,8 @@ public class CreateBookServlet extends HttpServlet {
 				 
 				 InputStream inputStream = part.getInputStream();
 				 inputStream.read(image) ;
-				  
+				 
 				 inputStream.close();
-				 System.out.println("done GetImage");
 			}
 		} catch (IOException | ServletException e) {	 
 			e.printStackTrace();

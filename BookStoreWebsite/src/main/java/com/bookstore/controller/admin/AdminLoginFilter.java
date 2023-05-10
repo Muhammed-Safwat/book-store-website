@@ -22,7 +22,6 @@ public class AdminLoginFilter extends HttpFilter implements Filter {
 		HttpSession session = httpRequest.getSession(true);
 		
         if(session.getAttribute("admin_url") == null){
-        	System.out.println("admin_url");
         	session.setAttribute("admin_url", httpRequest.getRequestURL());
 		 }
         
@@ -44,7 +43,6 @@ public class AdminLoginFilter extends HttpFilter implements Filter {
 
 	 @Override
 	public void destroy() {
-		// TODO Auto-generated method stub
 		super.destroy();
 	}
 

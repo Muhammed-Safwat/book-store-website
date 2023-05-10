@@ -29,28 +29,19 @@ public class CustomerLoginFilter extends HttpFilter implements Filter {
 
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		 
-			 System.out.println("<====> customer fillter");
 			 HttpServletRequest httpRequest = (HttpServletRequest) request ;
-			 HttpSession session = httpRequest.getSession(false);
-			  
+			 HttpSession session = httpRequest.getSession(false);	  
 		 
 			 boolean loggedIn = session ==null || session.getAttribute("customer") == null ; 
 			 
 			 if(loggedIn) {
-				 System.out.println(" دخل اهوووووووووووووووو");
 				 if(request.getAttribute("url")==null){
-					 httpRequest.setAttribute("url", httpRequest.getRequestURL());
-					 System.out.println("ssssssssssssssss      " 
-							 +httpRequest.getRequestURL());
+					 httpRequest.setAttribute("url", httpRequest.getRequestURL());  
 				 }
 				 httpRequest.getRequestDispatcher("/login-customer").forward(request, response);
-			 }else {
-				 System.out.println("مش دخل اهووووووووووووو");
+			 }else {				 
 				 chain.doFilter(request, response);
 			 }
-		 
-
 	}
 
 

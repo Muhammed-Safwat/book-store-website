@@ -25,6 +25,11 @@ import com.bookstore.service.CategoryServices;
 public class MainFilter extends HttpFilter implements Filter {
        
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7911008093368479078L;
+
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
 		if(request.getParameter("massage") == null)
@@ -42,7 +47,6 @@ public class MainFilter extends HttpFilter implements Filter {
 		 }
 	 
 		 if(session.getAttribute("cart")==null) {
-			 System.out.println("===========> shoppingcart created");
 			 session.setAttribute("cart", new ShopingCart());	 
 		 } 
 			 
@@ -52,7 +56,6 @@ public class MainFilter extends HttpFilter implements Filter {
 			 session.setAttribute("wishlist", wishlist);
 	     } 
 		 
-		 System.out.println("main filter ==>");
 		 chain.doFilter(request, response); 
 	}
 
