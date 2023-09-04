@@ -1,10 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Your code here
-  console.log('Page loaded!');
-  
-
-});
-
+ 
 // search 
 console.log(document.querySelector('.search-btn'));
 document.querySelector('.search-btn').addEventListener('click' , ()=>{
@@ -15,22 +9,13 @@ document.querySelector('.search-btn').addEventListener('click' , ()=>{
   }
 });
  
-
-
 let editBtn = document.querySelector('.edit-button');
 let logoutPanel = document.querySelector('.logout-panel');
 let overlay = document.querySelector('.overlay');
 let cencelBtn = document.querySelector('.cencel-btn');
 let okBtn = document.querySelector('.ok-btn');
- 
-console.log(logoutPanel);
-console.log(overlay);
-console.log(cencelBtn);
-console.log(okBtn);
-// logout 
-// log out button 
 
-document.querySelector('.logout').addEventListener('click',(e) => {
+document.querySelector('.logout')?.addEventListener('click',(e) => {
   e.preventDefault();
   overlay.classList.remove('none');
   logoutPanel.classList.remove('none');

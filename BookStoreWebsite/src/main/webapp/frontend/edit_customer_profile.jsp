@@ -25,7 +25,7 @@
 
     <body>
       <!-- include footer file -->
-      <jsp:include page="../helper/header.jsp"></jsp:include>
+      <jsp:include page="../layout/header.jsp"></jsp:include>
 
 
         <div class="container my-5 pt-3">
@@ -118,7 +118,7 @@
 
 
       <!-- include footer file -->
-      <jsp:include page="../helper/footer.jsp"></jsp:include>
+      <jsp:include page="../layout/footer.jsp"></jsp:include>
 
       <!-- =============== SCROLL UP =============== -->
       <a class="scroll-up" href="#">

@@ -20,7 +20,7 @@
 
   <body>
      <!-- include header file -->
-      <jsp:include page="../helper/header_admin.jsp"></jsp:include>
+      <jsp:include page="../layout/header_admin.jsp"></jsp:include>
 
       <div class="container my-5">
         <c:if test="${not empty requestScope.message}">
@@ -188,8 +188,9 @@
  	    </div>
       </div>
 
-    <!-- include footer  --><script  src="../js/notification.js"></script>
-    <jsp:include page="../helper/footer.jsp"></jsp:include>
+    <!-- include footer  -->
+    <script  src="../js/notification.js"></script>
+    <jsp:include page="../layout/footer.jsp"></jsp:include>
 </body>
 
 </html>

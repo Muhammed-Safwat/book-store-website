@@ -14,7 +14,6 @@ class ReviewList extends Helper {
         this.form.submit();
      }
    });
-   
    this.okBtn.addEventListener('click' , ()=>{
      this.form.action='delete_review';
      this.form.method='post';

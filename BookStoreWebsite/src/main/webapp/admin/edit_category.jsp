@@ -21,7 +21,7 @@
   </head>
   <body> 	
    <!-- include header file -->
-      <jsp:include page="../helper/header_admin.jsp"></jsp:include>
+      <jsp:include page="../layout/header_admin.jsp"></jsp:include>
 	
 	<!-- core page  -->
  
@@ -51,7 +51,7 @@
 	  </div>
   </div>
 	<!-- include footer file -->
-	<jsp:include page="../helper/footer.jsp"></jsp:include>
+	<jsp:include page="../layout/footer.jsp"></jsp:include>
 	
     <!-- =============== SCROLL UP ===============-->
     <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>

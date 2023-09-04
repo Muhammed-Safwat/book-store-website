@@ -6,7 +6,7 @@ class CategoryList extends Helper {
      e.preventDefault(); 
      this.form = e.target.closest("form");
      if(e.target.classList.contains("delete-button")){
-   		let id = this.form.querySelector('input').value;
+   		  let id = this.form.querySelector('input').value;
         this._showPanel(id);
      }else if(e.target.classList.contains("edit-button")) {
         this.form.action='edit_category';
@@ -14,7 +14,6 @@ class CategoryList extends Helper {
         this.form.submit();
      }
    });
-   
    this.okBtn.addEventListener('click' , ()=>{
      this.form.action='delete_category';
      this.form.method='post';

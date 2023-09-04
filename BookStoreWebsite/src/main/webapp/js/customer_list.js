@@ -15,8 +15,7 @@ class CustomerList extends Helper {
         this.form.submit();
      }
    });
-   
-   this.okBtn.addEventListener('click' , ()=>{
+   this.okBtn.addEventListener('click' , ()=> {
      this.form.action='delete_customer';
      this.form.method='post';
      this._removePanel();
@@ -24,7 +23,6 @@ class CustomerList extends Helper {
    });
  }
 }
-
 const obj = new CustomerList();
 obj.setMapping("list_customer");
 obj.handleForm();

@@ -21,9 +21,9 @@
   <body>
 
     <!-- include header file -->
-    <jsp:include page="../helper/header_admin.jsp"></jsp:include>
+    <jsp:include page="../layout/header_admin.jsp"></jsp:include>
     <!--  include sub header folder  -->
-    <jsp:include page="../helper/sub-header.jsp"></jsp:include>
+    <jsp:include page="../layout/sub-header.jsp"></jsp:include>
     <c:if test="${not empty requestScope.message}">
       <div class=" error-message hidden d-flex align-items-center gap-2">
         <i class="done fa-solid fa-circle-check"></i>
@@ -268,7 +268,7 @@
     </div>
 
     <!-- include footer  -->
-    <jsp:include page="../helper/footer.jsp"></jsp:include>
+    <jsp:include page="../layout/footer.jsp"></jsp:include>
 
     <!-- =============== MAIN JS ===============-->
     <script src="${pageContext.request.contextPath}/js/edit_order.js"></script>

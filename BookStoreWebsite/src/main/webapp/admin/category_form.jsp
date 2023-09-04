@@ -19,7 +19,7 @@
   <body> 	
   
     <!-- include header file -->
-    <jsp:include page="../helper/header_admin.jsp"></jsp:include>
+    <jsp:include page="../layout/header_admin.jsp"></jsp:include>
     <c:if test="${not empty requestScope.message}">
       <div class=" error-message hidden d-flex align-items-center gap-2">
          
@@ -45,7 +45,7 @@
       
     </div>
     <!-- include footer file -->
-    <jsp:include page="../helper/footer.jsp"></jsp:include>
+    <jsp:include page="../layout/footer.jsp"></jsp:include>
     <script  src="../js/notification.js"></script>
     <!-- =============== SCROLL UP =============== -->
     <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>

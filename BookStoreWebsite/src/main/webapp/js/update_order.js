@@ -1,5 +1,3 @@
-
-
 let overlay = document.querySelector('.overlay');
 let cencelBtn = document.querySelector('.cencel-btn');
 let BookForm = document.querySelector('.book-form');
@@ -16,7 +14,6 @@ let remvoePanel = ()=>{
   BookForm.classList.remove('add-panale');
   document.body.style.overflow= "scroll";
 }
-
 
 document.querySelector('.edit-table').addEventListener('click' , (e)=>{
   e.preventDefault();
@@ -40,5 +37,3 @@ document.querySelector('.submit-button').addEventListener("click" , ()=>{
 
 overlay?.addEventListener('click'  , remvoePanel);
 cencelBtn?.addEventListener('click' , remvoePanel);
-
-

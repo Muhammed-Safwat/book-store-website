@@ -22,7 +22,7 @@
 
   <body>
       <!--  include header folder  -->
-      <jsp:include page="../helper/header.jsp"></jsp:include>
+      <jsp:include page="../layout/header.jsp"></jsp:include>
 
       
       <div class="container">

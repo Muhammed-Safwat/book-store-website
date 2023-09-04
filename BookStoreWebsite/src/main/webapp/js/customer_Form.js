@@ -1,5 +1,3 @@
-
-
 const submitBtn = document.querySelector(".form_button .submitBtn ").addEventListener('click' , (e)=>{
   const pass = document.getElementById('password').value;
   const conPass = document.getElementById('confirm-password').value;

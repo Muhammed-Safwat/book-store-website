@@ -1,8 +1,7 @@
 export class Helper {
   mapping = '';
   constructor(){ 
-	
-	this._init();    
+	  this._init();    
   }
   
   _init(){
@@ -32,37 +31,37 @@ export class Helper {
   }
 
   _handelEvent(){
-    this.overlay.addEventListener('click'  , ()=>{
-      this._removePanel();
-    });
-
-    this.cencelBtn.addEventListener('click' , ()=>{
-      this._removePanel();
-    });
-    
-     window.addEventListener('unload',  (e) =>{
-	     let currentUrl = window.location.href;
-       //e.preventDefault();
-	     console.log(e.target.activeElement)
-         console.log(document.body)
-         
-      if (e.target.activeElement.nodeName === "BODY" &&!currentUrl.endsWith(this.mapping)) {
-        // Replace the last word in the URL with "user_list"
-        console.log(true);
-        let urlParts = currentUrl.split("/");
-        urlParts[urlParts.length - 1] = this.mapping;
-        let newUrl = urlParts.join("/");
-        console.log("log out")
-        // Redirect to the new URL
-        window.location.href = newUrl;
-      } 
-	});
+    this._overlayEvent();
+    this._closeBtnEvent(); 
+    this._onloadEvent();
   }
   
   setMapping(mapping){
-	this.mapping= mapping;
+    this.mapping= mapping;
   }
 
+  _overlayEvent(){
+    this.overlay.addEventListener('click'  , ()=>{
+      this._removePanel();
+    });
+  }
+
+  _closeBtnEvent(){
+    this.cencelBtn.addEventListener('click' , ()=>{
+      this._removePanel();
+    });
+  }
+
+  _onloadEvent(){
+    window.addEventListener('unload',  (e) =>{
+	    let currentUrl = window.location.href;  
+      if (e.target.activeElement.nodeName === "BODY" && !currentUrl.endsWith(this.mapping)) {
+        let urlParts = currentUrl.split("/");
+        urlParts[urlParts.length - 1] = this.mapping;
+        let newUrl = urlParts.join("/");
+        window.location.href = newUrl;
+      } 
+    });
+  }
   
 }
- 

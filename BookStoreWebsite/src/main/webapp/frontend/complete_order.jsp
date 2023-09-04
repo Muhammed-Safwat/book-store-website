@@ -23,7 +23,7 @@ pageEncoding="ISO-8859-1"%>
 <body> 
 
 	    <!-- include header file -->
-	    <jsp:include page="../helper/header.jsp"></jsp:include>
+	    <jsp:include page="../layout/header.jsp"></jsp:include>
       
       <section id="checkout-complete d-flex justify-content-center pb-3 my-6">
         <div class="checkout-complete-header text-center mt-5">
@@ -59,7 +59,7 @@ pageEncoding="ISO-8859-1"%>
        </section>
     	
       <!-- include footer file -->
-	    <jsp:include page="../helper/footer.jsp"></jsp:include>
+	    <jsp:include page="../layout/footer.jsp"></jsp:include>
 	
         <!-- =============== SCROLL UP ===============-->
         <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>

@@ -26,7 +26,7 @@ pageEncoding="ISO-8859-1"%>
 <body> 
 
     <!-- include header file -->
-    <jsp:include page="../helper/header.jsp"></jsp:include>
+    <jsp:include page="../layout/header.jsp"></jsp:include>
     <c:set var="cart" value="${sessionScope['cart']}" />
 
     <c:if test="${cart.totalItems() == 0}">
@@ -191,7 +191,7 @@ pageEncoding="ISO-8859-1"%>
 </section>
 </c:if>
     <!-- include footer file -->
-    <jsp:include page="../helper/footer.jsp"></jsp:include>
+    <jsp:include page="../layout/footer.jsp"></jsp:include>
 
     <!-- =============== SCROLL UP ===============-->
     <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>

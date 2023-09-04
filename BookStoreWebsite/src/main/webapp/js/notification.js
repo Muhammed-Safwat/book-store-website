@@ -1,6 +1,6 @@
 
 let massage = document.querySelector(".error-message");
-if(massage!==null){
+if(massage !== null){
   setTimeout(() => {
     massage.classList.remove("hidden");
   } , 300);

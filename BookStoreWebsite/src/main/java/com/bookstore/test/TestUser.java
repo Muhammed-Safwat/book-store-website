@@ -10,10 +10,5 @@ public class TestUser {
 	 public static void main(String[] args) {
 		 
 		 
-		 UserServices services  = new UserServices() ; 
-	   List<User> users = services.listUser();
-		 for( User i:users ) {
-			 System.out.println(i.getFirstName());
-		 }
 	} 
 }

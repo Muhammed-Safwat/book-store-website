@@ -29,8 +29,6 @@ public class TestCustomer {
 //		
 //		 //List<Customer> list = customerDAO.listCustomer();
 //		for(Customer i : list) System.out.println(i.toString());
-		 CustomerService c = new CustomerService();
-		   c.CheckLogin("register@12121.com", "register_n");
 		 
 	}
 	

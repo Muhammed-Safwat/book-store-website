@@ -22,7 +22,7 @@
 
   <body>
       <!--  include header folder  -->
-      <jsp:include page="../helper/header.jsp"></jsp:include>
+      <jsp:include page="../layout/header.jsp"></jsp:include>
       <section class=" bg-main d-flex align-items-center mb-9 mt-2">
         <div class="container">
             <ol class="breadcrumb ondark m-0 p-2">
@@ -204,7 +204,7 @@
  	  </div>
   </div>
     <!-- include footer  -->
-    <jsp:include page="../helper/footer.jsp"></jsp:include>
+    <jsp:include page="../layout/footer.jsp"></jsp:include>
 
     <!-- =============== MAIN JS ===============-->
     <script src="../css/bootstrap/js/bootstrap.min.js"></script>

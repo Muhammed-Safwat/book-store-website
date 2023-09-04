@@ -21,7 +21,7 @@
   </head>
   <body> 	
    <!-- include header file -->
-      <jsp:include page="../helper/header_admin.jsp"></jsp:include>
+      <jsp:include page="../layout/header_admin.jsp"></jsp:include>
 	<!-- core page  -->
 	<div class='container my-5'>
  	<h1 class="text-center mb-4 mt-4 main-color">Add new Admin</h1>
@@ -59,7 +59,7 @@
   </div>
   
 	<!-- include footer file -->
-	<jsp:include page="../helper/footer.jsp"></jsp:include>
+	<jsp:include page="../layout/footer.jsp"></jsp:include>
 	
     <!-- =============== SCROLL UP =============== -->
     <a class="scroll-up" href="#">

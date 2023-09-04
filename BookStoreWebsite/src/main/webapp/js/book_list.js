@@ -1,6 +1,5 @@
 import {Helper}  from './helper.js';
 class BookList extends Helper {
-  
  handleForm(){
    this.parent.addEventListener('click', (e) =>{
      e.preventDefault(); 
@@ -14,7 +13,6 @@ class BookList extends Helper {
        this.form.submit();
      }
    });
-   
    this.okBtn.addEventListener('click' , ()=>{
      this.form.action='delete_book';
      this.form.method='post';
@@ -28,5 +26,5 @@ const obj = new BookList();
 obj.setMapping("list_book");
 obj.handleForm();
 
-console.log(obj);
+ 
  

@@ -24,7 +24,7 @@
   <body> 
 
   <!-- include header file -->
-  <jsp:include page="../helper/header.jsp"></jsp:include>
+  <jsp:include page="../layout/header.jsp"></jsp:include>
   
   <c:set var="myList" value="${books}" />
   
@@ -89,7 +89,7 @@
      
 	
 	<!-- include footer file -->
-	<jsp:include page="../helper/footer.jsp"></jsp:include>
+	<jsp:include page="../layout/footer.jsp"></jsp:include>
 	
     <!-- =============== SCROLL UP ===============-->
     <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>

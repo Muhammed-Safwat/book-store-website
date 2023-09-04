@@ -14,7 +14,6 @@
          this.form.submit();
       }
     });
-    
     this.okBtn.addEventListener('click' , ()=>{
       this.form.action='delete_user';
       this.form.method='post';

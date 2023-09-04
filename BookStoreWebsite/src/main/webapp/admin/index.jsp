@@ -23,10 +23,10 @@
   <body> 
 
     <!-- include header file -->
-      <jsp:include page="../helper/header_admin.jsp"></jsp:include>
+      <jsp:include page="../layout/header_admin.jsp"></jsp:include>
      
     <!--  -->
-    <jsp:include page="../helper/sub-header.jsp"></jsp:include>
+    <jsp:include page="../layout/sub-header.jsp"></jsp:include>
    <div class=" ">
     <section class="row">
       <aside class="col-3 p-3 bg-light">
@@ -178,7 +178,7 @@
    </div>
 
 	<!-- include footer file -->
-	<jsp:include page="../helper/footer.jsp"></jsp:include>
+	<jsp:include page="../layout/footer.jsp"></jsp:include>
 
   <!-- =============== MAIN JS ===============--><script  src="../js/notification.js"></script>
   <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>

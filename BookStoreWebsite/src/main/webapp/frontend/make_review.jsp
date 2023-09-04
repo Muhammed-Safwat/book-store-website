@@ -22,7 +22,7 @@
  </head>
  <body>
 	  <!-- include header file -->
-	  <jsp:include page="../helper/header.jsp"></jsp:include>
+	  <jsp:include page="../layout/header.jsp"></jsp:include>
 	
 	  <!-- container -->
       <div class="container mb-5">
@@ -71,7 +71,7 @@
 	
 	
 	<!-- include footer file -->
-    <jsp:include page="../helper/footer.jsp"></jsp:include>
+    <jsp:include page="../layout/footer.jsp"></jsp:include>
 	
       <!-- =============== SCROLL UP ===============-->
       <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>

@@ -22,7 +22,7 @@
 
     <body>
      <!-- include header file -->
-      <jsp:include page="../helper/header_admin.jsp"></jsp:include>
+      <jsp:include page="../layout/header_admin.jsp"></jsp:include>
 
       <!-- core page  -->
       <h1 class="text-center mb-2 mt-5 main-color">Edit Customer</h1>
@@ -121,7 +121,7 @@
       </div>
 
       <!-- include footer file -->
-      <jsp:include page="../helper/footer.jsp"></jsp:include>
+      <jsp:include page="../layout/footer.jsp"></jsp:include>
 
       <!-- =============== SCROLL UP =============== -->
       <a class="scroll-up" href="#">

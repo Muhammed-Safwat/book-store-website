@@ -25,7 +25,7 @@
   <body> 
 
   <!-- include header file -->
-  <jsp:include page="../helper/header.jsp"></jsp:include>
+  <jsp:include page="../layout/header.jsp"></jsp:include>
 
 
 
@@ -171,29 +171,13 @@
                 </div>
               </div>
             </div>
-	            <!-- div class="col-lg-4 col-md-6 col-12">
-	                <div class="card book-card">
-	                  <div class="book-image">
-	                   <img class="img-fluid" src="data:image/png;base64,${book.getBase64Image()}" >
-	                  </div>
-	                  <div class="book-body">
-	                    <a href="view_book?id=${book.bookId}">${book.title}</a>
-	                    <p>${book.author}</p>
-	                    
-	                    <input data-role="rating"
-							    data-value="${book.getAverageRating()}"  
-							    data-static="true">
-	                    <p>${book.price}$</p>
-	                  </div>
-	                </div>
-	            </-div -->
             </c:forEach>
         </div>
       </div>
     </div>
 	
 	<!-- include footer file -->
-	<jsp:include page="../helper/footer.jsp"></jsp:include>
+	<jsp:include page="../layout/footer.jsp"></jsp:include>
 	
     <!-- =============== SCROLL UP ===============-->
     <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>

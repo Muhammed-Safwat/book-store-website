@@ -24,11 +24,9 @@
   <body> 
 
   <!-- include header file -->
-  <jsp:include page="../helper/header.jsp"></jsp:include>
-
+  <jsp:include page="../layout/header.jsp"></jsp:include>
 	<div class="new-books category-by-book mt-5 mb-5">
       <div class="container"> 
-        
         <c:set var="myList" value="${books}" />
         <c:if test="${fn:length(myList) == 0}">
           <div class="empty-image mt-5">
@@ -83,13 +81,10 @@
               </c:forEach>
           </div>
         </c:if>
-        
       </div>
     </div> 
-   
-	
 	<!-- include footer file -->
-	<jsp:include page="../helper/footer.jsp"></jsp:include>
+	<jsp:include page="../layout/footer.jsp"></jsp:include>
 	
     <!-- =============== SCROLL UP ===============-->
     <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>

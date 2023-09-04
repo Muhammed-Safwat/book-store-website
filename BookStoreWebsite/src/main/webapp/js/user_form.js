@@ -12,16 +12,9 @@ const fullNameValidation = /(^[a-zA-Z]{3,12})([ ])([a-zA-Z]{3,12})([ ])([a-zA-Z]
 let UserEmail ;
 let UserPassword ;
 let UserName ;
-
-// console.log(emailValidation.test("muham@gamil.com"));
-// To check a password between 6 to 20 characters which contain  at least one numeric digit, one uppercase and one lowercase letter
-// console.log(passwordValidation.test("Safwat21"));
 console.log("full Name Valid ation".match(fullNameValidation));
 
 UserForm.addEventListener('submit' , (e) => {
-   
-  console.log("submit functon ===>");
-
   UserEmail = document.querySelector('input[type="email"]');
   UserPassword = document.querySelector('input[type="password"]');
   UserName = document.querySelector('input[type="name"]');
@@ -40,17 +33,8 @@ UserForm.addEventListener('submit' , (e) => {
   if(!fullNameValidation.test(UserName.value) ){
     UserName.classList.add('error-input');
     e.preventDefault();
-  }else {
-    console.error('dlskfjklsdf')
   }
-    
- 
-  /*{
-    console.log(UserName.value.match(fullNameValidation)[0]);
-   // UserForm.submit();
-  }*/
- 
-  console.log("After prevent onsubmit functon");
+
 });
 
 const showErrorMassage = function() {

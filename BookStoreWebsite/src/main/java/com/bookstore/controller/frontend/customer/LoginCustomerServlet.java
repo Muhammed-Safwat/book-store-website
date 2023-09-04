@@ -52,7 +52,7 @@ public class LoginCustomerServlet extends HttpServlet {
 	     String email , password; 
 	     email = request.getParameter("email");
 	     password = request.getParameter("password");
-	     System.out.println(email +"====="+password);
+	      
 	  
 	     List<Customer> customerLogin = customerService.CheckLogin(email, password);
 	    

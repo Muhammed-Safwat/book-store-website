@@ -20,14 +20,14 @@
 <body>
 
 	  <!-- include header file -->
-	  <jsp:include page="../helper/header.jsp"></jsp:include>
+	  <jsp:include page="../layout/header.jsp"></jsp:include>
 	
 		<h2>Sorry, the server has encountered an error.</h2>
 		<h3>Please check back later. or countact our administrator</h3>
 	
 	
 		<!-- include footer file -->
-		<jsp:include page="../helper/footer.jsp"></jsp:include>
+		<jsp:include page="../layout/footer.jsp"></jsp:include>
 		
 </body>
 </html>

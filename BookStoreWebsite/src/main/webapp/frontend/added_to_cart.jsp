@@ -21,10 +21,8 @@ pageEncoding="ISO-8859-1"%>
   <title>Added to Cart</title>
 </head>
 <body> 
-
 	    <!-- include header file -->
-	    <jsp:include page="../helper/header.jsp"></jsp:include>
-      
+	    <jsp:include page="../layout/header.jsp"></jsp:include>
       <!--Core page -->
       <div class="container my-10">
         <div class="succssfuly-massage p-2 row card flex-row d-flex justify-content-between align-items-center ">
@@ -54,22 +52,17 @@ pageEncoding="ISO-8859-1"%>
             </div>
             <p class="">For the best experience <a href='${pageContext.request.contextPath}/login-customer'>sign in to your account</a></p>
           </div>
-
         </div>
       </div>
-    	
       <!-- include footer file -->
-	    <jsp:include page="../helper/footer.jsp"></jsp:include>
-	
-        <!-- =============== SCROLL UP ===============-->
-        <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>
-    
-	      <!-- =============== MAIN JS ===============-->
-	      <script src="js/showCart.js"></script>
-        <script src="${pageContext.request.contextPath}/js/cart.js"></script>
-	      <script src="../css/bootstrap/js/bootstrap.min.js"></script>
-	      <script src="../js/main.js"></script>
-	      <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
- 
+	    <jsp:include page="../layout/footer.jsp"></jsp:include>
+      <!-- =============== SCROLL UP ===============-->
+      <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>
+	    <!-- =============== MAIN JS ===============-->
+	    <script src="js/showCart.js"></script>
+      <script src="${pageContext.request.contextPath}/js/cart.js"></script>
+	    <script src="../css/bootstrap/js/bootstrap.min.js"></script>
+	    <script src="../js/main.js"></script>
+	    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
   </body>
 </html>

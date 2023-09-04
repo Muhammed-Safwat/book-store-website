@@ -26,7 +26,7 @@
 
     <body>
       <!-- include footer file -->
-      <jsp:include page="../helper/header.jsp"></jsp:include>
+      <jsp:include page="../layout/header.jsp"></jsp:include>
 			<c:if test="${not empty requestScope.message}">
         <div class="error-message hidden d-flex align-items-center gap-2">
           <i class="done fa-solid fa-circle-check"></i>
@@ -127,7 +127,7 @@
 
  
       <!-- include footer file -->
-      <jsp:include page="../helper/footer.jsp"></jsp:include>
+      <jsp:include page="../layout/footer.jsp"></jsp:include>
 
       <!-- =============== SCROLL UP =============== -->
       <a class="scroll-up" href="#">

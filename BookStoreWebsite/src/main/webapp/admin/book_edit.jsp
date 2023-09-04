@@ -18,9 +18,8 @@
     </head>
 
     <body>
-
       <!-- include header file -->
-      <jsp:include page="../helper/header_admin.jsp"></jsp:include>
+      <jsp:include page="../layout/header_admin.jsp"></jsp:include>
 
       <!-- core page  -->
       <h1 class="text-center mb-4 mt-4 main-color">Edit Book</h1>
@@ -89,28 +88,24 @@
                  accept="image/*" >
               </div>
               <div class="review-image col-6">
-					<img src="data:image/png;base64,${book.getBase64Image()}" >
+					      <img src="data:image/png;base64,${book.getBase64Image()}" >
               </div>
             </div>
-            
             <div class="input-row col-6 mb-3"> 
               <label for="description">Description</label>
               <textarea type="description" id="description" name="description" 
               class="form-control" required>"${book.description}</textarea>
             </div>
-              
-           
             <div class="form_button col-12 m-auto row d-flex justify-content-center gap-3 ">
               <button type="submit" class="btn col-2 bg-main  text-white  mt-3 mb-3">Update</button>
              <button class="btn col-2 bg-main text-white mt-3 mb-3"><a href="list_book" class='text-white'>Cencle</a> </button>
             </div>
-
           </form>
         </div>
     </div>
       
     <!-- include footer file -->
-    <jsp:include page="../helper/footer.jsp"></jsp:include>
+    <jsp:include page="../layout/footer.jsp"></jsp:include>
 
     <!-- =============== SCROLL UP =============== -->
     <a class="scroll-up" href="#">

@@ -23,7 +23,7 @@ pageEncoding="ISO-8859-1"%>
 <body> 
 
     <!-- include header file -->
-    <jsp:include page="../helper/header.jsp"></jsp:include>
+    <jsp:include page="../layout/header.jsp"></jsp:include>
 
     <div class="error-message hidden d-flex align-items-center gap-2">
         <i class="fav fa-heart save fa"></i>
@@ -105,7 +105,7 @@ pageEncoding="ISO-8859-1"%>
     </div>
 
     <!-- include footer file -->
-    <jsp:include page="../helper/footer.jsp"></jsp:include>
+    <jsp:include page="../layout/footer.jsp"></jsp:include>
 
     <!-- =============== SCROLL UP =============== -->
     <a class="scroll-up" href="#"><i class="bx bx-up-arrow-alt"></i></a>
