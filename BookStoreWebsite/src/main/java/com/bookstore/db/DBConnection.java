@@ -8,6 +8,10 @@ import java.sql.SQLException;
 public class DBConnection {
 
 	private static Connection connection = null;
+	
+	private DBConnection() {
+		
+	}
 
 	public static Connection getConnection() {
 		try {
