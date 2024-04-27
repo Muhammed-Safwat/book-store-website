@@ -1,6 +1,6 @@
 # Book Store Website Requirement
 
-Evergreen Books is a company that sells various kinds of paper books via its chain of several bookshops throughout the country. With the popularity of Internet and customer’s shopping habit has shifted to online, the company’s director board decides to expand its business to serve those online customers. A key strategy of its business movement is building a website that allows their customers to order the books they want while sitting at home. The ordered books will be shipped to the customer’s address in few days, and the customers pay cash upon receiving the books (Cash on Delivery or COD).
+A website for selling books online in which users can log in or register and (add, update) personal information, view the available books and add reviews, select books along with their quantity add them to a shopping cart, and buy them, Users can order books and track their orders and update them, Users can also get payment receipts after successful payment. The project can also be used by the administrator, who can add new books, remove books, increase and decrease the number of books, change the price of the books, maintain the selling history of books, and manage Orders, Administrators, and Users.
 **In the backend**, the company needs to maintain a group of people who put book’s information on the website and manages customer’s information along with their orders.
 Tim Beck - the company’s newly appointed Chief Technology Officer (CTO) provides the requirement details for the website as below:
 <hr> 
